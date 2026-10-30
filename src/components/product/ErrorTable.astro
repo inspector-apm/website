@@ -1,0 +1,26 @@
+---
+import DataTable from '~components/product/DataTable.astro';
+import type { Cell } from '~components/product/DataTable.astro';
+import { ERROR_ROWS } from '~consts/samples';
+
+const rows: Cell[][] = ERROR_ROWS.map(
+  ({ message, app, hits, lastSeen, action }) => [
+    { text: message, kind: 'mono' },
+    { text: app },
+    { text: hits },
+    { text: lastSeen },
+    {
+      text: action.text,
+      kind: 'action',
+      primary: action.primary,
+      href: '/ai-bug-fixer/',
+    },
+  ],
+);
+---
+
+<DataTable
+  title="Latest errors detected"
+  headers={['Message', 'App', 'Hits', 'Last seen', 'AI Bug Fix']}
+  rows={rows}
+/>

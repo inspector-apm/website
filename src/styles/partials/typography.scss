@@ -1,0 +1,78 @@
+@use '../mixins/media' as *;
+
+@font-face {
+  font-family: Sora;
+  font-weight: 100 800;
+  font-style: normal;
+
+  font-display: swap;
+  src: url('/fonts/Sora-Variable.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-weight: 100 800;
+  font-style: normal;
+
+  font-display: swap;
+  src: url('/fonts/JetBrainsMono-Variable.woff2') format('woff2');
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 600;
+  text-wrap: balance;
+}
+
+h1 {
+  max-width: 14em;
+  font-size: 2.375rem;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+
+  @include media-min('md') {
+    font-size: 3.75rem;
+    line-height: 1.06;
+    letter-spacing: -0.03em;
+  }
+}
+
+h2 {
+  max-width: 20em;
+  font-size: 1.75rem;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+
+  @include media-min('md') {
+    font-size: 2.25rem;
+    line-height: 1.15;
+  }
+}
+
+h3 {
+  font-size: 1.25rem;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+}
+
+code,
+pre {
+  font-family: var(--font-mono);
+
+  // Machine text shows the exact characters, so != and -> never become ligatures.
+  font-variant-ligatures: none;
+}
+
+.lead {
+  max-width: var(--measure);
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+.note {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+}

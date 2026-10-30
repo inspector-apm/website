@@ -1,0 +1,50 @@
+---
+import CodeBlock from '~components/product/CodeBlock.astro';
+import type { InstallStep } from '~consts/frameworks';
+
+interface Props {
+  steps: InstallStep[];
+}
+
+const { steps } = Astro.props;
+---
+
+<ol class="steps">
+  {steps.map(({ title, text, code, lang, caption }, index) => (
+    <li class:list={['step', { split: code }]}>
+      <div class="copy">
+        <span class="number">{index + 1}</span>
+        <div>
+          <h3>{title}</h3>
+          <p class="text">{text}</p>
+        </div>
+      </div>
+      {code && caption && (
+        <CodeBlock code={code} lang={lang} caption={caption} />
+      )}
+    </li>
+  ))}
+</ol>
+
+<style>
+  .step {
+    padding-block: var(--space-5);
+    border-top: 1px solid var(--line);
+  }
+
+  .copy {
+    display: grid;
+    grid-template-columns: var(--space-5) minmax(0, 1fr);
+    gap: var(--space-2);
+  }
+
+  .number {
+    line-height: 1.7;
+    color: var(--text-muted);
+  }
+
+  .text {
+    margin-top: var(--space-1);
+    color: var(--text-muted);
+  }
+</style>

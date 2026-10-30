@@ -1,0 +1,20 @@
+---
+import MainLayout from '~components/layouts/MainLayout.astro';
+import PageHero from '~components/sections/PageHero.astro';
+import Button from '~components/ui/Button.astro';
+import TextLink from '~components/ui/TextLink.astro';
+import { LINKS } from '~consts/links';
+---
+
+<MainLayout
+  title="Page not found | Inspector"
+  description="This page doesn't exist on inspector.dev."
+>
+  <PageHero
+    title="This page doesn't exist"
+    lead="The link may be old, or the page may have moved. Start from the home page or look in the docs."
+  >
+    <Button slot="actions" text="Go to the home page" href="/" />
+    <TextLink slot="actions" text="Read the docs" href={LINKS.docs} />
+  </PageHero>
+</MainLayout>

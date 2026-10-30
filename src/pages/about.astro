@@ -1,0 +1,94 @@
+---
+import MainLayout from '~components/layouts/MainLayout.astro';
+import Cta from '~components/sections/Cta.astro';
+import FeatureRow from '~components/sections/FeatureRow.astro';
+import RowList from '~components/ui/RowList.astro';
+import TextLink from '~components/ui/TextLink.astro';
+import { SUPPORT_EMAIL } from '~consts/links';
+
+const offices = [
+  { label: 'Naples', value: 'Via Guantai ad Orsolone 178, Naples, Italy' },
+  { label: 'Florence', value: 'Via Ippolito Pindemonte 6, Florence, Italy' },
+  { label: 'Company', value: 'Inspector S.R.L., VAT 09552901218' },
+  { label: 'Email', value: SUPPORT_EMAIL },
+];
+---
+
+<MainLayout
+  title="The company | Inspector"
+  description="Inspector helps software teams avoid losing customers and money to technical problems in their applications."
+>
+  <section class="section">
+    <div class="container">
+      <h1>
+        We help software teams avoid losing customers to technical problems
+      </h1>
+      <p class="lead intro">
+        We built Inspector for small and medium teams, so they have the tools to
+        save time and money and to run a profitable software business.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <FeatureRow
+        title="How we decide what to build"
+        text="Every time we make a decision, we ask how it helps software development teams."
+      >
+        <p class="side">
+          That question took us from a monitoring dashboard to an MCP server,
+          because the teams we work with now fix production problems with a
+          coding agent.
+        </p>
+      </FeatureRow>
+
+      <FeatureRow
+        title="Support comes first"
+        text="Supporting our users takes priority over everything else in our team."
+      >
+        <div>
+          <p class="side">
+            You get one-to-one support, whether this is your first monitoring
+            tool or you run complex applications.
+          </p>
+          <div class="link">
+            <TextLink text="Read the testimonials" href="/testimonials/" />
+          </div>
+        </div>
+      </FeatureRow>
+
+      <FeatureRow
+        title="Who runs it"
+        text="Valerio Barbera is the CTO of Inspector."
+      >
+        <p class="side">
+          He is a software engineer with more than ten years of experience in
+          Italy and France. A Laravel certified developer, he has trained dozens
+          of PHP, full stack, backend and frontend developers on modern software
+          development practices.
+        </p>
+      </FeatureRow>
+
+      <FeatureRow title="Where we are" text="We work from Italy.">
+        <RowList rows={offices} />
+      </FeatureRow>
+    </div>
+  </section>
+
+  <Cta />
+</MainLayout>
+
+<style>
+  .intro {
+    margin-top: var(--space-4);
+  }
+
+  .side {
+    max-width: var(--measure);
+  }
+
+  .link {
+    margin-top: var(--space-3);
+  }
+</style>

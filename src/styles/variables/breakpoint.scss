@@ -1,0 +1,9 @@
+@use '../mixins/media' as *;
+
+:root {
+  --breakpoint-xs: #{$xs};
+  --breakpoint-sm: #{$sm};
+  --breakpoint-md: #{$md};
+  --breakpoint-lg: #{$lg};
+  --breakpoint-xl: #{$xl};
+}

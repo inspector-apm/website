@@ -1,0 +1,84 @@
+---
+import MainLayout from '~components/layouts/MainLayout.astro';
+import AgentSession from '~components/product/AgentSession.astro';
+import ErrorTable from '~components/product/ErrorTable.astro';
+import Timeline from '~components/product/Timeline.astro';
+import TransactionTable from '~components/product/TransactionTable.astro';
+import Cta from '~components/sections/Cta.astro';
+import FeatureRow from '~components/sections/FeatureRow.astro';
+import PageHero from '~components/sections/PageHero.astro';
+import Button from '~components/ui/Button.astro';
+import Checks from '~components/ui/Checks.astro';
+import TextLink from '~components/ui/TextLink.astro';
+import { LINKS } from '~consts/links';
+import { N_PLUS_ONE_TRACE, SLOW_QUERY_SESSION } from '~consts/samples';
+
+const channels = [
+  'Email',
+  'Slack',
+  'Microsoft Teams',
+  'Discord',
+  'Telegram',
+  'Google Chat',
+  'Webex',
+  'PagerDuty',
+  'Pushover',
+  'Webhooks',
+];
+---
+
+<MainLayout
+  title="PHP application monitoring | Inspector"
+  description="Inspector records every HTTP request, background job and command in your PHP application, with the queries and errors inside them."
+>
+  <PageHero
+    title="See what your PHP application does in production"
+    lead="Inspector records every HTTP request, background job and command, with the database queries and external calls inside them. It takes one Composer package, with nothing to install on your servers."
+    note="Free up to 30K transactions a month. No credit card."
+  >
+    <Button slot="actions" text="Start free" href={LINKS.register} />
+    <TextLink slot="actions" text="Read the docs" href={LINKS.docs} />
+  </PageHero>
+
+  <section class="section">
+    <div class="container">
+      <FeatureRow
+        title="Every request, job and command"
+        text="See what your application handles, how long each task takes and how much memory it uses, grouped by endpoint so the slow ones surface first."
+      >
+        <TransactionTable />
+      </FeatureRow>
+
+      <FeatureRow
+        title="Slow queries in their execution context"
+        text="The timeline shows what your ORM does behind the scenes, so you can spot an N+1 or a slow join inside the request that caused it."
+      >
+        <Timeline {...N_PLUS_ONE_TRACE} />
+      </FeatureRow>
+
+      <FeatureRow
+        title="Errors before your customers report them"
+        text="Inspector groups each error with its stack trace, the source code around the failure and how often it happens."
+      >
+        <ErrorTable />
+      </FeatureRow>
+
+      <FeatureRow
+        title="Alerts where your team already works"
+        text="Set an alert on what matters to you, and send it to the channels your team already reads."
+      >
+        <Checks items={channels} columns />
+      </FeatureRow>
+
+      <FeatureRow
+        title="Then let your coding agent fix it"
+        text="Everything you see in the dashboard is available to your coding agent through the MCP server, so it can go from the data to a change in your code."
+      >
+        <AgentSession {...SLOW_QUERY_SESSION} />
+        <TextLink slot="extra" text="See the MCP server" href="/mcp-server/" />
+      </FeatureRow>
+    </div>
+  </section>
+
+  <Cta />
+</MainLayout>

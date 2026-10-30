@@ -1,0 +1,36 @@
+---
+import Button from '~components/ui/Button.astro';
+import TextLink from '~components/ui/TextLink.astro';
+import { LINKS } from '~consts/links';
+---
+
+<section class="section">
+  <div class="container">
+    <h2>Give your coding agent eyes on production</h2>
+    <p class="lead intro">
+      Install the package, connect your agent, and let it find the next problem
+      before your customers do.
+    </p>
+    <div class="actions row">
+      <Button text="Start free" href={LINKS.register} />
+      <TextLink text="Read the docs" href={LINKS.docs} />
+    </div>
+    <p class="note hint">
+      Free up to 30K transactions a month. No credit card.
+    </p>
+  </div>
+</section>
+
+<style>
+  .intro {
+    margin-top: var(--space-3);
+  }
+
+  .row {
+    margin-top: var(--space-5);
+  }
+
+  .hint {
+    margin-top: var(--space-3);
+  }
+</style>

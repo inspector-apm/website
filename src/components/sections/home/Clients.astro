@@ -1,0 +1,47 @@
+---
+import { TERMINAL_CLIENTS, WEB_CLIENTS } from '~consts/mcp';
+
+const groups = [
+  { label: 'In the terminal', names: TERMINAL_CLIENTS },
+  { label: 'On the web', names: WEB_CLIENTS },
+];
+---
+
+<section class="section">
+  <div class="container">
+    <dl class="groups">
+      {groups.map(({ label, names }) => (
+        <div class="split group">
+          <dt class="label">{label}</dt>
+          <dd>
+            <ul class="names">
+              {names.map((name) => (
+                <li>{name}</li>
+              ))}
+            </ul>
+          </dd>
+        </div>
+      ))}
+    </dl>
+  </div>
+</section>
+
+<style>
+  .group {
+    gap: var(--space-1);
+    align-items: baseline;
+    padding-block: var(--space-3);
+    border-top: 1px solid var(--line);
+  }
+
+  .label {
+    color: var(--text-muted);
+  }
+
+  .names {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-1) var(--space-5);
+    font-weight: 500;
+  }
+</style>

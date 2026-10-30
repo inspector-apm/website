@@ -1,0 +1,87 @@
+---
+interface Props {
+  text: string;
+  href?: string;
+  variant?: 'primary' | 'solid' | 'quiet';
+  size?: 'medium' | 'small';
+  type?: HTMLButtonElement['type'];
+  disabled?: boolean;
+}
+
+const {
+  text,
+  href,
+  variant = 'primary',
+  size = 'medium',
+  type = 'button',
+  disabled = false,
+} = Astro.props;
+const Element = href ? 'a' : 'button';
+---
+
+<Element
+  class:list={['button', variant, size]}
+  href={href}
+  type={href ? undefined : type}
+  disabled={disabled}
+>
+  {text}
+</Element>
+
+<style>
+  .button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid transparent;
+    border-radius: var(--radius-md);
+
+    font-family: var(--font-sans);
+    font-weight: 500;
+    line-height: 1.2;
+    text-decoration: none;
+    white-space: nowrap;
+
+    transition: background-color 150ms ease;
+  }
+
+  .medium {
+    padding: 0.625rem 0.9375rem;
+    font-size: 0.9375rem;
+  }
+
+  .small {
+    padding: var(--space-1) var(--space-2);
+    font-size: 0.75rem;
+  }
+
+  .primary {
+    color: var(--on-orange);
+    background-color: var(--orange);
+  }
+
+  .primary:hover {
+    background-color: var(--orange-hover);
+  }
+
+  .solid {
+    color: var(--ground);
+    background-color: var(--text);
+  }
+
+  .quiet {
+    border-color: var(--line-strong);
+    color: var(--text);
+    background-color: var(--surface);
+  }
+
+  button:not(:disabled) {
+    cursor: pointer;
+  }
+
+  button:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+</style>

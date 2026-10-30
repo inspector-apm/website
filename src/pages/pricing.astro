@@ -1,0 +1,242 @@
+---
+import MainLayout from '~components/layouts/MainLayout.astro';
+import DataTable from '~components/product/DataTable.astro';
+import type { Cell } from '~components/product/DataTable.astro';
+import Cta from '~components/sections/Cta.astro';
+import PageHero from '~components/sections/PageHero.astro';
+import Button from '~components/ui/Button.astro';
+import Checks from '~components/ui/Checks.astro';
+import RowList from '~components/ui/RowList.astro';
+import { LINKS, SUPPORT_EMAIL } from '~consts/links';
+import { INCLUDED, PLANS, PRICING_FAQ, PRICING_REASONS } from '~consts/pricing';
+
+const headers = [
+  'Plan',
+  'Price',
+  'Transactions',
+  'Retention',
+  'Users',
+  'Channels',
+  'Extra 50K',
+];
+
+function rowsFor(period: 'monthly' | 'yearly'): Cell[][] {
+  return PLANS.map((plan) => [
+    { text: plan.name, kind: 'strong' },
+    {
+      text:
+        plan[period] === 0
+          ? '€0'
+          : `€${plan[period]} a ${period === 'monthly' ? 'month' : 'year'}`,
+    },
+    { text: plan.transactions },
+    { text: plan.retention },
+    { text: plan.users },
+    { text: plan.channels },
+    { text: plan.overage },
+  ]);
+}
+---
+
+<MainLayout
+  title="Pricing | Inspector"
+  description="Inspector pricing is based on transactions. Start free with 30K transactions a month, then choose a plan as your traffic grows."
+>
+  <PageHero
+    title="Choose the plan that fits your traffic"
+    lead="Pricing follows your transactions, so detailed monitoring costs nothing extra. Start free, and upgrade when you need more."
+    note="Free up to 30K transactions a month. No credit card."
+  >
+    <Button slot="actions" text="Start free" href={LINKS.register} />
+
+    <div class="plans">
+      <fieldset class="period">
+        <legend class="visuallyHidden">Billing period</legend>
+        <label>
+          <input type="radio" name="period" value="monthly" checked />
+          <span>Monthly</span>
+        </label>
+        <label>
+          <input type="radio" name="period" value="yearly" />
+          <span>Yearly, 2 months free</span>
+        </label>
+      </fieldset>
+
+      <div class="monthly">
+        <DataTable headers={headers} rows={rowsFor('monthly')} />
+      </div>
+      <div class="yearly">
+        <DataTable headers={headers} rows={rowsFor('yearly')} />
+      </div>
+
+      <p class="note">
+        Prices in EUR. Transactions are per month. Extra 50K is the price of
+        each additional slot of 50K transactions with usage-based billing.
+      </p>
+
+      <div class="included">
+        <h2 class="includedTitle">Included in every plan</h2>
+        <Checks items={INCLUDED} />
+      </div>
+    </div>
+  </PageHero>
+
+  <section class="section">
+    <div class="container">
+      <h2>Why you pay for transactions</h2>
+      <div class="reasons">
+        <RowList
+          rows={PRICING_REASONS.map(({ title, text }) => ({
+            label: title,
+            value: text,
+          }))}
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container split">
+      <div>
+        <h2>Need more than the Enterprise plan?</h2>
+        <p class="text">
+          For larger volumes, we set up the data tier around your needs, usually
+          with an isolated datastore.
+        </p>
+        <div class="action">
+          <Button
+            text="Schedule a meeting"
+            href={LINKS.meeting}
+            variant="solid"
+          />
+        </div>
+      </div>
+      <div>
+        <h2>No risks for you</h2>
+        <p class="text">
+          If you're not satisfied for any reason, email {SUPPORT_EMAIL} during
+          your first 14 days and we'll refund 100% of your money, no questions
+          asked.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>Frequently asked questions</h2>
+      <div class="faq">
+        {PRICING_FAQ.map(({ question, answer }) => (
+          <details class="item">
+            <summary class="question">{question}</summary>
+            <p class="answer">{answer}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Cta />
+</MainLayout>
+
+<style>
+  .plans {
+    display: grid;
+    gap: var(--space-4);
+  }
+
+  .period {
+    display: inline-flex;
+    justify-self: start;
+
+    margin: 0;
+    padding: 0;
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius-md);
+
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+
+  .period label {
+    cursor: pointer;
+  }
+
+  .period input {
+    position: absolute;
+    opacity: 0;
+  }
+
+  .period span {
+    display: block;
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--radius-sm);
+  }
+
+  .period input:checked + span {
+    color: var(--ground);
+    background-color: var(--text);
+  }
+
+  .period input:focus-visible + span {
+    outline: 2px solid var(--focus);
+    outline-offset: 2px;
+  }
+
+  .yearly {
+    display: none;
+  }
+
+  .plans:has(input[value='yearly']:checked) .yearly {
+    display: block;
+  }
+
+  .plans:has(input[value='yearly']:checked) .monthly {
+    display: none;
+  }
+
+  .included {
+    margin-top: var(--space-4);
+  }
+
+  .includedTitle {
+    margin-bottom: var(--space-3);
+    font-size: 1.25rem;
+    line-height: 1.35;
+    letter-spacing: -0.01em;
+  }
+
+  .reasons {
+    margin-top: var(--space-6);
+  }
+
+  .text {
+    margin-top: var(--space-3);
+    color: var(--text-muted);
+  }
+
+  .action {
+    margin-top: var(--space-4);
+  }
+
+  .faq {
+    margin-top: var(--space-6);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .item {
+    border-top: 1px solid var(--line);
+  }
+
+  .question {
+    cursor: pointer;
+    padding-block: var(--space-3);
+    font-weight: 500;
+  }
+
+  .answer {
+    max-width: var(--measure);
+    padding-bottom: var(--space-4);
+    color: var(--text-muted);
+  }
+</style>

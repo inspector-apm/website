@@ -1,0 +1,51 @@
+---
+import MainLayout from '~components/layouts/MainLayout.astro';
+import ErrorTable from '~components/product/ErrorTable.astro';
+import Cta from '~components/sections/Cta.astro';
+import FeatureRow from '~components/sections/FeatureRow.astro';
+import PageHero from '~components/sections/PageHero.astro';
+import PhoneBand from '~components/sections/PhoneBand.astro';
+import Clients from '~components/sections/home/Clients.astro';
+import Cycle from '~components/sections/home/Cycle.astro';
+import Frameworks from '~components/sections/home/Frameworks.astro';
+import SocialProof from '~components/sections/home/SocialProof.astro';
+import Stage from '~components/sections/home/Stage.astro';
+import Button from '~components/ui/Button.astro';
+import TextLink from '~components/ui/TextLink.astro';
+import { LINKS } from '~consts/links';
+---
+
+<MainLayout
+  title="Give your coding agent eyes on production | Inspector"
+  description="Inspector monitors your PHP application in production and gives coding agents the errors, slow queries and stack traces they need to fix your code."
+>
+  <PageHero
+    title="Give your coding agent eyes on production"
+    lead="Inspector monitors your PHP application in production. Its MCP server gives your coding agent the errors, slow queries and stack traces it needs to fix the problem in your code."
+    note="Free up to 30K transactions a month. No credit card."
+  >
+    <Button slot="actions" text="Start free" href={LINKS.register} />
+    <TextLink slot="actions" text="Read the docs" href={LINKS.docs} />
+    <Stage />
+  </PageHero>
+
+  <Clients />
+  <Cycle />
+
+  <section class="section">
+    <div class="container">
+      <FeatureRow
+        title="The production data your agent is missing"
+        text="A coding agent can read your repository, but it can't see what your code does in production. Inspector gives it the other half: which requests are slow, which queries they run and which errors your users hit."
+      >
+        <ErrorTable />
+        <TextLink slot="extra" text="See the MCP server" href="/mcp-server/" />
+      </FeatureRow>
+    </div>
+  </section>
+
+  <PhoneBand />
+  <Frameworks />
+  <SocialProof />
+  <Cta />
+</MainLayout>

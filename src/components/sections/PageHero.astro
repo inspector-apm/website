@@ -1,0 +1,45 @@
+---
+interface Props {
+  title: string;
+  lead: string;
+  note?: string;
+}
+
+const { title, lead, note } = Astro.props;
+---
+
+<section class="section">
+  <div class="container">
+    <h1>{title}</h1>
+    <p class="lead intro">{lead}</p>
+    <div class="actions row">
+      <slot name="actions" />
+    </div>
+    {note && <p class="note hint">{note}</p>}
+    <div class="stage">
+      <slot />
+    </div>
+  </div>
+</section>
+
+<style>
+  .intro {
+    margin-top: var(--space-4);
+  }
+
+  .row {
+    margin-top: var(--space-5);
+  }
+
+  .hint {
+    margin-top: var(--space-3);
+  }
+
+  .stage {
+    margin-top: var(--space-7);
+  }
+
+  .stage:empty {
+    display: none;
+  }
+</style>

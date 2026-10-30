@@ -1,0 +1,109 @@
+---
+const steps = [
+  {
+    title: 'Connect',
+    text: 'Install the package for your framework with Composer. There is nothing to install on your servers.',
+    start: 0,
+    width: 30,
+  },
+  {
+    title: 'Collect',
+    text: 'Inspector records HTTP requests, jobs and commands, with every database query, cache command and external call they run.',
+    start: 14,
+    width: 58,
+  },
+  {
+    title: 'Fix',
+    text: 'Your coding agent reads that data through the MCP server, finds the cause and changes your code.',
+    start: 64,
+    width: 36,
+    out: true,
+  },
+];
+---
+
+<section class="section">
+  <div class="container">
+    <h2>From a production error to a fix in your code</h2>
+    <ol class="cycle">
+      {steps.map(({ title, text, start, width, out }) => (
+        <li
+          class:list={['split', 'row', { out }]}
+          style={`--start: ${start}; --width: ${width}`}
+        >
+          <div>
+            <h3>{title}</h3>
+            <p class="text">{text}</p>
+          </div>
+          <div class="track">
+            <span class="bar" />
+          </div>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>
+
+<style lang="scss">
+  @use '~styles/mixins/media' as *;
+
+  .cycle {
+    margin-top: var(--space-6);
+  }
+
+  .row {
+    gap: var(--space-4);
+    padding-block: var(--space-5);
+    border-top: 1px solid var(--line);
+  }
+
+  .text {
+    max-width: 46ch;
+    margin-top: var(--space-1);
+    color: var(--text-muted);
+  }
+
+  .track {
+    position: relative;
+    height: var(--space-4);
+  }
+
+  .bar {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: calc(var(--start) * 1%);
+
+    width: calc(var(--width) * 1%);
+    border-radius: var(--radius-sm);
+
+    background-color: var(--text);
+  }
+
+  .out .bar {
+    background-color: var(--orange);
+  }
+
+  @include media-min('md') {
+    .row {
+      align-items: center;
+    }
+
+    .track {
+      align-self: stretch;
+      height: auto;
+      margin-block: calc(var(--space-5) * -1);
+      background:
+        linear-gradient(var(--line) 0 0) 20% 0 / 1px 100% no-repeat,
+        linear-gradient(var(--line) 0 0) 40% 0 / 1px 100% no-repeat,
+        linear-gradient(var(--line) 0 0) 60% 0 / 1px 100% no-repeat,
+        linear-gradient(var(--line) 0 0) 80% 0 / 1px 100% no-repeat;
+    }
+
+    .bar {
+      top: calc(50% - var(--space-2));
+      bottom: auto;
+      height: var(--space-4);
+    }
+  }
+</style>

@@ -1,0 +1,173 @@
+---
+import MainLayout from '~components/layouts/MainLayout.astro';
+import Cta from '~components/sections/Cta.astro';
+import TextLink from '~components/ui/TextLink.astro';
+import { LINKS } from '~consts/links';
+import {
+  CHAT_QUOTES,
+  CUSTOMERS,
+  FEATURED_QUOTE,
+  NAMED_QUOTES,
+  PRESS,
+} from '~consts/testimonials';
+---
+
+<MainLayout
+  title="Testimonials | Inspector"
+  description="What development teams say about Inspector, and the companies that use it in production."
+>
+  <section class="section">
+    <div class="container">
+      <h1>What teams say about Inspector</h1>
+      <p class="lead intro">
+        PHP teams use Inspector to find and fix problems before their customers
+        report them.
+      </p>
+
+      <figure class="featured">
+        <blockquote class="quote">{FEATURED_QUOTE.text}</blockquote>
+        <figcaption class="credit">
+          <strong>{FEATURED_QUOTE.author}</strong>
+          <span>{FEATURED_QUOTE.role}</span>
+        </figcaption>
+        <div class="link">
+          <TextLink text="Watch the review" href={LINKS.customerReview} />
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container split">
+      <div>
+        <h2>In their own words</h2>
+        <p class="text">
+          The rest comes straight from support conversations with our users.
+        </p>
+      </div>
+      <div class="quotes">
+        {NAMED_QUOTES.map(({ text, author }) => (
+          <figure class="smallQuote">
+            <blockquote>{text}</blockquote>
+            <figcaption class="credit">
+              <strong>{author}</strong>
+            </figcaption>
+          </figure>
+        ))}
+        {CHAT_QUOTES.map((text) => (
+          <figure class="smallQuote">
+            <blockquote>{text}</blockquote>
+            <figcaption class="credit">
+              <span>Customer, live chat</span>
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container split">
+      <div>
+        <h2>Used in production</h2>
+        <ul class="names">
+          {CUSTOMERS.map((name) => (
+            <li>{name}</li>
+          ))}
+        </ul>
+      </div>
+      <div>
+        <h2>Recognized by</h2>
+        <ul class="names">
+          {PRESS.map((name) => (
+            <li>{name}</li>
+          ))}
+        </ul>
+        <div class="talks">
+          <TextLink
+            text="Inspector at the CICAS conference"
+            href={LINKS.cicasTalk}
+          />
+          <TextLink
+            text="Inspector's presentation to entrepreneurs and investors"
+            href={LINKS.investorTalk}
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Cta />
+</MainLayout>
+
+<style>
+  .intro {
+    margin-top: var(--space-4);
+  }
+
+  .featured {
+    margin-top: var(--space-7);
+    padding-top: var(--space-5);
+    border-top: 1px solid var(--line);
+  }
+
+  .quote {
+    max-width: 30em;
+
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: -0.015em;
+  }
+
+  .credit {
+    display: grid;
+    margin-top: var(--space-3);
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+
+  .credit strong {
+    font-weight: 500;
+  }
+
+  .credit span {
+    color: var(--text-muted);
+  }
+
+  .link {
+    margin-top: var(--space-4);
+  }
+
+  .text {
+    margin-top: var(--space-3);
+    color: var(--text-muted);
+  }
+
+  .quotes {
+    display: grid;
+    gap: var(--space-5);
+  }
+
+  .smallQuote {
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--line);
+  }
+
+  .names {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+    gap: var(--space-2) var(--space-5);
+
+    margin-top: var(--space-4);
+
+    font-weight: 500;
+  }
+
+  .talks {
+    display: grid;
+    gap: var(--space-2);
+    justify-items: start;
+    margin-top: var(--space-5);
+  }
+</style>

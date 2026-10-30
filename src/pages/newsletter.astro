@@ -1,0 +1,143 @@
+---
+import MainLayout from '~components/layouts/MainLayout.astro';
+import Button from '~components/ui/Button.astro';
+import Checks from '~components/ui/Checks.astro';
+import { NEWSLETTER_ENDPOINT } from '~consts/links';
+
+const benefits = [
+  'Early access to tutorials',
+  'Updates on the Neuron AI framework',
+  'Strategies for shipping production-ready agents',
+];
+---
+
+<MainLayout
+  title="Newsletter: AI agents in PHP | Inspector"
+  description="Tutorials, Neuron AI framework updates and practical strategies for building AI agents in PHP."
+>
+  <section class="section">
+    <div class="container split">
+      <div>
+        <h1>Learn to build AI agents in PHP</h1>
+        <p class="lead intro">
+          The Neuron AI newsletter gives PHP developers tutorials, framework
+          updates and practical advice for shipping agents to production.
+        </p>
+        <div class="benefits">
+          <Checks items={benefits} />
+        </div>
+      </div>
+
+      <form
+        class="form"
+        method="post"
+        action={NEWSLETTER_ENDPOINT || undefined}
+      >
+        <div class="field">
+          <label for="newsletter-name">First name</label>
+          <input
+            id="newsletter-name"
+            type="text"
+            name="FIRSTNAME"
+            autocomplete="given-name"
+            required
+          />
+        </div>
+        <div class="field">
+          <label for="newsletter-email">Email</label>
+          <input
+            id="newsletter-email"
+            type="email"
+            name="EMAIL"
+            autocomplete="email"
+            required
+          />
+        </div>
+        <label class="consent" for="newsletter-consent">
+          <input
+            id="newsletter-consent"
+            type="checkbox"
+            name="OPT_IN"
+            value="1"
+            required
+          />
+          <span>
+            I agree to receive the occasional newsletter from the Neuron AI
+            team.
+          </span>
+        </label>
+        <Button
+          text="Subscribe"
+          type="submit"
+          disabled={!NEWSLETTER_ENDPOINT}
+        />
+        {!NEWSLETTER_ENDPOINT && (
+          <p class="note">Signups aren't open yet on this page.</p>
+        )}
+      </form>
+    </div>
+  </section>
+</MainLayout>
+
+<style lang="scss">
+  @use '~styles/mixins/media' as *;
+
+  .intro {
+    margin-top: var(--space-4);
+  }
+
+  .benefits {
+    margin-top: var(--space-5);
+  }
+
+  .form {
+    display: grid;
+    gap: var(--space-4);
+    align-self: start;
+    justify-items: start;
+
+    max-width: 28rem;
+  }
+
+  .field {
+    display: grid;
+    gap: var(--space-1);
+    justify-self: stretch;
+
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+
+  input[type='text'],
+  input[type='email'] {
+    width: 100%;
+    padding: 0.625rem var(--space-3);
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius-md);
+
+    color: var(--text);
+
+    background-color: var(--surface);
+  }
+
+  .consent {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: var(--space-2);
+
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: var(--text-muted);
+  }
+
+  .consent input {
+    margin-top: var(--space-1);
+    accent-color: var(--text);
+  }
+
+  @include media-min('md') {
+    .form {
+      margin-top: var(--space-2);
+    }
+  }
+</style>

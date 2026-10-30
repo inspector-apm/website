@@ -1,0 +1,22 @@
+---
+import DataTable from '~components/product/DataTable.astro';
+import type { Cell } from '~components/product/DataTable.astro';
+import { TRANSACTION_ROWS } from '~consts/samples';
+
+const rows: Cell[][] = TRANSACTION_ROWS.map(
+  ({ name, type, hits, duration, memory, result }) => [
+    { text: name, kind: 'mono' },
+    { text: type },
+    { text: hits },
+    { text: duration },
+    { text: memory },
+    { text: result, kind: 'badge' },
+  ],
+);
+---
+
+<DataTable
+  title="Transactions"
+  headers={['Name', 'Type', 'Hits', 'Duration', 'Memory', 'Result']}
+  rows={rows}
+/>

@@ -1,0 +1,86 @@
+---
+import MainLayout from '~components/layouts/MainLayout.astro';
+import AgentSession from '~components/product/AgentSession.astro';
+import ErrorTable from '~components/product/ErrorTable.astro';
+import FixProposal from '~components/product/FixProposal.astro';
+import Cta from '~components/sections/Cta.astro';
+import FeatureRow from '~components/sections/FeatureRow.astro';
+import PageHero from '~components/sections/PageHero.astro';
+import Steps from '~components/sections/Steps.astro';
+import Button from '~components/ui/Button.astro';
+import TextLink from '~components/ui/TextLink.astro';
+import { LINKS } from '~consts/links';
+import { PHONE_SESSION } from '~consts/samples';
+
+const steps = [
+  {
+    title: 'Connect your repository',
+    text: 'Give Inspector access to GitHub or GitLab, then choose the projects to activate.',
+  },
+  {
+    title: 'Inspector analyzes the error',
+    text: 'When an error occurs in production, Inspector reads the stack trace and the code it points to in your repository.',
+  },
+  {
+    title: 'Read the proposed fix',
+    text: 'You receive the proposal by email and find it next to the error in your dashboard, ready to review.',
+  },
+];
+---
+
+<MainLayout
+  title="AI Bug Fix for PHP applications | Inspector"
+  description="Connect GitHub or GitLab and get a proposed code change for production errors in your PHP application."
+>
+  <PageHero
+    title="Get a proposed fix for production errors"
+    lead="Connect your repository, and Inspector analyzes production errors against your code, then sends you a proposed change to review."
+    note="AI Bug Fix is included in every plan."
+  >
+    <Button slot="actions" text="Start free" href={LINKS.register} />
+    <TextLink slot="actions" text="Read the docs" href={LINKS.bugFixDocs} />
+  </PageHero>
+
+  <section class="section">
+    <div class="container">
+      <h2>How it works</h2>
+      <div class="steps">
+        <Steps steps={steps} />
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <FeatureRow
+        title="It starts from the real error"
+        text="Each proposal is based on what happened in production, so it works from the actual stack trace rather than a description of the problem."
+      >
+        <ErrorTable />
+      </FeatureRow>
+
+      <FeatureRow
+        title="You review every change"
+        text="A proposal explains the cause and shows the change it suggests. You decide what goes into your code."
+      >
+        <FixProposal />
+      </FeatureRow>
+
+      <FeatureRow
+        title="Resolve it in one prompt"
+        text="AI Bug Fix proposes the change. To have it applied, connect your coding agent to the MCP server: it reads the same error, changes the code and can open a pull request for you."
+      >
+        <AgentSession {...PHONE_SESSION} />
+        <TextLink slot="extra" text="See the MCP server" href="/mcp-server/" />
+      </FeatureRow>
+    </div>
+  </section>
+
+  <Cta />
+</MainLayout>
+
+<style>
+  .steps {
+    margin-top: var(--space-6);
+  }
+</style>

@@ -1,0 +1,52 @@
+---
+interface Row {
+  label: string;
+  value: string;
+  href?: string;
+}
+
+interface Props {
+  rows: Row[];
+  mono?: 'label' | 'value';
+}
+
+const { rows, mono } = Astro.props;
+---
+
+<dl class="list">
+  {rows.map(({ label, value, href }) => (
+    <div class="split row">
+      <dt class:list={['label', { mono: mono === 'label' }]}>
+        {href ? <a href={href}>{label}</a> : label}
+      </dt>
+      <dd class:list={['value', { mono: mono === 'value' }]}>{value}</dd>
+    </div>
+  ))}
+</dl>
+
+<style>
+  .list {
+    border-bottom: 1px solid var(--line);
+  }
+
+  .row {
+    gap: var(--space-1);
+    align-items: baseline;
+    padding-block: var(--space-3);
+    border-top: 1px solid var(--line);
+  }
+
+  .label {
+    font-weight: 500;
+  }
+
+  .value {
+    color: var(--text-muted);
+  }
+
+  .mono {
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    overflow-wrap: anywhere;
+  }
+</style>

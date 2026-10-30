@@ -1,0 +1,132 @@
+---
+import Diff from '~components/product/Diff.astro';
+
+type Step =
+  | { type: 'prompt'; text: string }
+  | { type: 'reply'; html: string }
+  | {
+      type: 'calls';
+      calls: readonly { tool: string; target: string }[];
+    }
+  | { type: 'diff'; file: string; removed: string; added: string };
+
+interface Props {
+  title: string;
+  status: string;
+  label: string;
+  steps: readonly Step[];
+  raised?: boolean;
+}
+
+const { title, status, label, steps, raised } = Astro.props;
+---
+
+<section
+  class:list={['session', { raised }]}
+  data-theme="ink"
+  aria-label={label}
+>
+  <div class="bar">
+    <span>{title}</span>
+    <span class="status">{status}</span>
+  </div>
+  <div class="log">
+    {steps.map((step) => {
+      if (step.type === 'prompt') return <p class="prompt">{step.text}</p>;
+      if (step.type === 'reply')
+        return <p class="reply" set:html={step.html} />;
+      if (step.type === 'diff') return <Diff {...step} />;
+      return (
+        <ul class="calls">
+          {step.calls.map(({ tool, target }) => (
+            <li>
+              <span class="tool">{tool}</span> {target}
+            </li>
+          ))}
+        </ul>
+      );
+    })}
+  </div>
+</section>
+
+<style>
+  .session {
+    overflow: hidden;
+
+    min-width: 0;
+    border-radius: var(--radius-md);
+
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    font-variant-ligatures: none;
+    line-height: 1.55;
+
+    box-shadow: var(--shadow-menu);
+  }
+
+  .raised {
+    background-color: var(--surface);
+    box-shadow: none;
+  }
+
+  .bar {
+    display: flex;
+    gap: var(--space-3);
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0.625rem var(--space-4);
+    border-bottom: 1px solid var(--line);
+
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    line-height: 1.4;
+    color: var(--text-muted);
+  }
+
+  .status {
+    display: inline-flex;
+    gap: var(--space-2);
+    align-items: center;
+  }
+
+  .status::before {
+    content: '';
+
+    width: var(--space-2);
+    height: var(--space-2);
+    border-radius: var(--radius-full);
+
+    background-color: var(--ok);
+  }
+
+  .log {
+    display: grid;
+    gap: var(--space-3);
+    padding: var(--space-4);
+  }
+
+  .log > * {
+    min-width: 0;
+  }
+
+  .prompt::before {
+    content: '> ';
+    color: var(--text-muted);
+  }
+
+  .calls {
+    display: grid;
+    gap: var(--space-1);
+    color: var(--text-muted);
+  }
+
+  .tool {
+    font-weight: 500;
+    color: var(--accent-text);
+  }
+
+  .reply :global(code) {
+    font-weight: 500;
+  }
+</style>

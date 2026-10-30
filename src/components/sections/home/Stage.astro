@@ -1,0 +1,44 @@
+---
+import AgentSession from '~components/product/AgentSession.astro';
+import Timeline from '~components/product/Timeline.astro';
+import { N_PLUS_ONE_TRACE, SLOW_QUERY_SESSION } from '~consts/samples';
+---
+
+<div class="stage">
+  <div class="trace">
+    <Timeline {...N_PLUS_ONE_TRACE} animated />
+  </div>
+  <div class="agent">
+    <AgentSession {...SLOW_QUERY_SESSION} />
+  </div>
+</div>
+
+<style lang="scss">
+  @use '~styles/mixins/media' as *;
+
+  .stage {
+    display: grid;
+    gap: var(--space-4);
+  }
+
+  .stage > * {
+    min-width: 0;
+  }
+
+  @include media-min('md') {
+    .stage {
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: var(--space-5);
+      align-items: start;
+    }
+
+    .trace {
+      grid-column: span 7;
+    }
+
+    .agent {
+      grid-column: span 5;
+      margin-top: var(--space-8);
+    }
+  }
+</style>

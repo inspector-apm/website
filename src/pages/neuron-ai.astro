@@ -1,0 +1,156 @@
+---
+import MainLayout from '~components/layouts/MainLayout.astro';
+import CodeBlock from '~components/product/CodeBlock.astro';
+import Timeline from '~components/product/Timeline.astro';
+import Cta from '~components/sections/Cta.astro';
+import FeatureRow from '~components/sections/FeatureRow.astro';
+import PageHero from '~components/sections/PageHero.astro';
+import Steps from '~components/sections/Steps.astro';
+import Button from '~components/ui/Button.astro';
+import RowList from '~components/ui/RowList.astro';
+import TextLink from '~components/ui/TextLink.astro';
+import { NEURON_COMMAND } from '~consts/frameworks';
+import { LINKS } from '~consts/links';
+import { AGENT_RUN_TRACE } from '~consts/samples';
+
+const agent = `class CustomerServiceAgent extends Agent
+{
+    protected function provider(): AIProviderInterface
+    {
+        // you can also use OpenAI, Gemini, Ollama, AWS Bedrock, Azure, and others
+        return new Anthropic('ANTHROPIC_API_KEY', 'ANTHROPIC_MODEL');
+    }
+
+    public function instructions(): SystemMessage
+    {
+        return new SystemMessage(
+            'You are a helpful customer service assistant. ' .
+            'Provide clear, friendly, and accurate responses.'
+        );
+    }
+
+    public function tools(): array
+    {
+        return [
+            CalculatorToolkit::make(),
+        ];
+    }
+}
+
+$response = CustomerServiceAgent::make()
+    ->chat(new UserMessage('Give me the daily average of sales in the last 30 days!'))
+    ->getMessage();`;
+
+const capabilities = [
+  {
+    label: 'Tools',
+    value:
+      'Functions your agent can call to act on your application or on an external API.',
+    href: 'https://docs.neuron-ai.dev/agent/tools',
+  },
+  {
+    label: 'RAG',
+    value: 'Answers from your own data, such as internal documentation.',
+    href: 'https://docs.neuron-ai.dev/rag/rag',
+  },
+  {
+    label: 'Workflows',
+    value: 'Multi-step flows with state, loops and human-in-the-loop.',
+    href: 'https://docs.neuron-ai.dev/workflow/getting-started',
+  },
+];
+
+const observer = `use NeuronAI\\Agent\\Agent;
+use NeuronAI\\Observability\\InspectorObserver;
+
+class MyAgent extends Agent
+{
+    public function __construct()
+    {
+        parent::__construct();
+
+        $this->observe(InspectorObserver::instance(
+            key: 'INSPECTOR_INGESTION_KEY',
+            autoFlush: true,
+        ));
+    }
+}`;
+
+const steps = [
+  {
+    title: 'Install Neuron AI',
+    text: 'Add the framework with Composer.',
+    code: NEURON_COMMAND,
+    caption: 'Terminal',
+  },
+  {
+    title: 'Add your ingestion key',
+    text: 'Paste the key from your Inspector dashboard into the environment file. Agent runs start appearing in your dashboard.',
+    code: 'INSPECTOR_INGESTION_KEY=your-ingestion-key',
+    lang: 'dotenv' as const,
+    caption: '.env',
+  },
+  {
+    title: 'Or attach the observer yourself',
+    text: 'Inject the observer in the constructor of your agent.',
+    code: observer,
+    lang: 'php' as const,
+    caption: 'MyAgent.php',
+  },
+];
+---
+
+<MainLayout
+  title="Neuron AI, the PHP framework for AI agents | Inspector"
+  description="Neuron AI is an open source framework for adding AI agents to your PHP application, with built-in observability powered by Inspector."
+>
+  <PageHero
+    title="Build AI agents in PHP"
+    lead="Neuron AI is an open source framework for adding agents to your existing PHP application, backed by Inspector. When your agent reaches production, Inspector shows you every step it takes."
+  >
+    <Button slot="actions" text="Get started" href={LINKS.neuronStart} />
+    <TextLink slot="actions" text="View on GitHub" href={LINKS.neuronGitHub} />
+  </PageHero>
+
+  <section class="section">
+    <div class="container">
+      <FeatureRow
+        title="Agents that live in your application"
+        text="Build an agent by extending a single class that keeps its provider, instructions and tools together. It runs anywhere in your application, and you can share it as a package."
+      >
+        <CodeBlock caption="CustomerServiceAgent.php" code={agent} lang="php" />
+      </FeatureRow>
+
+      <FeatureRow
+        title="Everything an agent needs"
+        text="The framework covers the parts you need to go from a prototype to production."
+      >
+        <RowList rows={capabilities} />
+      </FeatureRow>
+
+      <FeatureRow
+        title="See every step of an agent run"
+        text="An agent makes many LLM and tool calls, which are hard to follow as it grows. Inspector records each run, so you can see what your agent did and how long each step took."
+      >
+        <Timeline {...AGENT_RUN_TRACE} />
+      </FeatureRow>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>Monitor your agents with Inspector</h2>
+      <div class="steps">
+        <Steps steps={steps} />
+      </div>
+    </div>
+  </section>
+
+  <Cta />
+</MainLayout>
+
+<style>
+  .steps {
+    margin-top: var(--space-6);
+  }
+</style>

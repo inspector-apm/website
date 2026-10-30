@@ -1,0 +1,43 @@
+---
+interface Props {
+  value: string;
+}
+
+const { value } = Astro.props;
+
+function toneOf(result: string) {
+  if (result.startsWith('2') || result === 'success') return 'ok';
+  if (result.startsWith('3') || result.startsWith('4')) return 'warn';
+  return 'fail';
+}
+---
+
+<span class:list={['badge', toneOf(value)]}>{value}</span>
+
+<style>
+  .badge {
+    display: inline-block;
+
+    padding: 0.125rem var(--space-2);
+    border-radius: var(--radius-sm);
+
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1rem;
+  }
+
+  .ok {
+    color: var(--on-status);
+    background-color: var(--ok);
+  }
+
+  .warn {
+    color: var(--on-warn);
+    background-color: var(--warn);
+  }
+
+  .fail {
+    color: var(--on-status);
+    background-color: var(--fail);
+  }
+</style>

@@ -1,0 +1,294 @@
+---
+import StatusBadge from '~components/product/StatusBadge.astro';
+
+interface Segment {
+  label: string;
+  start: number;
+  duration: number;
+  out?: boolean;
+}
+
+interface Props {
+  name: string;
+  duration: number;
+  result: string;
+  finding: string;
+  segments: Segment[];
+  animated?: boolean;
+}
+
+const { name, duration, result, finding, segments, animated } = Astro.props;
+
+const percent = (ms: number) => ((ms / duration) * 100).toFixed(1);
+const ticks = [0, 20, 40, 60, 80, 100];
+---
+
+<article class:list={['card', { animated }]}>
+  <header class="head">
+    <h3 class="name">{name}</h3>
+    <dl class="meta">
+      <div>
+        <dt>Duration</dt>
+        <dd>{duration.toFixed(2)}ms</dd>
+      </div>
+      <div>
+        <dt>Segments</dt>
+        <dd>{segments.length}</dd>
+      </div>
+      <div>
+        <dt>Result</dt>
+        <dd>
+          <StatusBadge value={result} />
+        </dd>
+      </div>
+    </dl>
+  </header>
+
+  <div class="axis" aria-hidden="true">
+    <ul class="scale">
+      {ticks.map((at) => (
+        <li style={`--at: ${at}`}>{Math.round((duration * at) / 100)}ms</li>
+      ))}
+    </ul>
+  </div>
+
+  <ol class="rows">
+    {segments.map(({ label, start, duration: ms, out }, index) => (
+      <li
+        class:list={['row', { out }]}
+        style={`--start: ${percent(start)}; --width: ${percent(ms)}; --index: ${index}`}
+      >
+        <code class="label" title={label}>
+          {label}
+        </code>
+        <span class="track">
+          <span class="ms">{ms.toFixed(2)}ms</span>
+          <span class="bar" />
+        </span>
+      </li>
+    ))}
+  </ol>
+
+  <footer class="foot">{finding}</footer>
+</article>
+
+<style lang="scss">
+  @use '~styles/mixins/media' as *;
+
+  .card {
+    overflow: hidden;
+
+    min-width: 0;
+    border-radius: var(--radius-md);
+
+    background-color: var(--surface);
+    box-shadow: var(--shadow-card);
+  }
+
+  .head {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3) var(--space-5);
+    align-items: flex-end;
+    justify-content: space-between;
+
+    padding: var(--space-4);
+  }
+
+  .name {
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: 0;
+  }
+
+  .meta {
+    display: flex;
+    gap: var(--space-5);
+  }
+
+  dt {
+    font-size: 0.75rem;
+    line-height: 1.4;
+    color: var(--text-muted);
+  }
+
+  dd {
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.4;
+  }
+
+  .axis {
+    display: none;
+  }
+
+  .row {
+    padding: var(--space-2) var(--space-4);
+    border-top: 1px solid var(--line);
+  }
+
+  .label {
+    overflow: hidden;
+    display: block;
+
+    font-size: 0.8125rem;
+    line-height: 1.55;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .track {
+    position: relative;
+    display: block;
+    height: 1.75rem;
+  }
+
+  .ms {
+    position: absolute;
+    top: 0.125rem;
+    left: min(calc(var(--start) * 1%), calc(100% - 3.5rem));
+
+    font-size: 0.75rem;
+    line-height: 1rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+  }
+
+  .bar {
+    position: absolute;
+    top: 1.25rem;
+    left: calc(var(--start) * 1%);
+
+    width: calc(var(--width) * 1%);
+    min-width: 3px;
+    height: 6px;
+    border-radius: 1px;
+
+    background-color: var(--segment);
+  }
+
+  .out {
+    background-color: var(--accent-wash);
+
+    .bar {
+      background-color: var(--orange);
+    }
+
+    .ms {
+      font-weight: 600;
+      color: var(--accent-text);
+    }
+  }
+
+  .foot {
+    display: flex;
+    gap: var(--space-2);
+    align-items: center;
+
+    padding: var(--space-3) var(--space-4);
+    border-top: 1px solid var(--line);
+
+    font-size: 0.75rem;
+    line-height: 1.4;
+    color: var(--text-muted);
+
+    &::before {
+      content: '';
+
+      flex: none;
+
+      width: var(--space-2);
+      height: var(--space-2);
+      border-radius: var(--radius-full);
+
+      background-color: var(--orange);
+    }
+  }
+
+  @include media-min('sm') {
+    .head {
+      padding: var(--space-4) var(--space-5);
+    }
+
+    .axis,
+    .row {
+      display: grid;
+      grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    }
+
+    .scale {
+      position: relative;
+
+      grid-column: 2;
+
+      height: 1.75rem;
+
+      font-size: 0.75rem;
+      line-height: 1.75rem;
+      color: var(--text-muted);
+
+      li {
+        position: absolute;
+        left: calc(var(--at) * 1%);
+        transform: translateX(-50%);
+      }
+
+      li:first-child {
+        transform: none;
+        padding-left: var(--space-1);
+      }
+
+      li:last-child {
+        transform: translateX(-100%);
+        padding-right: var(--space-1);
+      }
+    }
+
+    .row {
+      padding: 0;
+    }
+
+    .label {
+      align-self: center;
+      padding: var(--space-2) var(--space-3) var(--space-2) var(--space-5);
+    }
+
+    .track {
+      height: auto;
+      min-height: 2.5rem;
+      background:
+        linear-gradient(var(--line) 0 0) 20% 0 / 1px 100% no-repeat,
+        linear-gradient(var(--line) 0 0) 40% 0 / 1px 100% no-repeat,
+        linear-gradient(var(--line) 0 0) 60% 0 / 1px 100% no-repeat,
+        linear-gradient(var(--line) 0 0) 80% 0 / 1px 100% no-repeat;
+    }
+
+    .ms {
+      top: 0.375rem;
+    }
+
+    .bar {
+      top: 1.5625rem;
+    }
+
+    .foot {
+      padding-inline: var(--space-5);
+    }
+  }
+
+  @keyframes grow {
+    from {
+      transform: scaleX(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .animated .bar {
+      transform-origin: left;
+      animation: grow 500ms ease-out backwards;
+      animation-delay: calc(var(--index) * 70ms);
+    }
+  }
+</style>

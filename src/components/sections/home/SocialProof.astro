@@ -1,0 +1,75 @@
+---
+import TextLink from '~components/ui/TextLink.astro';
+import { CUSTOMERS, FEATURED_QUOTE } from '~consts/testimonials';
+---
+
+<section class="section">
+  <div class="container split">
+    <figure>
+      <blockquote class="quote">{FEATURED_QUOTE.text}</blockquote>
+      <figcaption class="credit">
+        <strong>{FEATURED_QUOTE.author}</strong>
+        <span>{FEATURED_QUOTE.role}</span>
+      </figcaption>
+      <div class="more">
+        <TextLink text="Read more testimonials" href="/testimonials/" />
+      </div>
+    </figure>
+    <div>
+      <h2 class="label">Used in production by</h2>
+      <ul class="names">
+        {CUSTOMERS.map((name) => (
+          <li>{name}</li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<style>
+  .quote {
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: 1.45;
+    letter-spacing: -0.01em;
+  }
+
+  .credit {
+    display: grid;
+    margin-top: var(--space-4);
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+
+  .credit strong {
+    font-weight: 500;
+  }
+
+  .credit span {
+    color: var(--text-muted);
+  }
+
+  .more {
+    margin-top: var(--space-4);
+  }
+
+  .label {
+    max-width: none;
+
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--text-muted);
+    letter-spacing: 0;
+  }
+
+  .names {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+    gap: var(--space-2) var(--space-5);
+
+    margin-top: var(--space-3);
+
+    font-weight: 500;
+  }
+</style>

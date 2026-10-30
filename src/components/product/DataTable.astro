@@ -1,0 +1,229 @@
+---
+import StatusBadge from '~components/product/StatusBadge.astro';
+import Button from '~components/ui/Button.astro';
+
+export interface Cell {
+  text: string;
+  kind?: 'mono' | 'strong' | 'badge' | 'action';
+  primary?: boolean;
+  href?: string;
+}
+
+interface Props {
+  title?: string;
+  headers: string[];
+  rows: Cell[][];
+}
+
+const { title, headers, rows } = Astro.props;
+---
+
+<section class="card">
+  {title && <h3 class="title">{title}</h3>}
+  <table class="table">
+    <thead>
+      <tr>
+        {headers.map((header) => (
+          <th scope="col">{header}</th>
+        ))}
+      </tr>
+    </thead>
+    <tbody>
+      {rows.map((row) => (
+        <tr>
+          {row.map(({ text, kind, primary, href }, index) => (
+            <td
+              class:list={[kind ?? 'plain', { lead: index === 0 }]}
+              data-label={kind === 'action' ? undefined : headers[index]}
+            >
+              {kind === 'badge' ? (
+                <StatusBadge value={text} />
+              ) : kind === 'action' ? (
+                <Button
+                  text={text}
+                  href={href}
+                  size="small"
+                  variant={primary ? 'primary' : 'quiet'}
+                />
+              ) : (
+                text
+              )}
+            </td>
+          ))}
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</section>
+
+<style lang="scss">
+  @use '~styles/mixins/media' as *;
+
+  .card {
+    overflow-x: auto;
+
+    min-width: 0;
+    border-radius: var(--radius-md);
+
+    background-color: var(--surface);
+    box-shadow: var(--shadow-card);
+  }
+
+  .title {
+    padding: var(--space-4);
+    font-size: 1rem;
+    line-height: 1.4;
+    letter-spacing: 0;
+  }
+
+  .table,
+  tbody {
+    display: block;
+    width: 100%;
+  }
+
+  .table {
+    border-collapse: collapse;
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+
+  thead {
+    position: absolute;
+
+    overflow: hidden;
+
+    width: 1px;
+    height: 1px;
+
+    clip-path: inset(50%);
+  }
+
+  tr {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-1) var(--space-3);
+    align-items: center;
+
+    padding: var(--space-3) var(--space-4);
+    border-top: 1px solid var(--line);
+  }
+
+  td {
+    display: block;
+
+    min-width: 0;
+    padding: 0;
+
+    font-size: 0.75rem;
+    color: var(--text-muted);
+  }
+
+  td[data-label]:not(.lead)::before {
+    content: attr(data-label) ': ';
+  }
+
+  td.lead {
+    overflow: hidden;
+    flex: 0 0 100%;
+
+    font-size: 0.8125rem;
+    color: var(--text);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  td.mono {
+    font-family: var(--font-mono);
+    font-variant-ligatures: none;
+  }
+
+  td.strong {
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  td.action {
+    margin-left: auto;
+  }
+
+  @include media-min('sm') {
+    .title {
+      padding: var(--space-4) var(--space-5);
+    }
+
+    .table {
+      display: table;
+    }
+
+    tbody {
+      display: table-row-group;
+    }
+
+    thead {
+      position: static;
+
+      overflow: visible;
+      display: table-header-group;
+
+      width: auto;
+      height: auto;
+
+      clip-path: none;
+    }
+
+    tr {
+      display: table-row;
+      padding: 0;
+      border: 0;
+    }
+
+    th,
+    td {
+      display: table-cell;
+
+      padding: var(--space-2) var(--space-3);
+      border-top: 1px solid var(--line);
+
+      text-align: left;
+      white-space: nowrap;
+      vertical-align: middle;
+    }
+
+    th {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+
+    td {
+      font-size: 0.875rem;
+      color: var(--text);
+    }
+
+    td[data-label]:not(.lead)::before {
+      content: none;
+    }
+
+    th:first-child,
+    td:first-child {
+      padding-left: var(--space-5);
+    }
+
+    th:last-child,
+    td:last-child {
+      padding-right: var(--space-5);
+      text-align: right;
+    }
+
+    td.lead {
+      font-size: 0.875rem;
+    }
+
+    td.mono {
+      width: 100%;
+      max-width: 0;
+      font-size: 0.8125rem;
+    }
+  }
+</style>

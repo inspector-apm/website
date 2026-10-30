@@ -1,0 +1,64 @@
+---
+import AgentSession from '~components/product/AgentSession.astro';
+import Checks from '~components/ui/Checks.astro';
+import { PHONE_SESSION } from '~consts/samples';
+---
+
+<section class="section" data-theme="ink">
+  <div class="container band">
+    <div class="copy">
+      <h2>Investigate, fix and release from your phone</h2>
+      <p class="lead intro">
+        Connect Inspector to Claude, ChatGPT or DeepSeek on the web. You sign in
+        and approve the connection, with no API key to paste.
+      </p>
+      <div class="list">
+        <Checks
+          items={[
+            'Read-only access to errors, transactions and performance data',
+            'No access to billing, team members or API keys',
+            'Only the apps you have access to',
+          ]}
+        />
+      </div>
+    </div>
+    <AgentSession {...PHONE_SESSION} raised />
+  </div>
+</section>
+
+<style lang="scss">
+  @use '~styles/mixins/media' as *;
+
+  .band {
+    display: grid;
+    gap: var(--space-6);
+  }
+
+  .band > * {
+    min-width: 0;
+  }
+
+  .intro {
+    margin-top: var(--space-4);
+  }
+
+  .list {
+    margin-top: var(--space-5);
+  }
+
+  @include media-min('md') {
+    .band {
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: var(--space-5);
+      align-items: center;
+    }
+
+    .copy {
+      grid-column: span 6;
+    }
+
+    .band > :global(section) {
+      grid-column: 8 / span 5;
+    }
+  }
+</style>

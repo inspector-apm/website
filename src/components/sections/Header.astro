@@ -1,0 +1,358 @@
+---
+import Button from '~components/ui/Button.astro';
+import Icon from '~components/ui/Icon.astro';
+import { LINKS } from '~consts/links';
+import { NAV_GROUPS } from '~consts/navigation';
+---
+
+<header class="header" data-theme="ink">
+  <div class="container bar">
+    <a class="logo" href="/" aria-label="Inspector home">
+      <img
+        src="/images/logo-horizontal-white-transparent.png"
+        width="130"
+        height="38"
+        alt="Inspector"
+      />
+    </a>
+
+    <nav class="desktopNav" aria-label="Main">
+      <ul class="links">
+        {NAV_GROUPS.map(({ label, items }) => (
+          <li class="group">
+            <details data-menu>
+              <summary class="link">
+                {label}
+                <span class="chevron">
+                  <Icon name="chevron-down" />
+                </span>
+              </summary>
+              <ul class="menu">
+                {items.map(({ name, description, href }) => (
+                  <li>
+                    <a class="entry" href={href}>
+                      <strong>{name}</strong>
+                      <span>{description}</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </details>
+          </li>
+        ))}
+        <li>
+          <a class="link" href="/pricing/">
+            Pricing
+          </a>
+        </li>
+        <li>
+          <a class="link" href={LINKS.docs}>
+            Docs
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="tools">
+      <a class="link signIn" href={LINKS.signIn}>
+        Sign in
+      </a>
+      <Button text="Start free" href={LINKS.register} />
+      <button
+        class="toggle"
+        type="button"
+        aria-label="Open menu"
+        aria-expanded="false"
+        aria-controls="mobileNav"
+        data-nav-toggle
+      >
+        <span class="toggleOpen">
+          <Icon name="list" />
+        </span>
+        <span class="toggleClose">
+          <Icon name="x-lg" />
+        </span>
+      </button>
+    </div>
+  </div>
+
+  <nav id="mobileNav" class="mobileNav" aria-label="Main" hidden>
+    <div class="container">
+      {NAV_GROUPS.map(({ label, items }) => (
+        <section class="mobileGroup">
+          <h2 class="mobileLabel">{label}</h2>
+          <ul>
+            {items.map(({ name, href }) => (
+              <li>
+                <a class="mobileLink" href={href}>
+                  {name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))}
+      <section class="mobileGroup">
+        <ul>
+          <li>
+            <a class="mobileLink" href="/pricing/">
+              Pricing
+            </a>
+          </li>
+          <li>
+            <a class="mobileLink" href={LINKS.docs}>
+              Docs
+            </a>
+          </li>
+          <li>
+            <a class="mobileLink" href={LINKS.signIn}>
+              Sign in
+            </a>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </nav>
+</header>
+
+<style lang="scss">
+  @use '~styles/mixins/media' as *;
+
+  .header {
+    position: relative;
+    z-index: var(--z-index-menu);
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+
+  .bar {
+    display: flex;
+    gap: var(--space-5);
+    align-items: center;
+    min-height: var(--space-8);
+  }
+
+  .logo {
+    flex: none;
+  }
+
+  .desktopNav {
+    display: none;
+  }
+
+  .links {
+    display: flex;
+    gap: var(--space-1);
+    align-items: center;
+  }
+
+  .group {
+    position: relative;
+  }
+
+  .link {
+    cursor: pointer;
+
+    display: inline-flex;
+    gap: 0.375rem;
+    align-items: center;
+
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--radius-md);
+
+    color: var(--text);
+    text-decoration: none;
+    list-style: none;
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+
+    &:hover {
+      background-color: var(--surface);
+    }
+  }
+
+  .link.signIn {
+    display: none;
+  }
+
+  details[open] > .link {
+    background-color: var(--surface);
+  }
+
+  .chevron {
+    font-size: 0.625rem;
+    color: var(--text-muted);
+  }
+
+  .menu {
+    position: absolute;
+    top: calc(100% + var(--space-2));
+    left: 0;
+
+    width: 20rem;
+    padding: var(--space-2);
+    border-radius: var(--radius-md);
+
+    background-color: var(--surface);
+    box-shadow: var(--shadow-menu);
+  }
+
+  .entry {
+    display: grid;
+
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--radius-sm);
+
+    color: var(--text);
+    text-decoration: none;
+
+    &:hover {
+      background-color: var(--surface-sunken);
+    }
+
+    strong {
+      font-weight: 500;
+    }
+
+    span {
+      font-size: 0.75rem;
+      line-height: 1.4;
+      color: var(--text-muted);
+    }
+  }
+
+  .tools {
+    display: flex;
+    gap: var(--space-2);
+    align-items: center;
+    margin-left: auto;
+  }
+
+  .toggle {
+    cursor: pointer;
+
+    display: inline-flex;
+
+    padding: var(--space-2);
+    border: 0;
+    border-radius: var(--radius-md);
+
+    font-size: 1.5rem;
+    color: var(--text);
+
+    background: none;
+  }
+
+  .toggleClose {
+    display: none;
+  }
+
+  .toggle[aria-expanded='true'] {
+    .toggleOpen {
+      display: none;
+    }
+
+    .toggleClose {
+      display: inline-flex;
+    }
+  }
+
+  .mobileNav {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+
+    padding-block: var(--space-2) var(--space-5);
+    border-top: 1px solid var(--line);
+
+    background-color: var(--ground);
+    box-shadow: var(--shadow-menu);
+  }
+
+  .mobileGroup {
+    padding-block: var(--space-3);
+
+    & + & {
+      border-top: 1px solid var(--line);
+    }
+  }
+
+  .mobileLabel {
+    max-width: none;
+    padding-block: var(--space-1);
+
+    font-size: 0.75rem;
+    font-weight: 400;
+    line-height: 1.4;
+    color: var(--text-muted);
+    letter-spacing: 0;
+  }
+
+  .mobileLink {
+    display: block;
+
+    padding-block: var(--space-2);
+
+    font-size: 1rem;
+    color: var(--text);
+    text-decoration: none;
+  }
+
+  @include media-min('md') {
+    .desktopNav {
+      display: block;
+    }
+
+    .link.signIn {
+      display: inline-flex;
+    }
+
+    .toggle,
+    .mobileNav {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  const menus = document.querySelectorAll<HTMLDetailsElement>('[data-menu]');
+
+  for (const menu of menus) {
+    menu.addEventListener('toggle', () => {
+      if (!menu.open) return;
+
+      for (const other of menus) {
+        if (other !== menu) other.open = false;
+      }
+    });
+  }
+
+  document.addEventListener('click', (event) => {
+    for (const menu of menus) {
+      if (!menu.contains(event.target as Node)) menu.open = false;
+    }
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key !== 'Escape') return;
+
+    for (const menu of menus) menu.open = false;
+  });
+
+  const toggle = document.querySelector<HTMLButtonElement>('[data-nav-toggle]');
+  const mobileNav = document.querySelector<HTMLElement>('#mobileNav');
+
+  toggle?.addEventListener('click', () => {
+    if (!mobileNav) return;
+
+    mobileNav.hidden = !mobileNav.hidden;
+    toggle.setAttribute('aria-expanded', String(!mobileNav.hidden));
+    toggle.setAttribute(
+      'aria-label',
+      mobileNav.hidden ? 'Open menu' : 'Close menu',
+    );
+  });
+</script>
