@@ -19,14 +19,14 @@ wp_id: 8696
 
 [**Symfony Mailer**](https://symfony.com/doc/current/mailer.html) is a PHP library for sending transactinal emails. It replaces [SwiftMailer](https://swiftmailer.symfony.com/), offering better performance, simpler configuration, and modern features for email handling in Symfony applications.
 
-### Key Features:
+## Key Features:
 
 - **Twig Integration**: Create dynamic email templates.
 - **CSS Inlining**: Ensures compatibility across email clients.
 - **Transport Layer**: Supports multiple email providers like [Mailgun](https://www.mailgun.com/), [SendGrid](https://sendgrid.com/), and [Amazon SES](https://aws.amazon.com/ses/).
 - **Messenger Support**: Enables asynchronous email sending for better performance.
 
-### Why Use [Symfony Mailer](https://symfony.com/doc/current/mailer.html)?
+## Why Use [Symfony Mailer](https://symfony.com/doc/current/mailer.html)?
 
 ![Symfony Mailer](../images/what-is-symfony-mailer/symfony.com-c7774c1d3e65357e86f5f99e13eacce5-2025-02-12.jpg)
 

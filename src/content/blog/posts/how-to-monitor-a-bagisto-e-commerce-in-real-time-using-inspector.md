@@ -28,7 +28,7 @@ If something goes wrong in your platform, customers will not spend their time to
 
 Thanks to its Laravel foundation Bagisto is a perfect example of how developers can enjoy the ready-to-go Inspector experience, integrating a real-time monitoring system in less than one minute.
 
-### Before starting
+## Before starting
 
 I will configure [Laravel Homestead](https://laravel.com/docs/7.x/homestead) as development environment so you can eventually reproduce your production environment with no effort.
 

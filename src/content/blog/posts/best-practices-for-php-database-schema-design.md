@@ -22,7 +22,7 @@ wp_id: 8852
 - **Monitor Performance**: Use tools like `EXPLAIN` or [Inspector](/) to catch slow queries and optimize.
 - **Plan for Scalability**: Implement sharding or partitioning for large datasets to handle growth.
 
-### Quick Comparison: Normalization vs. Denormalization
+## Quick Comparison: Normalization vs. Denormalization
 
 | Aspect | Normalization | Denormalization |
 | --- | --- | --- |

@@ -33,7 +33,7 @@ Until now, fixing a production bug usually meant:
 
 This is context switching. It breaks flow, it creates fatigue, and frankly, it’s inefficient.
 
-### Bridging the gap
+## Bridging the gap
 
 We built the **Inspector MCP Server** to remove that manual data transfer.
 
@@ -43,7 +43,7 @@ AI Agents in PHP with MCP (Model Context Protocol)
 
 This enables what I call **"Zero-UI Observability."** You don't need to visit the Inspector dashboard UI to understand what is happening. You can stay in your terminal or IDE and let the agent fetch the context it needs.
 
-### What this looks like in practice
+## What this looks like in practice
 
 Instead of manually correlating logs with code, you can treat your monitoring data as a queryable resource within your development environment. You stay in the flow, the AI gets the ground truth, and the "investigation" phase of a bug fix shrinks from twenty minutes of tab-switching to a single natural language query.
 
@@ -56,7 +56,7 @@ The agent can pull:
 
 Because the AI sees the *exact* exception payload from production alongside your local source code, the suggestions for fixes become significantly more accurate. It moves the workflow from "Guess and Check" to "Analyze and Fix."
 
-### Try it out
+## Try it out
 
 We have kept the setup minimal. You just need to add the Inspector MCP server to your agent configuration (VS Code, Cursor, or Claude Desktop).
 

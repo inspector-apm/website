@@ -89,6 +89,6 @@ Experience the simplicity and effectiveness of Inspector firsthand. We invite yo
 
 **[Getting Started Free with Inspector Now](https://app.inspector.dev/register)**
 
-[![](../images/inspector-best-new-relic-alternative-for-software-developers/segments-statistics.png)](https://app.inspector.dev/register)
+[![Database query statistics in the Inspector dashboard](../images/inspector-best-new-relic-alternative-for-software-developers/segments-statistics.png)](https://app.inspector.dev/register)
 
 Join us at Inspector as we revolutionize the way developers monitor and optimize their applications. Simplify your monitoring, focus on development, and let Inspector handle the complexities of error tracking and performance optimization.

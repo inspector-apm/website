@@ -26,7 +26,7 @@ Real-time error tracking and log analysis are two essential methods for monitori
   - **Key Features**: Historical data analysis, unified log management, advanced search, and compliance tracking.
   - **Best For**: Debugging distributed systems, enhancing security, and performance tuning.
 
-### Quick Comparison
+## Quick Comparison
 
 | Feature | Real-Time Error Tracking | Log Analysis |
 | --- | --- | --- |

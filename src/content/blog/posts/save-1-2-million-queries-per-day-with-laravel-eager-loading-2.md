@@ -182,7 +182,7 @@ CTA
 
 ## Laravel Eager loading inspector monitoring
 
-#### Conclusion
+### Conclusion
 
 The advantage of eager loading over lazy loading is that everything is available at once. Users experience no lag when obtaining data, and the number of queries they send to the database is drastically reduced.
 

@@ -17,7 +17,7 @@ wp_id: 8825
 
 Cross-Site Scripting (XSS) is a major security risk for [Laravel](https://laravel.com/) applications. It happens when attackers inject malicious scripts into your app, targeting sensitive data or user trust. Even with Laravel's built-in security features, real-time detection tools like [**Inspector**](/) can help you block these threats before they cause harm.
 
-### Key Takeaways:
+## Key Takeaways:
 
 - **Types of XSS Attacks**: Stored (via user content), Reflected (via URL parameters), and DOM-based (via JavaScript vulnerabilities).
 - **Why Real-Time Detection?**: Prevent costly data breaches and ransomware attacks by identifying and responding to threats instantly.
@@ -27,7 +27,7 @@ Cross-Site Scripting (XSS) is a major security risk for [Laravel](https://larave
   - Set up alerts to track suspicious activity and respond quickly.
 - **Long-Term Protection**: Regular security testing, dependency updates, and developer training are essential for ongoing safety.
 
-### Quick Comparison of XSS Protection Tools:
+## Quick Comparison of XSS Protection Tools:
 
 | Feature | Inspector | Laravel Built-in Tools |
 | --- | --- | --- |

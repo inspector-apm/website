@@ -7,16 +7,16 @@ interface Props {
   title: string;
   description: string;
   image?: string;
+  article?: { published: Date; modified: Date };
+  schema?: object;
+  noindex?: boolean;
 }
 
-const {
-  title,
-  description,
-  image = '/images/logo-square-flat.png',
-} = Astro.props;
+const { title, description, image, article, schema, noindex } = Astro.props;
 
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site).href;
-const ogImageUrl = new URL(image, Astro.site).href;
+const ogImageUrl = new URL(image ?? '/images/logo-square-flat.png', Astro.site)
+  .href;
 ---
 
 <!doctype html>
@@ -26,8 +26,12 @@ const ogImageUrl = new URL(image, Astro.site).href;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta
+      name="robots"
+      content={noindex ? 'noindex' : 'max-image-preview:large'}
+    />
 
-    <link rel="canonical" href={canonicalUrl} />
+    {!noindex && <link rel="canonical" href={canonicalUrl} />}
     <link rel="sitemap" href="/sitemap-index.xml" />
     <link rel="icon" type="image/png" href="/images/favicon.png" />
     <link
@@ -38,15 +42,39 @@ const ogImageUrl = new URL(image, Astro.site).href;
       crossorigin
     />
 
-    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Inspector" />
+    <meta property="og:type" content={article ? 'article' : 'website'} />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImageUrl} />
-    <meta name="twitter:card" content="summary" />
+    {article && (
+      <>
+        <meta
+          property="article:published_time"
+          content={article.published.toISOString()}
+        />
+        <meta
+          property="article:modified_time"
+          content={article.modified.toISOString()}
+        />
+      </>
+    )}
+    <meta
+      name="twitter:card"
+      content={image ? 'summary_large_image' : 'summary'}
+    />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageUrl} />
+
+    {schema && (
+      <script
+        is:inline
+        type="application/ld+json"
+        set:html={JSON.stringify(schema).replace(/</g, '\\u003c')}
+      />
+    )}
 
     {import.meta.env.PROD && (
       <script

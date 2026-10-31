@@ -25,7 +25,7 @@ Error handling in [Spring Boot](https://spring.io/projects/spring-boot) ensures 
 - **Custom Exceptions**: Define exceptions like `ResourceNotFoundException` or `ValidationException` for specific scenarios.
 - **Logging and Monitoring**: Implement structured logging and tools like [Inspector.dev](/) for real-time error tracking.
 
-### Quick Overview
+## Quick Overview
 
 | Feature | Use | Example |
 | --- | --- | --- |

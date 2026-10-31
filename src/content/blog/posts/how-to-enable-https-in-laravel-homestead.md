@@ -43,7 +43,7 @@ It's main goal is to make it impossible for third parties to see what data clien
 
 By default, Laravel Homestead generates a security certificate for all sites you register.
 
-If you attempt to access your application using **https://…** instead of **http://…**, the browser and the web server (Homestead) establish an SSL connection using a process called "SSL Handshake".
+If you attempt to access your application using `https://…` instead of `http://…`, the browser and the web server (Homestead) establish an SSL connection using a process called "SSL Handshake".
 
 Since the Homestead certificates are generated locally, not released from a public Certificates Authority, the browser will warn you every time you visit the local site.
 

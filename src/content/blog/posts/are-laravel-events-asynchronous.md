@@ -19,12 +19,12 @@ wp_id: 8786
 
 [Laravel](https://laravel.com/) events are **synchronous by default**, meaning listeners execute immediately during the request cycle. However, you can make them **asynchronous** by using Laravel's queuing system. This allows tasks like sending emails or generating reports to run in the background, improving application performance.
 
-### Key Points:
+## Key Points:
 
 - **Synchronous**: Runs immediately; ideal for critical tasks (e.g., updating inventory or verifying permissions).
 - **Asynchronous**: Uses queues for non-urgent tasks (e.g., sending notifications or exporting data).
 
-### Quick Comparison:
+## Quick Comparison:
 
 | Handling Type | Best For | Performance Impact |
 | --- | --- | --- |

@@ -33,7 +33,7 @@ This article is for you if you want:
 
 I start with the mandatory requirements before moving into Homestead instalaltion and configuration.
 
-### Vagrant
+## Vagrant
 
 Vagrant is a tool to automate virtual machine setup and configuration process. Once you create a Vagrant file, you only need vagrant up and everything is installed and configured for you to work.
 

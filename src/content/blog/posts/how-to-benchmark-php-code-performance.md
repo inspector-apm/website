@@ -25,7 +25,7 @@ PHP performance directly impacts user experience and server efficiency. Benchmar
 - **Set Up Proper Environments**: Match production settings, enable [OPCache](https://en.wikipedia.org/?title=Zend_Opcache&redirect=no), and isolate tests.
 - **Analyze Results**: Identify bottlenecks, test optimizations, and monitor live performance.
 
-### Quick Comparison of Benchmarking Tools
+## Quick Comparison of Benchmarking Tools
 
 | Tool | Best For | Key Features | Limitations |
 | --- | --- | --- | --- |

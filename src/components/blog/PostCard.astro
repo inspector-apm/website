@@ -19,7 +19,7 @@ const href = `/${post.id}/`;
     {cover ? (
       <Image
         src={cover}
-        alt=""
+        alt={title}
         widths={[400, 800]}
         sizes="(min-width: 992px) 33vw, (min-width: 768px) 50vw, 100vw"
       />
@@ -27,7 +27,7 @@ const href = `/${post.id}/`;
       <span class="fallback" data-theme="ink">
         <img
           src="/images/logo-horizontal-white-transparent.png"
-          alt=""
+          alt={title}
           width="130"
           height="38"
         />
@@ -41,12 +41,7 @@ const href = `/${post.id}/`;
     <a href={href}>{title}</a>
   </h2>
   <p class="text">{summary}</p>
-  <TextLink
-    class="more"
-    text="Read more"
-    href={href}
-    label={`Read more: ${title}`}
-  />
+  <TextLink class="more" text="Read more" href={href} detail={title} />
 </article>
 
 <style lang="scss">

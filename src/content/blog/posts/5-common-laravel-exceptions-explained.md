@@ -25,7 +25,7 @@ wp_id: 8613
 4. **QueryException**: Database query errors from issues like syntax mistakes or schema mismatches. Use query logging and proper foreign key constraints.
 5. **ValidationException**: Triggered when input data fails validation. Use Form Requests for cleaner validation logic and return clear error messages.
 
-### Quick Tips
+## Quick Tips
 
 - Set up global exception handling in `app/Exceptions/Handler.php`.
 - Use tools like query logging or [Inspector](/) for real-time error tracking.

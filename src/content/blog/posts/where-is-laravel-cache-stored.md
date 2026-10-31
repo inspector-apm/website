@@ -26,7 +26,7 @@ Caching in [Laravel](https://laravel.com/) improves performance by storing data 
 
 **Key Takeaway**: Use file caching for development, Redis or Memcached for production, and database caching for distributed systems.
 
-### Quick Comparison
+## Quick Comparison
 
 | Driver | Storage Location | Speed | Best Use Case |
 | --- | --- | --- | --- |

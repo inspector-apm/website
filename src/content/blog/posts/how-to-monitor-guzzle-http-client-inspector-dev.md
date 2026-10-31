@@ -25,11 +25,11 @@ Guzzle is a popular PHP HTTP client that makes it easy to send HTTP requests and
 
 Guzzle is widely used for two main reasons:
 
-### Customization and Flexibility
+## Customization and Flexibility
 
 For the fans of design patterns Guzzle is open to extensions. Means that you can easily implement new functionalities into Guzzle by extending its core components (Http Client, Request, Response, Milddeware, etc).
 
-### Support for Middleware
+## Support for Middleware
 
 The Guzzle middleware system allows developers to interact with a Request before it is sent, and Response before they are processed. It can enable advanced features like logging, authentication, and error handling.
 

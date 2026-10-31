@@ -65,7 +65,7 @@ Learn more how to use the ORM at scale reading this article: [https://inspector.
 
 ## PHP optimization tips
 
-#### Use Composer optimized autoload
+### Use Composer optimized autoload
 
 If not optimized a php application could spending quite some time in autoloading instead of doing more interesting things.
 
@@ -75,7 +75,7 @@ The [Composer](https://getcomposer.org) documentation perfectly exaplains the re
 
 In production instead we should prefer the optimized version of the `classmap` because the code will change only on the next deployment when a new `dump-autoload` will be executed again.
 
-#### Single quote wins on Double quotes
+### Single quote wins on Double quotes
 
 Using double quote you can insert variables directly within the text of the string. The PHP parser will automatically detect such variables, convert their values into readable text, and place them in their proper places.
 

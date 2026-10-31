@@ -34,7 +34,7 @@ A **real-time monitoring tool** help developers to address this problem, but man
 
 Inspector is a composer package to add real-time monitoring in your [Laravel](/laravel/) application, it’s very easy to install and use, and it takes less than one minute to get started.
 
-### Install the composer package to monitor Laravel
+## Install the composer package to monitor Laravel
 
 Install our package by running the command below in your terminal:
 
@@ -42,7 +42,7 @@ Install our package by running the command below in your terminal:
 composer require inspector-apm/inspector-laravel
 ```
 
-### Configure the API key
+## Configure the API key
 
 Get a fresh API key by signing up for Inspector ([https://app.inspector.dev/register](https://app.inspector.dev/register)) and creating a new application, it takes just a few seconds.
 
@@ -58,7 +58,7 @@ Put the API key into your environment file:
 INSPECTOR_API_KEY=13c37c434XXXXXXXXXXXX
 ```
 
-### Http Requests Monitoring
+## Http Requests Monitoring
 
 To activate inspection when your application is executed by an incoming http request you can use the **WebRequestMonitoring** middleware.
 
@@ -85,7 +85,7 @@ protected $middlewareGroups = [
 ]
 ```
 
-### Identify Controller/Method execution
+## Identify Controller/Method execution
 
 If you prefer to have a clear visibility of what controller and method are executed based on any HTTP request, you can use the code snippet below inside the **boot** method of one of your ServiceProvider.
 

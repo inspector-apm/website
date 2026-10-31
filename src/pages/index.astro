@@ -15,12 +15,14 @@ import LogoStrip from '~components/ui/LogoStrip.astro';
 import TextLink from '~components/ui/TextLink.astro';
 import { LINKS } from '~consts/links';
 import { FREE_NOTE } from '~consts/pricing';
+import { HOME_SCHEMA } from '~consts/schema';
 import { CUSTOMERS } from '~consts/testimonials';
 ---
 
 <MainLayout
   title="Give your coding agent eyes on production | Inspector"
   description="Inspector monitors your PHP application in production and gives coding agents the errors, slow queries and stack traces they need to fix your code."
+  schema={HOME_SCHEMA}
 >
   <PageHero
     title="Give your coding agent eyes on production"

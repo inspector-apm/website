@@ -25,7 +25,7 @@ PHP-FPM is essential for high-traffic websites, but managing it properly can be 
 - **Optimize Connections**: Set timeouts (`request_terminate_timeout`, `max_execution_time`) and use persistent connections.
 - **Enable Monitoring**: Track key metrics like queue length, memory usage, and request times.
 
-### Quick Example Configuration
+## Quick Example Configuration
 
 ```ini
 pm = dynamic

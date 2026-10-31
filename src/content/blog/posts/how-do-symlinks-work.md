@@ -19,7 +19,7 @@ wp_id: 8686
 
 **Symlinks (symbolic links)** are special files in [Unix](https://en.wikipedia.org/wiki/Unix) systems that act as pointers to other files or directories. Instead of storing data, they store a reference path. This makes file management easier by allowing you to create shortcuts or aliases for files and directories.
 
-### Key Points:
+## Key Points:
 
 - **What They Do**: Symlinks redirect commands (like `ls` or `cat`) to the target file or directory.
 - **Common Uses**:
@@ -31,7 +31,7 @@ wp_id: 8686
   - **Absolute Paths**: Fixed location references (e.g., `/var/www/current`).
   - **Relative Paths**: Maintain directory relationships (e.g., `../shared/storage`).
 
-### Quick Comparison: Symlinks vs. Hard Links
+## Quick Comparison: Symlinks vs. Hard Links
 
 | Feature | Symbolic Links | Hard Links |
 | --- | --- | --- |

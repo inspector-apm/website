@@ -26,7 +26,7 @@ wp_id: 7819
 - **Profile and Fix Code Bottlenecks**: Use tools like Symfony Profiler or [Inspector.dev](/symfony/) to identify and fix slow code.
 - **Optimize Asset Delivery**: Minify files, lazy load assets, and use CDNs to speed up page loads.
 
-### Quick Comparison of Strategies
+## Quick Comparison of Strategies
 
 | Strategy | Performance Gain | Complexity |
 | --- | --- | --- |

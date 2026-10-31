@@ -78,4 +78,4 @@ If you are looking for HTTP monitoring, database query insights, and the ability
 
 Or learn more on the website: [**https://inspector.dev**](/)
 
-[![](../images/laravel-and-symfony-console-command-monitoring/monitoring.png)](/)
+[![Transaction charts and tables in the Inspector dashboard](../images/laravel-and-symfony-console-command-monitoring/monitoring.png)](/)

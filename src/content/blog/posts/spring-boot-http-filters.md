@@ -19,7 +19,7 @@ wp_id: 8667
 
 [**Spring Boot**](https://spring.io/projects/spring-boot) **HTTP filters** are essential for managing and modifying HTTP requests and responses in your applications. They act as a checkpoint between the web server and your application logic, enabling tasks like logging, authentication, and security enhancements.
 
-### Key Points:
+## Key Points:
 
 - **What are HTTP Filters?** Middleware components that intercept and process HTTP traffic before it reaches your controllers.
 - **Benefits:**
@@ -32,7 +32,7 @@ wp_id: 8667
   - **Compression:** Reduce payload size (e.g., GZIP filters).
   - **Security:** Add headers or prevent XSS attacks.
 
-### Quick Example:
+## Quick Example:
 
 To create a filter, implement the `javax.servlet.Filter` interface:
 

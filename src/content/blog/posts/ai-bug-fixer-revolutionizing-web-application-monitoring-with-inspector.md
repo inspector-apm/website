@@ -53,7 +53,7 @@ We also decided to change the developer experience giving you more control betwe
 
 Now you are notified via email when Inspector AI generates a new bug fix in response to an error, so you can explore the diff between your current version of the code and the AI proposal directly in the Inspector dashboard with two actions available: “Commit”, or “Create Pull Request”.
 
-[![](../images/ai-bug-fixer-revolutionizing-web-application-monitoring-with-inspector/diff.png)](https://docs.inspector.dev/concepts/ai-bug-fixes)
+[![A bug fix proposal in the Inspector dashboard, with the failing line highlighted](../images/ai-bug-fixer-revolutionizing-web-application-monitoring-with-inspector/diff.png)](https://docs.inspector.dev/concepts/ai-bug-fixes)
 
 *Code Diff from AI Bug Fixer*
 
@@ -79,4 +79,4 @@ More will coming.
 
 Are you responsible for application development in your company? Monitor your web applications with [Inspector](/) for free. You can automatically fix bugs and bottlenecks in your code, before your customers stumble onto the problem.
 
-Inspector is usable by developers of all skill levels. If you want effective automation, and clear insights try Inspector for free. [Register your account.](http://app.inspector.dev/register)Check out the official documentation for a step by step guide on how to activate this integration for your application: [https://docs.inspector.dev/concepts/ai-bug-fixes](https://docs.inspector.dev/concepts/ai-bug-fixes)
+Inspector is usable by developers of all skill levels. If you want effective automation, and clear insights try Inspector for free. [Register your account.](https://app.inspector.dev/register)Check out the official documentation for a step by step guide on how to activate this integration for your application: [https://docs.inspector.dev/concepts/ai-bug-fixes](https://docs.inspector.dev/concepts/ai-bug-fixes)

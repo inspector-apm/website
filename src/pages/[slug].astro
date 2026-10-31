@@ -10,6 +10,7 @@ import MainLayout from '~components/layouts/MainLayout.astro';
 import Cta from '~components/sections/Cta.astro';
 import Section from '~components/sections/Section.astro';
 import TextLink from '~components/ui/TextLink.astro';
+import { ORGANIZATION } from '~consts/schema';
 
 interface Props {
   post: CollectionEntry<'blog'>;
@@ -25,6 +26,7 @@ const { post } = Astro.props;
 const {
   title,
   date,
+  updated,
   author,
   summary,
   seo_title: seoTitle,
@@ -35,12 +37,31 @@ const {
 const { Content } = await render(post);
 const shareImage =
   cover && (await getImage({ src: cover, width: 1200, format: 'jpeg' }));
+
+// Search results cut titles at about 60 characters, so long ones drop the suffix.
+const pageTitle =
+  seoTitle ?? (title.length > 48 ? title : `${title} | Inspector`);
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: title,
+  description: summary,
+  image: shareImage && new URL(shareImage.src, Astro.site).href,
+  datePublished: date.toISOString(),
+  dateModified: updated.toISOString(),
+  author: { '@type': 'Person', name: author },
+  publisher: ORGANIZATION,
+  mainEntityOfPage: new URL(Astro.url.pathname, Astro.site).href,
+};
 ---
 
 <MainLayout
-  title={seoTitle ?? `${title} | Inspector`}
+  title={pageTitle}
   description={summary}
   image={shareImage?.src}
+  article={{ published: date, modified: updated }}
+  schema={schema}
 >
   <Section>
     <div class="layout">
@@ -53,10 +74,11 @@ const shareImage =
           <Image
             class="cover"
             src={cover}
-            alt={coverAlt ?? ''}
+            alt={coverAlt || title}
             widths={[800, 1500]}
             sizes="(min-width: 992px) 66vw, 100vw"
             loading="eager"
+            fetchpriority="high"
           />
         )}
 

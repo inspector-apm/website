@@ -10,7 +10,7 @@ author: "Valerio Barbera"
 category: "Software development"
 categories: ["Software development"]
 tags: ["PHP", "debug"]
-description: "In this tutorial, you will learn how to debug your PHP scripts the easy way. PHP error reporting, logging, backtrace, and more..."
+description: "In this tutorial, you will learn how to debug your PHP scripts the easy way, with PHP error reporting, logging and backtraces."
 focus_keyword: "php debug"
 featured_image: "../images/how-to-debug-your-php-code-without-using-a-debugger/featured.png"
 wp_id: 4186

@@ -24,7 +24,7 @@ wp_id: 7930
 - **Drivers**: Common options include `single` (one file), `daily` (rotated logs), and `Slack` (team alerts).
 - **Log Levels**: Control the severity of logs recorded, from `debug` to `emergency`.
 
-### Quick Comparison
+## Quick Comparison
 
 | Feature | Purpose | Example Use Case |
 | --- | --- | --- |

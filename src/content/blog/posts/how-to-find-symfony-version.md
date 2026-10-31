@@ -34,7 +34,7 @@ Need to check your [Symfony](https://symfony.com/) version? Here’s how you can
 
    Use scripts to extract the version from the command line or project files for CI/CD pipelines.
 
-### Quick Comparison of Methods
+## Quick Comparison of Methods
 
 | Method | Pros | Cons |
 | --- | --- | --- |

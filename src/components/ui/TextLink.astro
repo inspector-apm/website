@@ -4,15 +4,16 @@ import Icon from '~components/ui/Icon.astro';
 interface Props {
   text: string;
   href: string;
-  label?: string;
+  detail?: string;
   class?: string;
 }
 
-const { text, href, label, class: className } = Astro.props;
+const { text, href, detail, class: className } = Astro.props;
 ---
 
-<a class:list={['link', className]} href={href} aria-label={label}>
+<a class:list={['link', className]} href={href}>
   {text}
+  {detail && <span class="visuallyHidden">: {detail}</span>}
   <Icon name="chevron-right" />
 </a>
 

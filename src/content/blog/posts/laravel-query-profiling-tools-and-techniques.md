@@ -19,13 +19,13 @@ wp_id: 8610
 
 Query profiling helps you identify and fix database bottlenecks, improving response times and reducing server load. Common issues include N+1 queries, poor eager loading, and inefficient query structures. Tools like [**Laravel Debugbar**](https://github.com/barryvdh/laravel-debugbar), **Telescope**, and [**Clockwork**](https://github.com/itsgoingd/clockwork) can simplify this process.
 
-### Key Takeaways:
+## Key Takeaways:
 
 - **Tools**: Use Debugbar for local debugging, Telescope for staging, and Inspector for production monitoring.
 - **Optimization Techniques**: Fix N+1 queries with `with()`, use indexes, and choose between Eloquent ORM or raw SQL depending on complexity.
 - **Advanced Debugging**: Leverage custom query logging and performance testing to pinpoint inefficiencies.
 
-### Quick Comparison of Profiling Tools:
+## Quick Comparison of Profiling Tools:
 
 | Tool | Best For | Key Features |
 | --- | --- | --- |

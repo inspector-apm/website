@@ -20,14 +20,14 @@ wp_id: 7831
 
 **Slow SQL queries can cripple your Spring Boot application.** Monitoring SQL performance is essential to keep your app running smoothly, and tools like [Spring Boot Actuator](https://docs.spring.io/spring-boot/reference/actuator/index.html), [Hibernate](https://hibernate.org/orm/) Statistics, and [Micrometer](https://micrometer.io/) make it easier.
 
-### Key Monitoring Tools:
+## Key Monitoring Tools:
 
 - **Spring Boot Actuator:** Tracks query execution times and connection pool usage.
 - **Hibernate Statistics:** Provides detailed query analysis and cache usage stats.
 - **Micrometer:** Exports metrics to platforms like [Prometheus](https://prometheus.io/) and [Grafana](https://grafana.com/).
 - **External Tools (e.g.,** [**Inspector.dev**](/)**):** Offer advanced analytics and monitoring dashboards.
 
-### Quick Comparison:
+## Quick Comparison:
 
 | Tool | Key Benefits | Best Used For |
 | --- | --- | --- |

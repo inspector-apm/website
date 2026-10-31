@@ -130,4 +130,4 @@ If you are looking for HTTP monitoring, database query insights, and the ability
 
 Or learn more on the website: [**https://inspector.dev**](/)
 
-[![](../images/symfony-monitoring-library-implementation/symfony-error.png)](/)
+[![A Symfony error and its stack trace in the Inspector dashboard](../images/symfony-monitoring-library-implementation/symfony-error.png)](/)

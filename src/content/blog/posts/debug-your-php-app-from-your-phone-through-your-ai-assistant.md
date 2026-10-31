@@ -10,7 +10,7 @@ author: "Valerio Barbera"
 category: "Application monitoring"
 categories: ["Application monitoring", "Product Updates", "SaaS", "Software development"]
 tags: ["Laravel", "PHP", "codeigniter", "monitoring", "software development", "symfony"]
-description: "Connect the Inspector MCP server to Claude or ChatGPT with a URL and one authorization click, no API token. Go from error alert to a real fix directly from your phone."
+description: "Connect the Inspector MCP server to Claude or ChatGPT with one authorization click, no API token, and go from error alert to a real fix on your phone."
 focus_keyword: "inspector mcp server"
 featured_image: "../images/debug-your-php-app-from-your-phone-through-your-ai-assistant/featured.png"
 wp_id: 9889

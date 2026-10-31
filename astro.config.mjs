@@ -1,8 +1,19 @@
 // @ts-check
+import { readdirSync, readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'astro/config';
 
 import sitemap from '@astrojs/sitemap';
+
+const posts = new URL('./src/content/blog/posts/', import.meta.url);
+
+// The sitemap's last-modified dates, from each post's `updated` field.
+const postDates = new Map(
+  readdirSync(posts).map((file) => [
+    file.replace('.md', ''),
+    readFileSync(new URL(file, posts), 'utf8').match(/^updated: "(.+)"$/m)?.[1],
+  ]),
+);
 
 /**
  * Shows the file name from a fence like ```php title="config/app.php" above the code.
@@ -23,7 +34,15 @@ export default defineConfig({
   trailingSlash: 'always',
   // Lets a parent's scoped class reach a child that applies the `class` prop to its root.
   scopedStyleStrategy: 'class',
-  integrations: [sitemap()],
+  integrations: [
+    sitemap({
+      serialize(item) {
+        const slug = new URL(item.url).pathname.replaceAll('/', '');
+
+        return { ...item, lastmod: postDates.get(slug) };
+      },
+    }),
+  ],
   markdown: {
     shikiConfig: {
       theme: 'css-variables',

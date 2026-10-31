@@ -25,7 +25,7 @@ Rounding numbers in [PHP](https://en.wikipedia.org/wiki/PHP) is simple and versa
 
 These functions are essential for financial calculations, data analysis, and precise formatting. For advanced use, PHP also supports modes like **bankers' rounding** (`PHP_ROUND_HALF_EVEN`) to handle edge cases.
 
-### Quick Comparison of [PHP](https://en.wikipedia.org/wiki/PHP) Rounding Functions
+## Quick Comparison of [PHP](https://en.wikipedia.org/wiki/PHP) Rounding Functions
 
 | Function | Behavior | Example Input | Example Output |
 | --- | --- | --- | --- |

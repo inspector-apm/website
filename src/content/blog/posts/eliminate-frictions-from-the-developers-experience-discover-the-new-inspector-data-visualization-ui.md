@@ -103,13 +103,13 @@ The new dashboard now shows application insights segmented by server. This allow
 
 ![screenshot inspector code monitoring dashboard](../images/eliminate-frictions-from-the-developers-experience-discover-the-new-inspector-data-visualization-ui/featured.png)
 
-#### Zoom in
+### Zoom in
 
 You can click and drag into the chart to zoom in on a shorter time interval.
 
 ![](../images/eliminate-frictions-from-the-developers-experience-discover-the-new-inspector-data-visualization-ui/zooming.gif)
 
-#### Errors trend
+### Errors trend
 
 The exception tracking view now shows the error occurrences in the last 30 days.
 

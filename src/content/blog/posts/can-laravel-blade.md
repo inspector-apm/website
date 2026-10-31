@@ -33,7 +33,7 @@ The `@can` [Laravel Blade](https://laravel.com/docs/master/authorization#via-bla
 
 - **Advanced Features**: Use `@canany` for multiple permissions, pass extra parameters for complex checks, and handle unauthenticated users securely.
 
-### Quick Overview
+## Quick Overview
 
 1. **Setup**: Define policies using `php artisan make:policy`, register them in `AuthServiceProvider`, and map methods like `update` or `delete`.
 2. **Directives**: Use `@can`, `@cannot`, and `@canany` in your templates for conditional rendering.

@@ -19,7 +19,7 @@ wp_id: 8659
 
 [**SplFixedArray**](https://www.php.net/manual/en/class.splfixedarray.php) and **Standard Arrays** are two ways to store sequential data in PHP, but they serve different needs. Here's the key difference: **SplFixedArray** is a fixed-size, memory-efficient structure, while **Standard Arrays** are flexible, dynamic, and can handle mixed key types.
 
-### Key Takeaways:
+## Key Takeaways:
 
 - **SplFixedArray**:
   - Uses less memory (30-40% savings for large datasets).
@@ -30,7 +30,7 @@ wp_id: 8659
   - Better for small datasets or when flexibility is needed.
   - Consumes more memory due to its hash table-like structure.
 
-### Quick Comparison:
+## Quick Comparison:
 
 | Feature | SplFixedArray | Standard Array |
 | --- | --- | --- |

@@ -23,7 +23,7 @@ Caching a request body in Spring Boot lets you read it multiple times without er
 - **Solution**: Use `ContentCachingRequestWrapper` to cache the body in a filter.
 - **Benefits**: Enables multiple reads, simplifies debugging, and integrates with Spring's filter chain.
 
-### Quick Steps:
+## Quick Steps:
 
 1. **Create a Filter**: Wrap incoming requests with `ContentCachingRequestWrapper`.
 2. **Access Cached Content**: Use `getContentAsByteArray()` in controllers or services.

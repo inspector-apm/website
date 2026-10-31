@@ -10,7 +10,7 @@ author: "Valerio Barbera"
 category: "Application monitoring"
 categories: ["Application monitoring", "Monitoring", "Product Updates", "SaaS"]
 tags: ["Laravel", "PHP", "monitoring", "software development"]
-description: "NewRelic is not compatible with Laravel Octane. Learn how monitor your Laravel application with Octane using..."
+description: "NewRelic is not compatible with Laravel Octane. Learn how to monitor your Laravel Octane application with Inspector."
 focus_keyword: "Laravel Octane"
 featured_image: "../images/newrelic-alternative-for-monitoring-laravel-octane/featured.jpg"
 wp_id: 6238

@@ -25,7 +25,7 @@ The [Laravel](/laravel/) logging system helps you track application events and e
 - **Customization**: Use the `tap` option to modify log formats or behaviors.
 - **Advanced Tools**: Integrate with services like [Inspector](/) for real-time monitoring and debugging.
 
-### Quick Comparison of Log Drivers
+## Quick Comparison of Log Drivers
 
 | Driver | Purpose | Best Use Case |
 | --- | --- | --- |

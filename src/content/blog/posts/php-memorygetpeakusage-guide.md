@@ -19,7 +19,7 @@ wp_id: 8506
 
 **Want to optimize your** [**PHP**](https://en.wikipedia.org/wiki/PHP) **application's memory usage?** The `memory_get_peak_usage()` function is your go-to tool for identifying peak memory consumption and improving performance. This guide covers everything you need to know, from basic usage to advanced tips.
 
-### Key Takeaways:
+## Key Takeaways:
 
 - **What it does**: Tracks the highest memory usage during script execution.
 - **Why it matters**: Helps prevent crashes, reduce costs, and improve scalability.
@@ -29,7 +29,7 @@ wp_id: 8506
 - **Comparison**: Unlike `memory_get_usage()`, this function tracks peak usage, ideal for spotting bottlenecks.
 - **Optimization tips**: Monitor high-memory operations, use lazy loading, and balance memory with performance.
 
-### Quick Example:
+## Quick Example:
 
 ```php
 $peakMemory = memory_get_peak_usage(true);

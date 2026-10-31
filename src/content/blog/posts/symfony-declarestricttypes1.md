@@ -19,13 +19,13 @@ wp_id: 8657
 
 **Want to write better, bug-free PHP code in** [**Symfony**](https://symfony.com/)**?** Start using `declare(strict_types=1)` at the top of your files. This enforces strict type checking, preventing PHP from automatically converting data types and catching type-related errors early.
 
-### Why use `strict_types` in Symfony?
+## Why use `strict_types` in Symfony?
 
 - **Avoid Bugs**: Eliminates automatic type conversions that can lead to unexpected behavior.
 - **Clearer Code**: Makes function inputs and outputs explicit, improving readability.
 - **Better Tools**: Enhances IDE support, static analysis, and debugging.
 
-### How to implement it:
+## How to implement it:
 
 1. Add `declare(strict_types=1);` at the very beginning of every PHP file.
 2. Use strict type hints (`int`, `string`, `?array`, etc.) for function parameters and return values.

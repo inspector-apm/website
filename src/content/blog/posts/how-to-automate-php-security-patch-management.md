@@ -19,13 +19,13 @@ wp_id: 8464
 
 Keeping PHP applications secure is critical, especially since **77.4% of websites** using server-side programming rely on PHP. Unpatched vulnerabilities cause **60% of data breaches**, and in 2022, **65% of PHP-based websites** ran outdated versions. The solution? Automating patch management.
 
-### Key Benefits of Automation:
+## Key Benefits of Automation:
 
 - **90% faster patch deployment** (Ponemon Institute).
 - **Reduced human errors** and downtime.
 - **Real-time vulnerability detection** with tools like [Composer](https://getcomposer.org/), and [Ansible](https://www.redhat.com/en/technologies/management/ansible).
 
-### Quick Overview of the Process:
+## Quick Overview of the Process:
 
 1. **Select Tools**: Use Composer for dependency updates, OWASP Dependency-Check for scans, and Ansible for automated deployments.
 2. **Create a Workflow**: Automate scanning, testing, and deployment in phases (development → staging → production).

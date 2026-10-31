@@ -186,7 +186,7 @@ Here’s what you should keep in mind when defining form fields:
 
 This example shows how to efficiently collect and store settings like the site name, email, and a feature toggle option.
 
-###### sbb-itb-f1cefd0
+#### sbb-itb-f1cefd0
 
 ## Set Up Routes and Menus
 

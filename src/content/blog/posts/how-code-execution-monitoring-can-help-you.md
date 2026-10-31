@@ -115,6 +115,6 @@ I'm one of those developers who prefer not to complicate my life with infrastruc
 
 As a software developer, I have long searched for code monitoring systems that are totally “code-driven”, to stay as independent as possible from infrastructures, whether they are managed with automation platforms or even under the control of teams outside my company.
 
-For several months I shared this idea by giving talks at events of the Italian PHP community, and discussing with other CTOs. On this page I have collected the reviews of the developers who have tried Inspector: https://www.inspector.dev/testimonials
+For several months I shared this idea by giving talks at events of the Italian PHP community, and discussing with other CTOs. On this page I have collected the reviews of the developers who have tried Inspector: /testimonials/
 
 Thanks to Inspector you can make sure your application is working properly, make sure you’re always delivering a good customer experience even while you are making changes to it with a simple lightweight software library that you can install in your application like any other dependencies.

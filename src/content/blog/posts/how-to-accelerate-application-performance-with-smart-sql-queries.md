@@ -18,7 +18,7 @@ featured_image_alt: "MySQL performance optimizations"
 wp_id: 2114
 ---
 
-### Why so many performance issues are caused by the database?
+## Why so many performance issues are caused by the database?
 
 We often forget that each request or process performed by the application is not "atomic". If one request is slow, it’s likely to affect othersì requests running in parallel.
 

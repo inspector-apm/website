@@ -20,6 +20,9 @@ export const getStaticPaths = (async ({ paginate }) => {
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
 const { page } = Astro.props;
+
+const intro =
+  'Tutorials and practical advice on monitoring, performance and scaling PHP applications in production.';
 ---
 
 <MainLayout
@@ -28,12 +31,13 @@ const { page } = Astro.props;
       ? 'Blog | Inspector'
       : `Blog, page ${page.currentPage} | Inspector`
   }
-  description="Tutorials and practical advice on monitoring, performance and scaling PHP applications in production."
+  description={
+    page.currentPage === 1
+      ? intro
+      : `${intro} Page ${page.currentPage} of ${page.lastPage}.`
+  }
 >
-  <PageHero
-    title="The Inspector blog"
-    lead="Tutorials and practical advice on monitoring, performance and scaling PHP applications in production."
-  />
+  <PageHero title="The Inspector blog" lead={intro} />
 
   <Section>
     <div class="posts">
