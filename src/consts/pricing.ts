@@ -77,11 +77,27 @@ export const FREE_TRANSACTIONS = PLANS[0].transactions;
 export const FREE_NOTE = `Free up to ${FREE_TRANSACTIONS} transactions a month. No credit card.`;
 
 export const INCLUDED = [
-  'Unlimited events',
-  'Unlimited hosts and apps',
-  'AI Bug Fix',
-  'Live chat support',
-];
+  {
+    icon: 'activity',
+    title: 'Unlimited events',
+    text: 'Every query, exception and segment inside a transaction is included. Add as much detail as you need, and your bill stays the same.',
+  },
+  {
+    icon: 'hdd-stack',
+    title: 'Unlimited hosts and apps',
+    text: 'Monitor every server and every application from one account. A new host or project costs nothing, because only transactions count.',
+  },
+  {
+    icon: 'bug',
+    title: 'AI Bug Fix',
+    text: 'Connect your repository, and Inspector sends you a proposed fix for production errors, ready to review.',
+  },
+  {
+    icon: 'chat-dots',
+    title: 'Live chat support',
+    text: 'Chat one-to-one with the team that builds Inspector, whether this is your first monitoring tool or you run complex applications.',
+  },
+] as const;
 
 export const PRICING_REASONS = [
   {

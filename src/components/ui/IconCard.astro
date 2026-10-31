@@ -7,20 +7,23 @@ interface Props {
   title: string;
   text: string;
   theme?: 'ink';
+  heading?: 'h2' | 'h3';
 }
 
-const { icon, title, text, theme } = Astro.props;
+const { icon, title, text, theme, heading: Heading = 'h2' } = Astro.props;
 ---
 
 <article class="card iconCard" data-theme={theme}>
   <span class="tile">
     <Icon name={icon} />
   </span>
-  <h2 class="h3 title">{title}</h2>
+  <Heading class="h3 title">{title}</Heading>
   <p class="text">{text}</p>
-  <div class="action">
-    <slot />
-  </div>
+  {Astro.slots.has('default') && (
+    <div class="action">
+      <slot />
+    </div>
+  )}
 </article>
 
 <style lang="scss">

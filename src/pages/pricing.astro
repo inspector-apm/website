@@ -6,7 +6,6 @@ import Cta from '~components/sections/Cta.astro';
 import PageHero from '~components/sections/PageHero.astro';
 import Section from '~components/sections/Section.astro';
 import Button from '~components/ui/Button.astro';
-import Checks from '~components/ui/Checks.astro';
 import IconCard from '~components/ui/IconCard.astro';
 import RowList from '~components/ui/RowList.astro';
 import { LINKS, SUPPORT_EMAIL } from '~consts/links';
@@ -82,13 +81,19 @@ function rowsFor(period: 'monthly' | 'yearly'): Cell[][] {
         Prices in EUR. Transactions are per month. Extra 50K is the price of
         each additional slot of 50K transactions with usage-based billing.
       </p>
-
-      <div class="included">
-        <h2 class="h3 includedTitle">Included in every plan</h2>
-        <Checks items={INCLUDED} />
-      </div>
     </div>
   </PageHero>
+
+  <Section
+    title="Included in every plan"
+    lead="Many monitoring tools bill per host or per event, then charge more for AI debugging and better support. With Inspector, all of this is part of every plan, including Free."
+  >
+    <div class="included">
+      {INCLUDED.map((item) => (
+        <IconCard heading="h3" {...item} />
+      ))}
+    </div>
+  </Section>
 
   <Section title="Why you pay for transactions">
     <RowList
@@ -198,20 +203,19 @@ function rowsFor(period: 'monthly' | 'yearly'): Cell[][] {
     display: none;
   }
 
-  .included {
-    margin-top: var(--space-4);
-  }
-
-  .includedTitle {
-    margin-bottom: var(--space-3);
-  }
-
+  .included,
   .offers {
     display: grid;
     gap: var(--space-4);
 
     @include media-min('sm') {
       grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  .included {
+    @include media-min('lg') {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
     }
   }
 
