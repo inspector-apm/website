@@ -18,6 +18,3 @@ export const LINKS = {
 } as const;
 
 export const SUPPORT_EMAIL = 'support@inspector.dev';
-
-// The form stays disabled until this holds the provider's form action URL.
-export const NEWSLETTER_ENDPOINT = '';

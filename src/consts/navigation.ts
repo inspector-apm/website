@@ -45,11 +45,6 @@ export const NAV_GROUPS: NavGroup[] = [
         href: '/blog/',
       },
       {
-        name: 'Newsletter',
-        description: 'Tutorials on building AI agents in PHP.',
-        href: '/newsletter/',
-      },
-      {
         name: 'Testimonials',
         description: 'What teams say about Inspector.',
         href: '/testimonials/',

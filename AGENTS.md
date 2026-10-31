@@ -11,7 +11,7 @@ Never use custom/hardcoded values for spacing, radius, colors, shadows, z-index,
 Always use the predefined CSS custom properties from `src/styles/variables/`.
 
 ### Spacing (`src/styles/variables/spacing.scss`)
-Use `--space-{1-9}`: 4, 8, 12, 16, 24, 32, 48, 64 and 96px, plus `--space-2-5` (10px) for button and field padding.
+Use `--space-{1-9}`: 4, 8, 12, 16, 24, 32, 48, 64 and 96px, plus `--space-2-5` (10px) for button padding.
 
 ### Typography (`src/styles/variables/type.scss`)
 Use `--font-size-*`, named after the type styles in the design system. Never write a raw font size.

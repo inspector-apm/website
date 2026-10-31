@@ -39,7 +39,7 @@ const { title, headers, rows, comfortable } = Astro.props;
             >
               {kind === 'badge' ? (
                 <StatusBadge value={text} />
-              ) : kind === 'action' ? (
+              ) : kind === 'action' && href ? (
                 <Button
                   text={text}
                   href={href}
