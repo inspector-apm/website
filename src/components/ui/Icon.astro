@@ -1,6 +1,18 @@
 ---
+export type IconName =
+  | 'activity'
+  | 'check-lg'
+  | 'chevron-down'
+  | 'chevron-right'
+  | 'clipboard'
+  | 'database'
+  | 'list'
+  | 'plug'
+  | 'shield-check'
+  | 'x-lg';
+
 interface Props {
-  name: string;
+  name: IconName;
 }
 
 const icons = import.meta.glob<string>('../../assets/icons/*.svg', {
@@ -18,7 +30,7 @@ const { name } = Astro.props;
   set:html={icons[`../../assets/icons/${name}.svg`]}
 />
 
-<style>
+<style lang="scss">
   .icon {
     display: inline-flex;
     flex: none;

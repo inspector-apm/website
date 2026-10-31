@@ -1,36 +1,18 @@
 ---
+import Section from '~components/sections/Section.astro';
 import RowList from '~components/ui/RowList.astro';
-import { FRAMEWORKS, NEURON_COMMAND } from '~consts/frameworks';
+import { INTEGRATIONS } from '~consts/frameworks';
 
-const rows = [
-  ...FRAMEWORKS.map(({ slug, name, packageCommand }) => ({
-    label: name,
-    value: packageCommand,
-    href: `/${slug}/`,
-  })),
-  { label: 'Neuron AI', value: NEURON_COMMAND, href: '/neuron-ai/' },
-];
+const rows = INTEGRATIONS.map(({ name, href, command }) => ({
+  label: name,
+  value: command,
+  href,
+}));
 ---
 
-<section class="section">
-  <div class="container">
-    <h2>Built for the PHP frameworks you use</h2>
-    <p class="lead intro">
-      Each integration is one Composer package, built for how your framework
-      works.
-    </p>
-    <div class="list">
-      <RowList rows={rows} mono="value" />
-    </div>
-  </div>
-</section>
-
-<style>
-  .intro {
-    margin-top: var(--space-3);
-  }
-
-  .list {
-    margin-top: var(--space-6);
-  }
-</style>
+<Section
+  title="Built for the PHP frameworks you use"
+  lead="Each integration is one Composer package, built for how your framework works."
+>
+  <RowList rows={rows} mono="value" />
+</Section>

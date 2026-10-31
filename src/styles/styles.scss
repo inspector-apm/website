@@ -3,8 +3,9 @@
 @use './variables/radius';
 @use './variables/shadow';
 @use './variables/layout';
-@use './variables/breakpoint';
+@use './variables/type';
 @use './variables/z-index';
 @use './partials/normalize';
 @use './partials/typography';
 @use './partials/global';
+@use './partials/code';

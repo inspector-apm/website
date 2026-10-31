@@ -24,13 +24,13 @@ const { rows, mono } = Astro.props;
   ))}
 </dl>
 
-<style>
+<style lang="scss">
   .list {
     border-bottom: 1px solid var(--line);
   }
 
   .row {
-    gap: var(--space-1);
+    row-gap: var(--space-1);
     align-items: baseline;
     padding-block: var(--space-3);
     border-top: 1px solid var(--line);
@@ -46,7 +46,7 @@ const { rows, mono } = Astro.props;
 
   .mono {
     font-family: var(--font-mono);
-    font-size: 0.875rem;
+    font-size: var(--font-size-code);
     overflow-wrap: anywhere;
   }
 </style>

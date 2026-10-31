@@ -4,6 +4,7 @@ import AgentSession from '~components/product/AgentSession.astro';
 import CodeBlock from '~components/product/CodeBlock.astro';
 import Cta from '~components/sections/Cta.astro';
 import PageHero from '~components/sections/PageHero.astro';
+import Section from '~components/sections/Section.astro';
 import Steps from '~components/sections/Steps.astro';
 import Button from '~components/ui/Button.astro';
 import Checks from '~components/ui/Checks.astro';
@@ -48,75 +49,50 @@ const webSteps = [
     <TextLink slot="actions" text="Read the MCP docs" href={LINKS.mcpDocs} />
   </PageHero>
 
-  <section class="section">
-    <div class="container">
-      <h2>Connect in the terminal</h2>
-      <p class="lead intro">
-        Create an API key in your Inspector dashboard, then add the server to
-        your agent. Any other MCP client needs the same two things: the server
-        URL and your API key.
-      </p>
-      <div class="configs">
-        {CLIENT_CONFIGS.map(({ caption, code, lang }) => (
-          <CodeBlock caption={caption} code={code} lang={lang} />
-        ))}
-      </div>
+  <Section
+    title="Connect in the terminal"
+    lead="Create an API key in your Inspector dashboard, then add the server to your agent. Any other MCP client needs the same two things: the server URL and your API key."
+  >
+    <div class="configs">
+      {CLIENT_CONFIGS.map(({ caption, code, lang }) => (
+        <CodeBlock caption={caption} code={code} lang={lang} />
+      ))}
     </div>
-  </section>
+  </Section>
 
-  <section class="section">
-    <div class="container">
-      <h2>Connect on the web</h2>
-      <p class="lead intro">
-        Web agents use OAuth, so there is no key to paste. This example uses
-        Claude. ChatGPT and other web agents follow the same pattern under
-        different menu names.
-      </p>
-      <div class="steps">
-        <Steps steps={webSteps} />
-      </div>
-    </div>
-  </section>
+  <Section
+    title="Connect on the web"
+    lead="Web agents use OAuth, so there is no key to paste. This example uses Claude. ChatGPT and other web agents follow the same pattern under different menu names."
+  >
+    <Steps steps={webSteps} />
+  </Section>
 
-  <section class="section">
-    <div class="container">
-      <h2>What your agent can do</h2>
-      <p class="lead intro">
-        The server exposes eight tools. Your agent calls them when it needs
-        production data.
-      </p>
-      <div class="tools">
-        <RowList rows={MCP_TOOLS} mono="label" />
-      </div>
-    </div>
-  </section>
+  <Section
+    title="What your agent can do"
+    lead={`The server exposes ${MCP_TOOLS.length} tools. Your agent calls them when it needs production data.`}
+  >
+    <RowList rows={MCP_TOOLS} mono="label" />
+  </Section>
 
-  <section class="section" data-theme="ink">
-    <div class="container">
-      <h2>You stay in control of production</h2>
-      <p class="lead intro">
-        The authorization screen shows what an agent can access before you
-        approve it.
-      </p>
-      <div class="split access">
-        <div class="stack">
-          <div>
-            <h3>What it can read</h3>
-            <div class="list">
-              <Checks items={MCP_READS} />
-            </div>
-          </div>
-          <div>
-            <h3>What it can't do</h3>
-            <div class="list">
-              <Checks items={MCP_LIMITS} />
-            </div>
-          </div>
+  <Section
+    theme="ink"
+    title="You stay in control of production"
+    lead="The authorization screen shows what an agent can access before you approve it."
+  >
+    <div class="split access">
+      <div class="stack">
+        <div>
+          <h3>What it can read</h3>
+          <Checks class="list" items={MCP_READS} />
         </div>
-        <AgentSession {...PHONE_SESSION} raised />
+        <div>
+          <h3>What it can't do</h3>
+          <Checks class="list" items={MCP_LIMITS} />
+        </div>
       </div>
+      <AgentSession {...PHONE_SESSION} raised />
     </div>
-  </section>
+  </Section>
 
   <Cta />
 </MainLayout>
@@ -124,14 +100,9 @@ const webSteps = [
 <style lang="scss">
   @use '~styles/mixins/media' as *;
 
-  .intro {
-    margin-top: var(--space-3);
-  }
-
   .configs {
     display: grid;
     gap: var(--space-4);
-    margin-top: var(--space-6);
   }
 
   .configs > :global(:first-child) {
@@ -144,14 +115,8 @@ const webSteps = [
     }
   }
 
-  .steps,
-  .tools {
-    margin-top: var(--space-6);
-  }
-
   .access {
     align-items: start;
-    margin-top: var(--space-6);
   }
 
   .stack {

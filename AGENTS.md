@@ -11,7 +11,11 @@ Never use custom/hardcoded values for spacing, radius, colors, shadows, z-index,
 Always use the predefined CSS custom properties from `src/styles/variables/`.
 
 ### Spacing (`src/styles/variables/spacing.scss`)
-Use `--space-{1-9}`: 4, 8, 12, 16, 24, 32, 48, 64 and 96px.
+Use `--space-{1-9}`: 4, 8, 12, 16, 24, 32, 48, 64 and 96px, plus `--space-2-5` (10px) for button and field padding.
+
+### Typography (`src/styles/variables/type.scss`)
+Use `--font-size-*`, named after the type styles in the design system. Never write a raw font size.
+Use the shared classes in `src/styles/partials/typography.scss` before writing local text rules: `.lead`, `.note`, `.caption`, `.h3` and `.plainHeading`.
 
 ### Border Radius (`src/styles/variables/radius.scss`)
 Use `--radius-sm`, `--radius-md`, `--radius-full`.
@@ -30,11 +34,24 @@ Use `--shadow-card`, `--shadow-menu`, `--z-index-menu`, `--container` and `--mea
 - Orange means look here: the primary action or the anomaly in a timeline, and nothing else.
 - Put text on `--orange` in `--on-orange`, never white. Use `--accent-text` when orange has to be text.
 - Canvas is the application, Ink is the agent.
-- A card is the product: cards hold product UI, and marketing copy sits directly on `--ground`.
+- A card is the product: cards hold product UI, customer quotes and the offers beside the pricing table and articles, and other marketing copy sits directly on `--ground`.
 - Sora is for what people write. JetBrains Mono is only for what a machine prints.
 - Rebuild product visuals in HTML from `src/components/product/`. Use no stock images or illustrations.
 - Never invent a number, customer, quote or benchmark. Figures in `src/consts/samples.ts` are example data.
 - Promise only what ships. AI Bug Fix proposes a fix, and a coding agent connected through the MCP server changes the code.
+
+## Components
+
+- Build every page section with `Section`, and every hero or closing call to action with `PageHero`. Never write the section and container markup by hand.
+- Spacing between a heading, its lead and the section body belongs to `Section` and `typography.scss`, not to pages.
+- To let a parent place a component, accept `class` and apply it to the root. Don't add a wrapper div only to set a margin.
+- Keep facts in `src/consts`. If a price, a count or a list of names appears in copy, build the sentence from the const.
+
+## Blog
+
+- Posts are Markdown in `src/content/blog/posts`, with images in `src/content/blog/images/<slug>/`.
+- Article URLs stay at the root (`/slug/`) to match the old WordPress URLs. A new page must not reuse a post's slug.
+- Article text is styled by `src/components/blog/Prose.astro`, and code colours come from `src/styles/partials/code.scss`.
 
 ## Breakpoints - use SCSS mixins
 

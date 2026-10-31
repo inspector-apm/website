@@ -1,20 +1,14 @@
 ---
 import Button from '~components/ui/Button.astro';
 import Icon from '~components/ui/Icon.astro';
+import Logo from '~components/ui/Logo.astro';
 import { LINKS } from '~consts/links';
 import { NAV_GROUPS } from '~consts/navigation';
 ---
 
 <header class="header" data-theme="ink">
   <div class="container bar">
-    <a class="logo" href="/" aria-label="Inspector home">
-      <img
-        src="/images/logo-horizontal-white-transparent.png"
-        width="130"
-        height="38"
-        alt="Inspector"
-      />
-    </a>
+    <Logo />
 
     <nav class="desktopNav" aria-label="Main">
       <ul class="links">
@@ -32,7 +26,7 @@ import { NAV_GROUPS } from '~consts/navigation';
                   <li>
                     <a class="entry" href={href}>
                       <strong>{name}</strong>
-                      <span>{description}</span>
+                      <span class="caption">{description}</span>
                     </a>
                   </li>
                 ))}
@@ -80,7 +74,7 @@ import { NAV_GROUPS } from '~consts/navigation';
     <div class="container">
       {NAV_GROUPS.map(({ label, items }) => (
         <section class="mobileGroup">
-          <h2 class="mobileLabel">{label}</h2>
+          <h2 class="plainHeading caption mobileLabel">{label}</h2>
           <ul>
             {items.map(({ name, href }) => (
               <li>
@@ -121,7 +115,7 @@ import { NAV_GROUPS } from '~consts/navigation';
   .header {
     position: relative;
     z-index: var(--z-index-menu);
-    font-size: 0.875rem;
+    font-size: var(--font-size-small);
     line-height: 1.5;
   }
 
@@ -130,10 +124,6 @@ import { NAV_GROUPS } from '~consts/navigation';
     gap: var(--space-5);
     align-items: center;
     min-height: var(--space-8);
-  }
-
-  .logo {
-    flex: none;
   }
 
   .desktopNav {
@@ -154,7 +144,7 @@ import { NAV_GROUPS } from '~consts/navigation';
     cursor: pointer;
 
     display: inline-flex;
-    gap: 0.375rem;
+    gap: var(--space-1);
     align-items: center;
 
     padding: var(--space-2) var(--space-3);
@@ -182,7 +172,7 @@ import { NAV_GROUPS } from '~consts/navigation';
   }
 
   .chevron {
-    font-size: 0.625rem;
+    font-size: var(--font-size-caption);
     color: var(--text-muted);
   }
 
@@ -215,12 +205,6 @@ import { NAV_GROUPS } from '~consts/navigation';
     strong {
       font-weight: 500;
     }
-
-    span {
-      font-size: 0.75rem;
-      line-height: 1.4;
-      color: var(--text-muted);
-    }
   }
 
   .tools {
@@ -239,7 +223,7 @@ import { NAV_GROUPS } from '~consts/navigation';
     border: 0;
     border-radius: var(--radius-md);
 
-    font-size: 1.5rem;
+    font-size: var(--font-size-title-lg);
     color: var(--text);
 
     background: none;
@@ -281,14 +265,7 @@ import { NAV_GROUPS } from '~consts/navigation';
   }
 
   .mobileLabel {
-    max-width: none;
     padding-block: var(--space-1);
-
-    font-size: 0.75rem;
-    font-weight: 400;
-    line-height: 1.4;
-    color: var(--text-muted);
-    letter-spacing: 0;
   }
 
   .mobileLink {
@@ -296,7 +273,7 @@ import { NAV_GROUPS } from '~consts/navigation';
 
     padding-block: var(--space-2);
 
-    font-size: 1rem;
+    font-size: var(--font-size-body);
     color: var(--text);
     text-decoration: none;
   }
@@ -319,6 +296,16 @@ import { NAV_GROUPS } from '~consts/navigation';
 
 <script>
   const menus = document.querySelectorAll<HTMLDetailsElement>('[data-menu]');
+  const toggle = document.querySelector<HTMLButtonElement>('[data-nav-toggle]');
+  const mobileNav = document.querySelector<HTMLElement>('#mobileNav');
+
+  function setMobileNav(open: boolean) {
+    if (!toggle || !mobileNav) return;
+
+    mobileNav.hidden = !open;
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  }
 
   for (const menu of menus) {
     menu.addEventListener('toggle', () => {
@@ -328,31 +315,41 @@ import { NAV_GROUPS } from '~consts/navigation';
         if (other !== menu) other.open = false;
       }
     });
+
+    menu.addEventListener('focusout', (event) => {
+      const next = event.relatedTarget;
+
+      if (next instanceof Node && !menu.contains(next)) menu.open = false;
+    });
   }
 
   document.addEventListener('click', (event) => {
+    const target = event.target as Element;
+
     for (const menu of menus) {
-      if (!menu.contains(event.target as Node)) menu.open = false;
+      if (!menu.contains(target)) menu.open = false;
     }
+
+    if (!target.closest('#mobileNav, [data-nav-toggle]')) setMobileNav(false);
   });
 
   document.addEventListener('keydown', (event) => {
     if (event.key !== 'Escape') return;
 
-    for (const menu of menus) menu.open = false;
+    for (const menu of menus) {
+      if (!menu.open) continue;
+
+      menu.open = false;
+      menu.querySelector('summary')?.focus();
+    }
+
+    if (mobileNav && !mobileNav.hidden) {
+      setMobileNav(false);
+      toggle?.focus();
+    }
   });
 
-  const toggle = document.querySelector<HTMLButtonElement>('[data-nav-toggle]');
-  const mobileNav = document.querySelector<HTMLElement>('#mobileNav');
-
   toggle?.addEventListener('click', () => {
-    if (!mobileNav) return;
-
-    mobileNav.hidden = !mobileNav.hidden;
-    toggle.setAttribute('aria-expanded', String(!mobileNav.hidden));
-    toggle.setAttribute(
-      'aria-label',
-      mobileNav.hidden ? 'Open menu' : 'Close menu',
-    );
+    setMobileNav(Boolean(mobileNav?.hidden));
   });
 </script>

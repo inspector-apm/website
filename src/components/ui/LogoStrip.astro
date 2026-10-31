@@ -1,0 +1,48 @@
+---
+interface Props {
+  logos: { name: string; logo: string; width: number; height: number }[];
+}
+
+const { logos } = Astro.props;
+---
+
+<ul class="logos">
+  {logos.map(({ name, logo, width, height }) => (
+    <li>
+      <img
+        src={`/images/customers/${logo}.webp`}
+        alt={name}
+        width={width}
+        height={height}
+        loading="lazy"
+      />
+    </li>
+  ))}
+</ul>
+
+<style lang="scss">
+  @use '~styles/mixins/media' as *;
+
+  .logos {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-6) var(--space-5);
+    place-items: center start;
+
+    @include media-min('xs') {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    @include media-min('sm') {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    @include media-min('lg') {
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+    }
+  }
+
+  img {
+    height: auto;
+  }
+</style>

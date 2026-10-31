@@ -1,5 +1,4 @@
-:root,
-[data-theme='canvas'] {
+:root {
   // Grounds
   --ground: #f3f3f3;
   --surface: #fff;
@@ -29,13 +28,12 @@
   --on-status: #fff;
   --on-warn: #212529;
 
-  // Logo only
-  --navy: #283a5e;
-
   // Code
   --code-keyword: #00f;
   --code-string: #a31515;
   --code-comment: #008000;
+  --code-function: #795e26;
+  --code-constant: #1a6b82;
   --diff-add: #beffba;
   --diff-del: #ffd4d4;
 }
@@ -55,6 +53,8 @@
   --code-keyword: #569cd6;
   --code-string: #ce9178;
   --code-comment: #6a9955;
+  --code-function: #dcdcaa;
+  --code-constant: #4ec9b0;
   --diff-add: #1f3b2c;
   --diff-del: #442a2c;
 

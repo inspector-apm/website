@@ -4,12 +4,13 @@ import Icon from '~components/ui/Icon.astro';
 interface Props {
   items: string[];
   columns?: boolean;
+  class?: string;
 }
 
-const { items, columns } = Astro.props;
+const { items, columns, class: className } = Astro.props;
 ---
 
-<ul class:list={['checks', { columns }]}>
+<ul class:list={['checks', { columns }, className]}>
   {items.map((item) => (
     <li class="item">
       <span class="mark">

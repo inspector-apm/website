@@ -14,14 +14,14 @@ function toneOf(result: string) {
 
 <span class:list={['badge', toneOf(value)]}>{value}</span>
 
-<style>
+<style lang="scss">
   .badge {
     display: inline-block;
 
     padding: 0.125rem var(--space-2);
     border-radius: var(--radius-sm);
 
-    font-size: 0.75rem;
+    font-size: var(--font-size-caption);
     font-weight: 600;
     line-height: 1rem;
   }

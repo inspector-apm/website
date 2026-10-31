@@ -6,6 +6,7 @@ interface Props {
   size?: 'medium' | 'small';
   type?: HTMLButtonElement['type'];
   disabled?: boolean;
+  class?: string;
 }
 
 const {
@@ -15,12 +16,13 @@ const {
   size = 'medium',
   type = 'button',
   disabled = false,
+  class: className,
 } = Astro.props;
 const Element = href ? 'a' : 'button';
 ---
 
 <Element
-  class:list={['button', variant, size]}
+  class:list={['button', variant, size, className]}
   href={href}
   type={href ? undefined : type}
   disabled={disabled}
@@ -28,7 +30,7 @@ const Element = href ? 'a' : 'button';
   {text}
 </Element>
 
-<style>
+<style lang="scss">
   .button {
     display: inline-flex;
     align-items: center;
@@ -47,13 +49,13 @@ const Element = href ? 'a' : 'button';
   }
 
   .medium {
-    padding: 0.625rem 0.9375rem;
-    font-size: 0.9375rem;
+    padding: var(--space-2-5) var(--space-4);
+    font-size: var(--font-size-button);
   }
 
   .small {
     padding: var(--space-1) var(--space-2);
-    font-size: 0.75rem;
+    font-size: var(--font-size-caption);
   }
 
   .primary {

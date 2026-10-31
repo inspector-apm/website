@@ -6,9 +6,10 @@ export const TERMINAL_CLIENTS = [
   'OpenCode',
   'Cursor',
   'VS Code',
+  'Kilo',
 ];
 
-export const WEB_CLIENTS = ['Claude', 'ChatGPT', 'DeepSeek'];
+export const WEB_CLIENTS = ['Claude', 'ChatGPT', 'Gemini', 'LibreChat'];
 
 export const CLIENT_CONFIGS = [
   {

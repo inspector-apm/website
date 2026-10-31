@@ -6,39 +6,27 @@ const { title, file, explanation, removed, added } = FIX_PROPOSAL;
 ---
 
 <article class="card">
-  <p class="label">Bug fix proposal</p>
+  <p class="caption">Bug fix proposal</p>
   <h3>{title}</h3>
   <p class="text" set:html={explanation} />
   <Diff file={file} removed={removed} added={added} />
 </article>
 
-<style>
+<style lang="scss">
   .card {
     display: grid;
     gap: var(--space-3);
-
-    min-width: 0;
     padding: var(--space-5);
-    border-radius: var(--radius-md);
-
-    background-color: var(--surface);
-    box-shadow: var(--shadow-card);
-  }
-
-  .label {
-    font-size: 0.75rem;
-    line-height: 1.4;
-    color: var(--text-muted);
   }
 
   .text {
-    font-size: 0.875rem;
+    font-size: var(--font-size-small);
     line-height: 1.6;
     color: var(--text-muted);
   }
 
   .text :global(code) {
-    font-size: 0.8125rem;
+    font-size: var(--font-size-code-sm);
     color: var(--text);
   }
 </style>

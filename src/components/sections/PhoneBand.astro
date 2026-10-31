@@ -1,30 +1,35 @@
 ---
 import AgentSession from '~components/product/AgentSession.astro';
+import Section from '~components/sections/Section.astro';
 import Checks from '~components/ui/Checks.astro';
+import { WEB_CLIENTS } from '~consts/mcp';
 import { PHONE_SESSION } from '~consts/samples';
+
+const webClients = new Intl.ListFormat('en-GB', {
+  type: 'disjunction',
+}).format(WEB_CLIENTS);
 ---
 
-<section class="section" data-theme="ink">
-  <div class="container band">
+<Section theme="ink">
+  <div class="band">
     <div class="copy">
       <h2>Investigate, fix and release from your phone</h2>
-      <p class="lead intro">
-        Connect Inspector to Claude, ChatGPT or DeepSeek on the web. You sign in
-        and approve the connection, with no API key to paste.
+      <p class="lead">
+        Connect Inspector to {webClients} on the web. You sign in and approve
+        the connection, with no API key to paste.
       </p>
-      <div class="list">
-        <Checks
-          items={[
-            'Read-only access to errors, transactions and performance data',
-            'No access to billing, team members or API keys',
-            'Only the apps you have access to',
-          ]}
-        />
-      </div>
+      <Checks
+        class="list"
+        items={[
+          'Read-only access to errors, transactions and performance data',
+          'No access to billing, team members or API keys',
+          'Only the apps you have access to',
+        ]}
+      />
     </div>
-    <AgentSession {...PHONE_SESSION} raised />
+    <AgentSession class="agent" {...PHONE_SESSION} raised />
   </div>
-</section>
+</Section>
 
 <style lang="scss">
   @use '~styles/mixins/media' as *;
@@ -36,10 +41,6 @@ import { PHONE_SESSION } from '~consts/samples';
 
   .band > * {
     min-width: 0;
-  }
-
-  .intro {
-    margin-top: var(--space-4);
   }
 
   .list {
@@ -57,7 +58,7 @@ import { PHONE_SESSION } from '~consts/samples';
       grid-column: span 6;
     }
 
-    .band > :global(section) {
+    .agent {
       grid-column: 8 / span 5;
     }
   }

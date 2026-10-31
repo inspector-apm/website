@@ -1,5 +1,6 @@
 ---
 import MainLayout from '~components/layouts/MainLayout.astro';
+import Section from '~components/sections/Section.astro';
 import Button from '~components/ui/Button.astro';
 import Checks from '~components/ui/Checks.astro';
 import { NEWSLETTER_ENDPOINT } from '~consts/links';
@@ -15,17 +16,15 @@ const benefits = [
   title="Newsletter: AI agents in PHP | Inspector"
   description="Tutorials, Neuron AI framework updates and practical strategies for building AI agents in PHP."
 >
-  <section class="section">
-    <div class="container split">
+  <Section>
+    <div class="split">
       <div>
         <h1>Learn to build AI agents in PHP</h1>
-        <p class="lead intro">
+        <p class="lead">
           The Neuron AI newsletter gives PHP developers tutorials, framework
           updates and practical advice for shipping agents to production.
         </p>
-        <div class="benefits">
-          <Checks items={benefits} />
-        </div>
+        <Checks class="benefits" items={benefits} />
       </div>
 
       <form
@@ -76,15 +75,11 @@ const benefits = [
         )}
       </form>
     </div>
-  </section>
+  </Section>
 </MainLayout>
 
 <style lang="scss">
   @use '~styles/mixins/media' as *;
-
-  .intro {
-    margin-top: var(--space-4);
-  }
 
   .benefits {
     margin-top: var(--space-5);
@@ -104,14 +99,14 @@ const benefits = [
     gap: var(--space-1);
     justify-self: stretch;
 
-    font-size: 0.875rem;
+    font-size: var(--font-size-small);
     line-height: 1.5;
   }
 
   input[type='text'],
   input[type='email'] {
     width: 100%;
-    padding: 0.625rem var(--space-3);
+    padding: var(--space-2-5) var(--space-3);
     border: 1px solid var(--line-strong);
     border-radius: var(--radius-md);
 
@@ -125,7 +120,7 @@ const benefits = [
     grid-template-columns: auto minmax(0, 1fr);
     gap: var(--space-2);
 
-    font-size: 0.875rem;
+    font-size: var(--font-size-small);
     line-height: 1.5;
     color: var(--text-muted);
   }

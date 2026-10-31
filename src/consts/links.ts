@@ -9,8 +9,6 @@ export const LINKS = {
   neuronStart: 'https://docs.neuron-ai.dev/overview/getting-started',
   neuronGitHub: 'https://github.com/neuron-core/neuron-ai',
   customerReview: 'https://www.youtube.com/watch?v=LPqMqWiJYkQ',
-  cicasTalk: 'https://www.youtube.com/watch?v=XEyG3YRZ3b0',
-  investorTalk: 'https://www.youtube.com/watch?v=0Gd0NVbHqg8',
   privacyPolicy: 'https://www.inspector.dev/privacy-policy.pdf',
   terms: 'https://www.inspector.dev/terms-and-conditions.pdf',
   linkedin: 'https://www.linkedin.com/company/inspector-srl',

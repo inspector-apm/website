@@ -1,0 +1,59 @@
+---
+import Icon from '~components/ui/Icon.astro';
+import type { IconName } from '~components/ui/Icon.astro';
+
+interface Props {
+  icon: IconName;
+  title: string;
+  text: string;
+  theme?: 'ink';
+}
+
+const { icon, title, text, theme } = Astro.props;
+---
+
+<article class="card iconCard" data-theme={theme}>
+  <span class="tile">
+    <Icon name={icon} />
+  </span>
+  <h2 class="h3 title">{title}</h2>
+  <p class="text">{text}</p>
+  <div class="action">
+    <slot />
+  </div>
+</article>
+
+<style lang="scss">
+  .iconCard {
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-5);
+  }
+
+  .tile {
+    display: inline-flex;
+    align-self: flex-start;
+
+    padding: var(--space-3);
+    border-radius: var(--radius-md);
+
+    font-size: var(--font-size-title-lg);
+    color: var(--ground);
+
+    background-color: var(--text);
+  }
+
+  .title {
+    margin-top: var(--space-4);
+  }
+
+  .text {
+    margin-top: var(--space-2);
+    color: var(--text-muted);
+  }
+
+  .action {
+    margin-top: auto;
+    padding-top: var(--space-5);
+  }
+</style>

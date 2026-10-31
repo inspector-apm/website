@@ -1,4 +1,4 @@
-import { FRAMEWORKS } from '~consts/frameworks';
+import { INTEGRATIONS, NEURON_PATH } from '~consts/frameworks';
 
 export interface NavItem {
   name: string;
@@ -10,8 +10,6 @@ export interface NavGroup {
   label: string;
   items: NavItem[];
 }
-
-const NEURON_PATH = '/neuron-ai/';
 
 export const NAV_GROUPS: NavGroup[] = [
   {
@@ -32,31 +30,20 @@ export const NAV_GROUPS: NavGroup[] = [
         description: 'Get a proposed fix for production errors.',
         href: '/ai-bug-fixer/',
       },
-      {
-        name: 'Neuron AI framework',
-        description: 'Build AI agents in PHP, monitored by Inspector.',
-        href: NEURON_PATH,
-      },
     ],
   },
   {
     label: 'Supported frameworks',
-    items: [
-      ...FRAMEWORKS.map(({ slug, name, description }) => ({
-        name,
-        description,
-        href: `/${slug}/`,
-      })),
-      {
-        name: 'Neuron AI',
-        description: 'Agent runs, LLM calls and tool calls.',
-        href: NEURON_PATH,
-      },
-    ],
+    items: INTEGRATIONS,
   },
   {
     label: 'Resources',
     items: [
+      {
+        name: 'Blog',
+        description: 'Tutorials on monitoring and scaling PHP.',
+        href: '/blog/',
+      },
       {
         name: 'Newsletter',
         description: 'Tutorials on building AI agents in PHP.',

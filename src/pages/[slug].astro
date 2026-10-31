@@ -1,0 +1,108 @@
+---
+import { Image, getImage } from 'astro:assets';
+import { getCollection, render } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+
+import PostDate from '~components/blog/PostDate.astro';
+import PostSidebar from '~components/blog/PostSidebar.astro';
+import Prose from '~components/blog/Prose.astro';
+import MainLayout from '~components/layouts/MainLayout.astro';
+import Cta from '~components/sections/Cta.astro';
+import Section from '~components/sections/Section.astro';
+import TextLink from '~components/ui/TextLink.astro';
+
+interface Props {
+  post: CollectionEntry<'blog'>;
+}
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+
+  return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const {
+  title,
+  date,
+  author,
+  summary,
+  seo_title: seoTitle,
+  featured_image: cover,
+  featured_image_alt: coverAlt,
+} = post.data;
+
+const { Content } = await render(post);
+const shareImage =
+  cover && (await getImage({ src: cover, width: 1200, format: 'jpeg' }));
+---
+
+<MainLayout
+  title={seoTitle ?? `${title} | Inspector`}
+  description={summary}
+  image={shareImage?.src}
+>
+  <Section>
+    <div class="layout">
+      <article>
+        <p class="note">
+          <PostDate date={date} />, by {author}
+        </p>
+        <h1 class="title">{title}</h1>
+        {cover && (
+          <Image
+            class="cover"
+            src={cover}
+            alt={coverAlt ?? ''}
+            widths={[800, 1500]}
+            sizes="(min-width: 992px) 66vw, 100vw"
+            loading="eager"
+          />
+        )}
+
+        <Prose>
+          <Content />
+        </Prose>
+
+        <TextLink class="back" text="All articles" href="/blog/" />
+      </article>
+
+      <PostSidebar />
+    </div>
+  </Section>
+
+  <Cta />
+</MainLayout>
+
+<style lang="scss">
+  @use '~styles/mixins/media' as *;
+
+  .layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-7);
+  }
+
+  .title {
+    max-width: none;
+    margin-block: var(--space-2) var(--space-5);
+  }
+
+  .cover {
+    width: 100%;
+    height: auto;
+    margin-bottom: var(--space-6);
+    border-radius: var(--radius-md);
+  }
+
+  .back {
+    margin-top: var(--space-7);
+  }
+
+  @include media-min('md') {
+    .layout {
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+      gap: var(--space-6);
+    }
+  }
+</style>

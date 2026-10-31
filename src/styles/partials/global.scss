@@ -6,7 +6,7 @@ html {
 
 body {
   font-family: var(--font-sans);
-  font-size: 1rem;
+  font-size: var(--font-size-body);
   line-height: 1.65;
   color: var(--text);
   overflow-wrap: break-word;
@@ -41,18 +41,6 @@ a {
   }
 }
 
-.section {
-  padding-block: var(--space-8);
-
-  @include media-min('md') {
-    padding-block: var(--space-9);
-  }
-}
-
-.section:not([data-theme]) + .section:not([data-theme]) {
-  padding-top: 0;
-}
-
 // The timeline's label and data columns, shared by every row that pairs the two.
 .split {
   display: grid;
@@ -63,7 +51,7 @@ a {
   }
 
   @include media-min('md') {
-    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    grid-template-columns: var(--split-columns);
     gap: var(--space-6);
   }
 }
@@ -73,6 +61,15 @@ a {
   flex-wrap: wrap;
   gap: var(--space-3) var(--space-5);
   align-items: center;
+
+  margin-top: var(--space-5);
+}
+
+.card {
+  min-width: 0;
+  border-radius: var(--radius-md);
+  background-color: var(--surface);
+  box-shadow: var(--shadow-card);
 }
 
 .visuallyHidden {

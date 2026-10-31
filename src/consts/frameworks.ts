@@ -13,9 +13,8 @@ export interface Framework {
   name: string;
   description: string;
   lead: string;
-  packageCommand: string;
   monitors: string[];
-  steps: InstallStep[];
+  steps: [InstallStep & { code: string }, ...InstallStep[]];
   guideUrl: string;
   guideLabel: string;
   note?: string;
@@ -29,7 +28,6 @@ export const FRAMEWORKS: Framework[] = [
     name: 'Laravel',
     description: 'HTTP requests, queued jobs and Artisan commands.',
     lead: 'Inspector records HTTP requests, queued jobs and Artisan commands, and gives your coding agent the data it needs to fix what goes wrong.',
-    packageCommand: 'composer require inspector-apm/inspector-laravel',
     monitors: [
       'HTTP requests',
       'Queued jobs',
@@ -82,7 +80,6 @@ return Application::configure(basePath: dirname(__DIR__))
     name: 'Symfony',
     description: 'HTTP requests, background tasks and database queries.',
     lead: 'Inspector records HTTP requests and background tasks with the queries inside them, and gives your coding agent the data it needs to fix what goes wrong.',
-    packageCommand: 'composer require inspector-apm/inspector-symfony',
     monitors: [
       'HTTP requests',
       'Background tasks',
@@ -126,7 +123,6 @@ return Application::configure(basePath: dirname(__DIR__))
     name: 'CakePHP',
     description: 'HTTP requests, commands, queries and queue jobs.',
     lead: 'Inspector records HTTP requests, console commands and queue jobs with every query inside them, and gives your coding agent the data it needs to fix what goes wrong.',
-    packageCommand: 'composer require inspector-apm/cakephp',
     monitors: [
       'HTTP requests',
       'Console commands',
@@ -179,7 +175,6 @@ return Application::configure(basePath: dirname(__DIR__))
     name: 'CodeIgniter',
     description: 'HTTP requests, Spark commands and database queries.',
     lead: 'Inspector records HTTP requests, Spark commands and database queries, and gives your coding agent the data it needs to fix what goes wrong.',
-    packageCommand: 'composer require inspector-apm/inspector-codeigniter',
     monitors: [
       'HTTP requests',
       'Spark commands',
@@ -249,7 +244,6 @@ return Application::configure(basePath: dirname(__DIR__))
     name: 'Drupal',
     description: 'HTTP traffic, database queries and exceptions.',
     lead: 'The Inspector module reports HTTP traffic, database queries and unhandled exceptions, and gives your coding agent the data it needs to fix what goes wrong.',
-    packageCommand: 'composer require drupal/inspector_monitoring',
     monitors: ['HTTP traffic', 'Database queries', 'Unhandled exceptions'],
     steps: [
       {
@@ -272,4 +266,21 @@ return Application::configure(basePath: dirname(__DIR__))
   },
 ];
 
+export const NEURON_PATH = '/neuron-ai/';
+
 export const NEURON_COMMAND = 'composer require neuron-core/neuron-ai';
+
+export const INTEGRATIONS = [
+  ...FRAMEWORKS.map(({ slug, name, description, steps }) => ({
+    name,
+    description,
+    href: `/${slug}/`,
+    command: steps[0].code,
+  })),
+  {
+    name: 'Neuron AI',
+    description: 'Agent runs, LLM calls and tool calls.',
+    href: NEURON_PATH,
+    command: NEURON_COMMAND,
+  },
+];

@@ -1,0 +1,109 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+
+import PostDate from '~components/blog/PostDate.astro';
+import TextLink from '~components/ui/TextLink.astro';
+
+interface Props {
+  post: CollectionEntry<'blog'>;
+}
+
+const { post } = Astro.props;
+const { title, date, summary, featured_image: cover } = post.data;
+const href = `/${post.id}/`;
+---
+
+<article class="post">
+  <a class="cover" href={href} tabindex="-1" aria-hidden="true">
+    {cover ? (
+      <Image
+        src={cover}
+        alt=""
+        widths={[400, 800]}
+        sizes="(min-width: 992px) 33vw, (min-width: 768px) 50vw, 100vw"
+      />
+    ) : (
+      <span class="fallback" data-theme="ink">
+        <img
+          src="/images/logo-horizontal-white-transparent.png"
+          alt=""
+          width="130"
+          height="38"
+        />
+      </span>
+    )}
+  </a>
+  <p class="caption date">
+    <PostDate date={date} />
+  </p>
+  <h2 class="h3 title">
+    <a href={href}>{title}</a>
+  </h2>
+  <p class="text">{summary}</p>
+  <TextLink
+    class="more"
+    text="Read more"
+    href={href}
+    label={`Read more: ${title}`}
+  />
+</article>
+
+<style lang="scss">
+  .post {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .cover {
+    overflow: hidden;
+    align-self: stretch;
+    border-radius: var(--radius-md);
+
+    :global(img) {
+      aspect-ratio: 16 / 9;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+  }
+
+  .fallback {
+    display: grid;
+    place-items: center;
+    aspect-ratio: 16 / 9;
+
+    img {
+      aspect-ratio: auto;
+      width: 50%;
+    }
+  }
+
+  .date {
+    margin-top: var(--space-3);
+  }
+
+  .title {
+    margin-top: var(--space-1);
+
+    a {
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+    }
+  }
+
+  .text {
+    margin-top: var(--space-2);
+    color: var(--text-muted);
+  }
+
+  .more {
+    margin-top: auto;
+    padding-top: var(--space-3);
+  }
+</style>

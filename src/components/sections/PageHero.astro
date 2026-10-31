@@ -1,34 +1,62 @@
 ---
+import Section from '~components/sections/Section.astro';
+
 interface Props {
   title: string;
   lead: string;
   note?: string;
+  heading?: 'h1' | 'h2';
+  logo?: { src: string; alt: string };
 }
 
-const { title, lead, note } = Astro.props;
+const { title, lead, note, heading: Heading = 'h1', logo } = Astro.props;
 ---
 
-<section class="section">
-  <div class="container">
-    <h1>{title}</h1>
-    <p class="lead intro">{lead}</p>
-    <div class="actions row">
-      <slot name="actions" />
+<Section>
+  <div class="intro">
+    <div>
+      <Heading>{title}</Heading>
+      <p class="lead">{lead}</p>
+      {Astro.slots.has('actions') && (
+        <div class="actions">
+          <slot name="actions" />
+        </div>
+      )}
+      {note && <p class="note hint">{note}</p>}
     </div>
-    {note && <p class="note hint">{note}</p>}
+    {logo && (
+      <img
+        class="logo"
+        src={logo.src}
+        alt={logo.alt}
+        width="192"
+        height="192"
+      />
+    )}
+  </div>
+  {Astro.slots.has('default') && (
     <div class="stage">
       <slot />
     </div>
-  </div>
-</section>
+  )}
+</Section>
 
-<style>
+<style lang="scss">
+  @use '~styles/mixins/media' as *;
+
   .intro {
-    margin-top: var(--space-4);
+    display: grid;
+    gap: var(--space-5);
   }
 
-  .row {
-    margin-top: var(--space-5);
+  .logo {
+    order: -1;
+
+    width: var(--space-8);
+    height: var(--space-8);
+
+    object-fit: contain;
+    object-position: left;
   }
 
   .hint {
@@ -39,7 +67,25 @@ const { title, lead, note } = Astro.props;
     margin-top: var(--space-7);
   }
 
-  .stage:empty {
-    display: none;
+  @include media-min('sm') {
+    .intro {
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: var(--space-6);
+      align-items: center;
+    }
+
+    .logo {
+      order: 0;
+      width: var(--space-9);
+      height: var(--space-9);
+      object-position: right;
+    }
+  }
+
+  @include media-min('md') {
+    .logo {
+      width: calc(var(--space-9) * 2);
+      height: calc(var(--space-9) * 2);
+    }
   }
 </style>

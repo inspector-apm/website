@@ -1,4 +1,5 @@
 ---
+import CardBar from '~components/product/CardBar.astro';
 import Diff from '~components/product/Diff.astro';
 
 type Step =
@@ -16,20 +17,20 @@ interface Props {
   label: string;
   steps: readonly Step[];
   raised?: boolean;
+  class?: string;
 }
 
-const { title, status, label, steps, raised } = Astro.props;
+const { title, status, label, steps, raised, class: className } = Astro.props;
 ---
 
 <section
-  class:list={['session', { raised }]}
+  class:list={['session', { raised }, className]}
   data-theme="ink"
   aria-label={label}
 >
-  <div class="bar">
-    <span>{title}</span>
+  <CardBar title={title}>
     <span class="status">{status}</span>
-  </div>
+  </CardBar>
   <div class="log">
     {steps.map((step) => {
       if (step.type === 'prompt') return <p class="prompt">{step.text}</p>;
@@ -49,7 +50,7 @@ const { title, status, label, steps, raised } = Astro.props;
   </div>
 </section>
 
-<style>
+<style lang="scss">
   .session {
     overflow: hidden;
 
@@ -57,7 +58,7 @@ const { title, status, label, steps, raised } = Astro.props;
     border-radius: var(--radius-md);
 
     font-family: var(--font-mono);
-    font-size: 0.8125rem;
+    font-size: var(--font-size-code-sm);
     font-variant-ligatures: none;
     line-height: 1.55;
 
@@ -67,21 +68,6 @@ const { title, status, label, steps, raised } = Astro.props;
   .raised {
     background-color: var(--surface);
     box-shadow: none;
-  }
-
-  .bar {
-    display: flex;
-    gap: var(--space-3);
-    align-items: center;
-    justify-content: space-between;
-
-    padding: 0.625rem var(--space-4);
-    border-bottom: 1px solid var(--line);
-
-    font-family: var(--font-sans);
-    font-size: 0.75rem;
-    line-height: 1.4;
-    color: var(--text-muted);
   }
 
   .status {

@@ -1,0 +1,74 @@
+---
+import type { GetStaticPaths, InferGetStaticPropsType } from 'astro';
+import { getCollection } from 'astro:content';
+
+import PostCard from '~components/blog/PostCard.astro';
+import MainLayout from '~components/layouts/MainLayout.astro';
+import Cta from '~components/sections/Cta.astro';
+import PageHero from '~components/sections/PageHero.astro';
+import Section from '~components/sections/Section.astro';
+import Pagination from '~components/ui/Pagination.astro';
+
+export const getStaticPaths = (async ({ paginate }) => {
+  const posts = await getCollection('blog');
+
+  posts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+  return paginate(posts, { pageSize: 12 });
+}) satisfies GetStaticPaths;
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const { page } = Astro.props;
+---
+
+<MainLayout
+  title={
+    page.currentPage === 1
+      ? 'Blog | Inspector'
+      : `Blog, page ${page.currentPage} | Inspector`
+  }
+  description="Tutorials and practical advice on monitoring, performance and scaling PHP applications in production."
+>
+  <PageHero
+    title="The Inspector blog"
+    lead="Tutorials and practical advice on monitoring, performance and scaling PHP applications in production."
+  />
+
+  <Section>
+    <div class="posts">
+      {page.data.map((post) => (
+        <PostCard post={post} />
+      ))}
+    </div>
+    <Pagination
+      class="pages"
+      current={page.currentPage}
+      last={page.lastPage}
+      base="/blog/"
+    />
+  </Section>
+
+  <Cta />
+</MainLayout>
+
+<style lang="scss">
+  @use '~styles/mixins/media' as *;
+
+  .posts {
+    display: grid;
+    gap: var(--space-7) var(--space-5);
+
+    @include media-min('sm') {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    @include media-min('md') {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  .pages {
+    margin-top: var(--space-7);
+  }
+</style>

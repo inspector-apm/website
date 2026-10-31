@@ -72,6 +72,10 @@ export const PLANS: Plan[] = [
   },
 ];
 
+export const FREE_TRANSACTIONS = PLANS[0].transactions;
+
+export const FREE_NOTE = `Free up to ${FREE_TRANSACTIONS} transactions a month. No credit card.`;
+
 export const INCLUDED = [
   'Unlimited events',
   'Unlimited hosts and apps',
@@ -82,7 +86,7 @@ export const INCLUDED = [
 export const PRICING_REASONS = [
   {
     title: 'Detailed monitoring costs nothing extra',
-    text: 'When you pay per event, every extra detail raises the bill. Here, the events inside a transaction are unlimited, so 30K transactions can carry more than 500K events.',
+    text: `When you pay per event, every extra detail raises the bill. Here, the events inside a transaction are unlimited, so ${FREE_TRANSACTIONS} transactions can carry more than 500K events.`,
   },
   {
     title: 'An N+1 query can’t spike your bill',
@@ -102,8 +106,7 @@ export const PRICING_FAQ = [
   },
   {
     question: 'How does the Free plan work?',
-    answer:
-      'You get unlimited data for the first 7 days, then 30K transactions every month with no deadline. You don’t need a credit card, and it isn’t a trial.',
+    answer: `You get unlimited data for the first 7 days, then ${FREE_TRANSACTIONS} transactions every month with no deadline. You don’t need a credit card, and it isn’t a trial.`,
   },
   {
     question: 'What does the Free plan leave out?',

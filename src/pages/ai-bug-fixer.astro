@@ -6,6 +6,7 @@ import FixProposal from '~components/product/FixProposal.astro';
 import Cta from '~components/sections/Cta.astro';
 import FeatureRow from '~components/sections/FeatureRow.astro';
 import PageHero from '~components/sections/PageHero.astro';
+import Section from '~components/sections/Section.astro';
 import Steps from '~components/sections/Steps.astro';
 import Button from '~components/ui/Button.astro';
 import TextLink from '~components/ui/TextLink.astro';
@@ -41,46 +42,33 @@ const steps = [
     <TextLink slot="actions" text="Read the docs" href={LINKS.bugFixDocs} />
   </PageHero>
 
-  <section class="section">
-    <div class="container">
-      <h2>How it works</h2>
-      <div class="steps">
-        <Steps steps={steps} />
-      </div>
-    </div>
-  </section>
+  <Section title="How it works">
+    <Steps steps={steps} />
+  </Section>
 
-  <section class="section">
-    <div class="container">
-      <FeatureRow
-        title="It starts from the real error"
-        text="Each proposal is based on what happened in production, so it works from the actual stack trace rather than a description of the problem."
-      >
-        <ErrorTable />
-      </FeatureRow>
+  <Section>
+    <FeatureRow
+      title="It starts from the real error"
+      text="Each proposal is based on what happened in production, so it works from the actual stack trace rather than a description of the problem."
+    >
+      <ErrorTable />
+    </FeatureRow>
 
-      <FeatureRow
-        title="You review every change"
-        text="A proposal explains the cause and shows the change it suggests. You decide what goes into your code."
-      >
-        <FixProposal />
-      </FeatureRow>
+    <FeatureRow
+      title="You review every change"
+      text="A proposal explains the cause and shows the change it suggests. You decide what goes into your code."
+    >
+      <FixProposal />
+    </FeatureRow>
 
-      <FeatureRow
-        title="Resolve it in one prompt"
-        text="AI Bug Fix proposes the change. To have it applied, connect your coding agent to the MCP server: it reads the same error, changes the code and can open a pull request for you."
-      >
-        <AgentSession {...PHONE_SESSION} />
-        <TextLink slot="extra" text="See the MCP server" href="/mcp-server/" />
-      </FeatureRow>
-    </div>
-  </section>
+    <FeatureRow
+      title="Resolve it in one prompt"
+      text="AI Bug Fix proposes the change. To have it applied, connect your coding agent to the MCP server: it reads the same error, changes the code and can open a pull request for you."
+    >
+      <AgentSession {...PHONE_SESSION} />
+      <TextLink slot="extra" text="See the MCP server" href="/mcp-server/" />
+    </FeatureRow>
+  </Section>
 
   <Cta />
 </MainLayout>
-
-<style>
-  .steps {
-    margin-top: var(--space-6);
-  }
-</style>

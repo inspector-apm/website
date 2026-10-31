@@ -13,13 +13,14 @@ interface Props {
   title?: string;
   headers: string[];
   rows: Cell[][];
+  comfortable?: boolean;
 }
 
-const { title, headers, rows } = Astro.props;
+const { title, headers, rows, comfortable } = Astro.props;
 ---
 
-<section class="card">
-  {title && <h3 class="title">{title}</h3>}
+<section class:list={['card', { comfortable }]}>
+  {title && <h3 class="plainHeading title">{title}</h3>}
   <table class="table">
     <thead>
       <tr>
@@ -33,7 +34,7 @@ const { title, headers, rows } = Astro.props;
         <tr>
           {row.map(({ text, kind, primary, href }, index) => (
             <td
-              class:list={[kind ?? 'plain', { lead: index === 0 }]}
+              class:list={[kind]}
               data-label={kind === 'action' ? undefined : headers[index]}
             >
               {kind === 'badge' ? (
@@ -61,19 +62,12 @@ const { title, headers, rows } = Astro.props;
 
   .card {
     overflow-x: auto;
-
-    min-width: 0;
-    border-radius: var(--radius-md);
-
-    background-color: var(--surface);
-    box-shadow: var(--shadow-card);
   }
 
   .title {
     padding: var(--space-4);
-    font-size: 1rem;
+    font-weight: 600;
     line-height: 1.4;
-    letter-spacing: 0;
   }
 
   .table,
@@ -84,7 +78,7 @@ const { title, headers, rows } = Astro.props;
 
   .table {
     border-collapse: collapse;
-    font-size: 0.875rem;
+    font-size: var(--font-size-small);
     line-height: 1.5;
   }
 
@@ -115,19 +109,19 @@ const { title, headers, rows } = Astro.props;
     min-width: 0;
     padding: 0;
 
-    font-size: 0.75rem;
+    font-size: var(--font-size-caption);
     color: var(--text-muted);
   }
 
-  td[data-label]:not(.lead)::before {
+  td[data-label]:not(:first-child)::before {
     content: attr(data-label) ': ';
   }
 
-  td.lead {
+  td:first-child {
     overflow: hidden;
     flex: 0 0 100%;
 
-    font-size: 0.8125rem;
+    font-size: var(--font-size-code-sm);
     color: var(--text);
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -139,12 +133,30 @@ const { title, headers, rows } = Astro.props;
   }
 
   td.strong {
-    font-size: 1rem;
+    font-size: var(--font-size-body);
     font-weight: 600;
   }
 
   td.action {
     margin-left: auto;
+  }
+
+  .comfortable {
+    tr {
+      padding-block: var(--space-4);
+    }
+
+    td {
+      font-size: var(--font-size-small);
+    }
+
+    td.strong {
+      font-size: var(--font-size-body);
+    }
+
+    tbody tr:hover {
+      background-color: var(--surface-sunken);
+    }
   }
 
   @include media-min('sm') {
@@ -191,17 +203,17 @@ const { title, headers, rows } = Astro.props;
     }
 
     th {
-      font-size: 0.75rem;
+      font-size: var(--font-size-caption);
       font-weight: 500;
       color: var(--text-muted);
     }
 
     td {
-      font-size: 0.875rem;
+      font-size: var(--font-size-small);
       color: var(--text);
     }
 
-    td[data-label]:not(.lead)::before {
+    td[data-label]:not(:first-child)::before {
       content: none;
     }
 
@@ -216,14 +228,38 @@ const { title, headers, rows } = Astro.props;
       text-align: right;
     }
 
-    td.lead {
-      font-size: 0.875rem;
+    td:first-child {
+      font-size: var(--font-size-small);
     }
 
     td.mono {
       width: 100%;
       max-width: 0;
-      font-size: 0.8125rem;
+      font-size: var(--font-size-code-sm);
+    }
+
+    .comfortable {
+      th,
+      td {
+        padding-block: var(--space-3);
+      }
+
+      td.strong {
+        font-size: var(--font-size-small);
+      }
+    }
+  }
+
+  @include media-min('md') {
+    .comfortable {
+      th {
+        font-size: var(--font-size-small);
+      }
+
+      td,
+      td.strong {
+        font-size: var(--font-size-body);
+      }
     }
   }
 </style>

@@ -1,36 +1,17 @@
 ---
+import PageHero from '~components/sections/PageHero.astro';
 import Button from '~components/ui/Button.astro';
 import TextLink from '~components/ui/TextLink.astro';
 import { LINKS } from '~consts/links';
+import { FREE_NOTE } from '~consts/pricing';
 ---
 
-<section class="section">
-  <div class="container">
-    <h2>Give your coding agent eyes on production</h2>
-    <p class="lead intro">
-      Install the package, connect your agent, and let it find the next problem
-      before your customers do.
-    </p>
-    <div class="actions row">
-      <Button text="Start free" href={LINKS.register} />
-      <TextLink text="Read the docs" href={LINKS.docs} />
-    </div>
-    <p class="note hint">
-      Free up to 30K transactions a month. No credit card.
-    </p>
-  </div>
-</section>
-
-<style>
-  .intro {
-    margin-top: var(--space-3);
-  }
-
-  .row {
-    margin-top: var(--space-5);
-  }
-
-  .hint {
-    margin-top: var(--space-3);
-  }
-</style>
+<PageHero
+  heading="h2"
+  title="Give your coding agent eyes on production"
+  lead="Install the package, connect your agent, and let it find the next problem before your customers do."
+  note={FREE_NOTE}
+>
+  <Button slot="actions" text="Start free" href={LINKS.register} />
+  <TextLink slot="actions" text="Read the docs" href={LINKS.docs} />
+</PageHero>

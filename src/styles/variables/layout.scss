@@ -1,7 +1,5 @@
 :root {
   --container: 1200px;
   --measure: 62ch;
-  --font-sans: sora, system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --font-mono:
-    'JetBrains Mono', ui-monospace, sfmono-regular, menlo, consolas, monospace;
+  --split-columns: minmax(0, 5fr) minmax(0, 7fr);
 }

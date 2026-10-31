@@ -4,29 +4,31 @@ import Icon from '~components/ui/Icon.astro';
 interface Props {
   text: string;
   href: string;
+  label?: string;
+  class?: string;
 }
 
-const { text, href } = Astro.props;
+const { text, href, label, class: className } = Astro.props;
 ---
 
-<a class="link" href={href}>
+<a class:list={['link', className]} href={href} aria-label={label}>
   {text}
   <Icon name="chevron-right" />
 </a>
 
-<style>
+<style lang="scss">
   .link {
     display: inline-flex;
     gap: var(--space-1);
     align-items: center;
 
-    font-size: 0.9375rem;
+    font-size: var(--font-size-button);
     font-weight: 500;
     color: var(--text);
     text-underline-offset: 3px;
   }
 
   .link :global(svg) {
-    font-size: 0.75rem;
+    font-size: var(--font-size-caption);
   }
 </style>

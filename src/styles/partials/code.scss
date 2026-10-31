@@ -1,0 +1,14 @@
+// Maps Shiki's css-variables theme to the palette, here so it follows the local theme.
+pre[data-language] {
+  --astro-code-foreground: var(--text);
+  --astro-code-background: var(--surface-sunken);
+  --astro-code-token-keyword: var(--code-keyword);
+  --astro-code-token-string: var(--code-string);
+  --astro-code-token-string-expression: var(--code-string);
+  --astro-code-token-comment: var(--code-comment);
+  --astro-code-token-constant: var(--code-constant);
+  --astro-code-token-function: var(--code-function);
+  --astro-code-token-parameter: var(--text);
+  --astro-code-token-punctuation: var(--text);
+  --astro-code-token-link: var(--text);
+}
