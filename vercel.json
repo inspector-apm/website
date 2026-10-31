@@ -1,0 +1,497 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": true,
+  "trailingSlash": true,
+  "redirects": [
+    {
+      "source": "/wordpress-resources-at-siteground/",
+      "destination": "/laravel-background-jobs-commands-monitoring-with-inspector/",
+      "permanent": true
+    },
+    {
+      "source": "/how-to-be-more-productive-usgin-sticky-notes/",
+      "destination": "/laravel-background-jobs-commands-monitoring-with-inspector/",
+      "permanent": true
+    },
+    {
+      "source": "/how-to-be-more-productive-usgin-sticky-notes-2/",
+      "destination": "/laravel-background-jobs-commands-monitoring-with-inspector/",
+      "permanent": true
+    },
+    {
+      "source": "/how-to-become-a-best-sale-marketer-in-a-year/",
+      "destination": "/laravel-background-jobs-commands-monitoring-with-inspector/",
+      "permanent": true
+    },
+    {
+      "source": "/how-to-set-up-google-analytics-for-wordpress/",
+      "destination": "/laravel-background-jobs-commands-monitoring-with-inspector/",
+      "permanent": true
+    },
+    {
+      "source": "/self-driving-cars-will-hit-the-road-in-a-few-weeks/",
+      "destination": "/what-worked-for-me-using-laravel-queues-from-the-basics-to-horizon/",
+      "permanent": true
+    },
+    {
+      "source": "/six-cover-letter-greetings-for-every-situation/",
+      "destination": "/what-worked-for-me-using-laravel-queues-from-the-basics-to-horizon/",
+      "permanent": true
+    },
+    {
+      "source": "/php-perfomance-optimization/",
+      "destination": "/php-performance-optimization/",
+      "permanent": true
+    },
+    {
+      "source": "/feature-announcement-real-time-monitoring-webhooks/",
+      "destination": "/feature-announcement-webhook/",
+      "permanent": true
+    },
+    {
+      "source": "/laravel-real-time-performance-monitoring-alerting-using-inspector/",
+      "destination": "/laravel-real-time-performance-monitoring-using-inspector-part-1/",
+      "permanent": true
+    },
+    {
+      "source": "/laravel-real-time-performance-monitoring%e2%80%8ausing-inspector-%e2%80%8apart-1/",
+      "destination": "/laravel-real-time-performance-monitoring-using-inspector-part-1/",
+      "permanent": true
+    },
+    {
+      "source": "/laravel-real-time-controllers-monitoring/",
+      "destination": "/laravel-real-time-controller-monitoring/",
+      "permanent": true
+    },
+    {
+      "source": "/how-i-designed-and-launched-a-saas-product-from-zero-to-the-first-10-customers/",
+      "destination": "/from-scratch-to-the-first-10-customers-how-i-designed-and-launched-a-saas-product/",
+      "permanent": true
+    },
+    {
+      "source": "/what-metrics-im-using-for-real-time-monitoring-of-a-laravel-application/",
+      "destination": "/metrics-performance-monitoring/",
+      "permanent": true
+    },
+    {
+      "source": "/how-to-turn-a-credentials-breach-in-a-development-opportunity/",
+      "destination": "/how-to-turn-a-credentials-breach-into-a-development-opportunity/",
+      "permanent": true
+    },
+    {
+      "source": "/application-performance-monitoring-tools-101/",
+      "destination": "/how-code-execution-monitoring-can-help-you/",
+      "permanent": true
+    },
+    {
+      "source": "/how-code-execution-monitoring-can-help-you-to-identify-bugs-and-bottlenecks-in-your-application-before-your-customers-do/",
+      "destination": "/how-code-execution-monitoring-can-help-you/",
+      "permanent": true
+    },
+    {
+      "source": "/code-execution-monitoring-build-vs-buy-debate/",
+      "destination": "/is-it-better-to-build-a-monitoring-environment-from-scratch-or-buy-a-prepackaged-solution/",
+      "permanent": true
+    },
+    {
+      "source": "/how-to-design-a-scalable-rate-limiting-algorithm-for-data-processing-pipelines/",
+      "destination": "/how-to-use-rate-limiting-algorithms-for-data-processing-pipelines/",
+      "permanent": true
+    },
+    {
+      "source": "/rate-limiting-algorithm-for-data-processing-pipelines/",
+      "destination": "/how-to-use-rate-limiting-algorithms-for-data-processing-pipelines/",
+      "permanent": true
+    },
+    {
+      "source": "/inspectors-security-roadmap-update/",
+      "destination": "/how-2fa-and-other-security-feature-work/",
+      "permanent": true
+    },
+    {
+      "source": "/what-2fa-pass-conf-dev-control-mean/",
+      "destination": "/how-2fa-and-other-security-feature-work/",
+      "permanent": true
+    },
+    {
+      "source": "/how-to-monitor-the-guzzle-http-client-php-fast-tips/",
+      "destination": "/how-to-monitor-guzzle-http-client-inspector-dev/",
+      "permanent": true
+    },
+    {
+      "source": "/the-ai-marketing-specialist-behind-inspector/",
+      "destination": "/ai-content-creation-for-developer-experience/",
+      "permanent": true
+    },
+    {
+      "source": "/inspector-sentry-alternative-for-application-monitoring/",
+      "destination": "/inspector-best-sentry-alternative-for-application-monitoring/",
+      "permanent": true
+    },
+    {
+      "source": "/neuron-ai-the-dark-horse-no-one-saw-coming-in-php-ai-agents-development/",
+      "destination": "/neuron-ai/",
+      "permanent": true
+    },
+    {
+      "source": "/ai-agents/",
+      "destination": "/neuron-ai/",
+      "permanent": true
+    },
+    {
+      "source": "/building-a-coding-agent-in-php-a-walk-through-maestro/",
+      "destination": "/neuron-ai/",
+      "permanent": true
+    },
+    {
+      "source": "/neuron-4-is-here-%f0%9f%9a%80-welcome-to-the-php-agentic-era/",
+      "destination": "/neuron-ai/",
+      "permanent": true
+    },
+    {
+      "source": "/larecipe-is-now-our-docs-center/",
+      "destination": "/how-to-make-inspector-work-on-laravel-vapor-verifarma-com-case-study/",
+      "permanent": true
+    },
+    {
+      "source": "/category/inspector-news/",
+      "destination": "/blog/",
+      "permanent": true
+    },
+    {
+      "source": "/agent-skills-in-php-on-demand-skills-for-neuron-ai-agents/",
+      "destination": "/neuron-ai/",
+      "permanent": true
+    },
+    {
+      "source": "/ai-agents-in-php-with-mcp-model-context-protocol/",
+      "destination": "/neuron-ai/",
+      "permanent": true
+    },
+    {
+      "source": "/ai-agents-memory-and-context-window-in-php/",
+      "destination": "/neuron-ai/",
+      "permanent": true
+    },
+    {
+      "source": "/building-multi-agent-systems-in-laravel-a-practical-demo/",
+      "destination": "/neuron-ai/",
+      "permanent": true
+    },
+    {
+      "source": "/collecting-data-through-conversation-introducing-aiform-for-neuronai/",
+      "destination": "/neuron-ai/",
+      "permanent": true
+    },
+    {
+      "source": "/create-ai-agents-in-php-powered-by-google-gemini-llms/",
+      "destination": "/neuron-ai/",
+      "permanent": true
+    },
+    {
+      "source": "/create-an-ai-agents-in-laravel/",
+      "destination": "/neuron-ai/",
+      "permanent": true
+    },
+    {
+      "source": "/high-perfomance-tokenizer-in-php/",
+      "destination": "/neuron-ai/",
+      "permanent": true
+    },
+    {
+      "source": "/how-to-create-a-rag-agent-with-neuron-adk-for-php/",
+      "destination": "/neuron-ai/",
+      "permanent": true
+    },
+    {
+      "source": "/how-to-evaluate-a-multi-turn-agentic-system-in-php/",
+      "destination": "/neuron-ai/",
+      "permanent": true
+    },
+    {
+      "source": "/how-to-stop-a-streamed-ai-response-mid-flight-in-neuron-ai-v3/",
+      "destination": "/neuron-ai/",
+      "permanent": true
+    },
+    {
+      "source": "/improve-php-ai-agents-output-quality-with-rerankers/",
+      "destination": "/neuron-ai/",
+      "permanent": true
+    },
+    {
+      "source": "/introducing-neuronai-workflow-the-future-of-agentic-php-applications/",
+      "destination": "/neuron-ai/",
+      "permanent": true
+    },
+    {
+      "source": "/introducing-neuronhub-the-gateway-to-phps-ai-revolution/",
+      "destination": "/neuron-ai/",
+      "permanent": true
+    },
+    {
+      "source": "/introducing-toolkits-composable-ai-agent-capabilities-in-php/",
+      "destination": "/neuron-ai/",
+      "permanent": true
+    },
+    {
+      "source": "/introducing-vision-capabilities-for-php-ai-agents/",
+      "destination": "/neuron-ai/",
+      "permanent": true
+    },
+    {
+      "source": "/introducing-web-search-capabilities-for-php-ai-agents/",
+      "destination": "/neuron-ai/",
+      "permanent": true
+    },
+    {
+      "source": "/introduction-to-neuron-ai-create-full-featured-ai-agents-in-php/",
+      "destination": "/neuron-ai/",
+      "permanent": true
+    },
+    {
+      "source": "/keeping-your-ai-agents-under-control-tool-max-tries-in-neuron-v2/",
+      "destination": "/neuron-ai/",
+      "permanent": true
+    },
+    {
+      "source": "/langchain-alternative-for-php-developers/",
+      "destination": "/neuron-ai/",
+      "permanent": true
+    },
+    {
+      "source": "/llm-provider-fallback-in-php-automatic-failover-in-neuron-ai-router/",
+      "destination": "/neuron-ai/",
+      "permanent": true
+    },
+    {
+      "source": "/maestro-a-customizable-cli-agent-built-in-php/",
+      "destination": "/neuron-ai/",
+      "permanent": true
+    },
+    {
+      "source": "/managing-human-in-the-loop-with-checkpoints-neuron-workflow/",
+      "destination": "/neuron-ai/",
+      "permanent": true
+    },
+    {
+      "source": "/mastering-agentic-workflows-in-php-parameter-aware-tool-tracking-neuron-ai-566/",
+      "destination": "/neuron-ai/",
+      "permanent": true
+    },
+    {
+      "source": "/multi-agent-systems-in-php-a-practical-deep-research-implementation/",
+      "destination": "/neuron-ai/",
+      "permanent": true
+    },
+    {
+      "source": "/mysql-ai-toolkit-bringing-intelligence-to-your-database-layer-in-php/",
+      "destination": "/neuron-ai/",
+      "permanent": true
+    },
+    {
+      "source": "/neuron-4-is-here-welcome-to-the-php-agentic-era/",
+      "destination": "/neuron-ai/",
+      "permanent": true
+    },
+    {
+      "source": "/neuron-ai-laravel-sdk/",
+      "destination": "/neuron-ai/",
+      "permanent": true
+    },
+    {
+      "source": "/neuron-ai-now-supports-zai-the-glm-series-is-worth-your-attention/",
+      "destination": "/neuron-ai/",
+      "permanent": true
+    },
+    {
+      "source": "/neuron-ai-started-from-fear-the-true-story/",
+      "destination": "/neuron-ai/",
+      "permanent": true
+    },
+    {
+      "source": "/neuron-v3-is-here/",
+      "destination": "/neuron-ai/",
+      "permanent": true
+    },
+    {
+      "source": "/neuronai-v2-is-php-ready-for-agentic-application-development/",
+      "destination": "/neuron-ai/",
+      "permanent": true
+    },
+    {
+      "source": "/not-every-prompt-needs-your-most-expensive-model-llm-classifier-in-php/",
+      "destination": "/neuron-ai/",
+      "permanent": true
+    },
+    {
+      "source": "/parallel-branches-in-neuron-ai-workflow/",
+      "destination": "/neuron-ai/",
+      "permanent": true
+    },
+    {
+      "source": "/parallel-evaluations-in-neuron-ai-php-first-testing-loop-for-ai-agents/",
+      "destination": "/neuron-ai/",
+      "permanent": true
+    },
+    {
+      "source": "/php-agent-framework/",
+      "destination": "/neuron-ai/",
+      "permanent": true
+    },
+    {
+      "source": "/php-ai-agent-summarizing-youtube-videos/",
+      "destination": "/neuron-ai/",
+      "permanent": true
+    },
+    {
+      "source": "/php-the-dark-horse-no-one-saw-coming-in-ai-agents-development/",
+      "destination": "/neuron-ai/",
+      "permanent": true
+    },
+    {
+      "source": "/routing-inference-calls-between-providers-in-neuron-ai/",
+      "destination": "/neuron-ai/",
+      "permanent": true
+    },
+    {
+      "source": "/storing-llm-context-the-laravel-way-eloquentchathistory-in-neuron-ai/",
+      "destination": "/neuron-ai/",
+      "permanent": true
+    },
+    {
+      "source": "/streaming-ai-agents-in-php-introducing-neuron-ui-streaming-protocol/",
+      "destination": "/neuron-ai/",
+      "permanent": true
+    },
+    {
+      "source": "/struggling-with-rag-in-php-discover-neuron-ai-components/",
+      "destination": "/neuron-ai/",
+      "permanent": true
+    },
+    {
+      "source": "/system-prompt-for-ai-agents-in-php/",
+      "destination": "/neuron-ai/",
+      "permanent": true
+    },
+    {
+      "source": "/the-neuron-facade-talking-to-your-ai-agent-in-laravel/",
+      "destination": "/neuron-ai/",
+      "permanent": true
+    },
+    {
+      "source": "/typesafe-ai-and-jev-in-php-model-routing-and-classifier-with-neuron-ai/",
+      "destination": "/neuron-ai/",
+      "permanent": true
+    },
+    {
+      "source": "/vector-store-ai-agents-beyond-the-traditional-data-storage/",
+      "destination": "/neuron-ai/",
+      "permanent": true
+    },
+    {
+      "source": "/your-ai-agent-has-too-many-tools-heres-the-fix/",
+      "destination": "/neuron-ai/",
+      "permanent": true
+    },
+    {
+      "source": "/newsletter/",
+      "destination": "/blog/",
+      "permanent": true
+    },
+    {
+      "source": "/category/:path*/",
+      "destination": "/blog/",
+      "permanent": true
+    },
+    {
+      "source": "/tag/:path*/",
+      "destination": "/blog/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/page/:path*/",
+      "destination": "/blog/",
+      "permanent": true
+    },
+    {
+      "source": "/author/:path*/",
+      "destination": "/about/",
+      "permanent": true
+    },
+    {
+      "source": "/feed/",
+      "destination": "/blog/",
+      "permanent": true
+    },
+    {
+      "source": "/cloud-application-monitoring/",
+      "destination": "/product-features/",
+      "permanent": true
+    },
+    {
+      "source": "/inspector-web-app-monitoring/",
+      "destination": "/product-features/",
+      "permanent": true
+    },
+    {
+      "source": "/what-problem-it-solves/",
+      "destination": "/product-features/",
+      "permanent": true
+    },
+    {
+      "source": "/python-django/",
+      "destination": "/product-features/",
+      "permanent": true
+    },
+    {
+      "source": "/spring/",
+      "destination": "/product-features/",
+      "permanent": true
+    },
+    {
+      "source": "/faq/",
+      "destination": "/pricing/",
+      "permanent": true
+    },
+    {
+      "source": "/database-guides/",
+      "destination": "/blog/",
+      "permanent": true
+    },
+    {
+      "source": "/laravel-tutorials/",
+      "destination": "/blog/",
+      "permanent": true
+    },
+    {
+      "source": "/tutorial-monitoring/",
+      "destination": "/blog/",
+      "permanent": true
+    },
+    {
+      "source": "/partners/:path*/",
+      "destination": "/about/",
+      "permanent": true
+    },
+    {
+      "source": "/community/",
+      "destination": "/about/",
+      "permanent": true
+    },
+    {
+      "source": "/developer-support/",
+      "destination": "/about/",
+      "permanent": true
+    },
+    {
+      "source": "/lp-php/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/promoter/",
+      "destination": "/testimonials/",
+      "permanent": true
+    }
+  ]
+}
