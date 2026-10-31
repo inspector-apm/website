@@ -8,7 +8,7 @@ export const LINKS = {
   meeting: 'https://cal.com/inspector/inspector-meeting',
   neuronStart: 'https://docs.neuron-ai.dev/overview/getting-started',
   neuronGitHub: 'https://github.com/neuron-core/neuron-ai',
-  customerReview: 'https://www.youtube.com/watch?v=LPqMqWiJYkQ',
+  customerReview: 'https://www.youtube-nocookie.com/embed/LPqMqWiJYkQ',
   privacyPolicy: 'https://www.inspector.dev/privacy-policy.pdf',
   terms: 'https://www.inspector.dev/terms-and-conditions.pdf',
   linkedin: 'https://www.linkedin.com/company/inspector-srl',

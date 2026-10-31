@@ -33,6 +33,11 @@ const { title, lead, note, heading: Heading = 'h1', logo } = Astro.props;
         height="192"
       />
     )}
+    {Astro.slots.has('aside') && (
+      <div class="aside">
+        <slot name="aside" />
+      </div>
+    )}
   </div>
   {Astro.slots.has('default') && (
     <div class="stage">
@@ -72,6 +77,10 @@ const { title, lead, note, heading: Heading = 'h1', logo } = Astro.props;
       grid-template-columns: minmax(0, 1fr) auto;
       gap: var(--space-6);
       align-items: center;
+    }
+
+    .intro:has(.aside) {
+      grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
     }
 
     .logo {

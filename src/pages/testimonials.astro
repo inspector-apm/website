@@ -5,7 +5,6 @@ import PageHero from '~components/sections/PageHero.astro';
 import Section from '~components/sections/Section.astro';
 import LogoStrip from '~components/ui/LogoStrip.astro';
 import Quote from '~components/ui/Quote.astro';
-import TextLink from '~components/ui/TextLink.astro';
 import { LINKS } from '~consts/links';
 import { CUSTOMERS, FEATURED_QUOTE, QUOTES } from '~consts/testimonials';
 ---
@@ -18,9 +17,17 @@ import { CUSTOMERS, FEATURED_QUOTE, QUOTES } from '~consts/testimonials';
     title="What teams say about Inspector"
     lead="PHP teams use Inspector to find and fix problems before their customers report them."
   >
-    <Quote card size="large" {...FEATURED_QUOTE}>
-      <TextLink text="Watch the review" href={LINKS.customerReview} />
-    </Quote>
+    <Quote card size="large" {...FEATURED_QUOTE} />
+    <iframe
+      slot="aside"
+      class="card video"
+      src={LINKS.customerReview}
+      title={`Customer review by ${FEATURED_QUOTE.author}`}
+      loading="lazy"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allow="autoplay; encrypted-media; picture-in-picture; web-share"
+      allowfullscreen
+    ></iframe>
   </PageHero>
 
   <Section
@@ -43,6 +50,13 @@ import { CUSTOMERS, FEATURED_QUOTE, QUOTES } from '~consts/testimonials';
 
 <style lang="scss">
   @use '~styles/mixins/media' as *;
+
+  .video {
+    display: block;
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    border: 0;
+  }
 
   .comments {
     column-gap: var(--space-4);

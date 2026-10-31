@@ -17,11 +17,6 @@ const { text, author, role, size, card, class: className } = Astro.props;
     {author && <strong>{author}</strong>}
     {role && <span>{role}</span>}
   </figcaption>
-  {Astro.slots.has('default') && (
-    <div class="more">
-      <slot />
-    </div>
-  )}
 </figure>
 
 <style lang="scss">
@@ -70,9 +65,5 @@ const { text, author, role, size, card, class: className } = Astro.props;
 
   .credit span {
     color: var(--text-muted);
-  }
-
-  .more {
-    margin-top: var(--space-4);
   }
 </style>
