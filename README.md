@@ -10,7 +10,14 @@ Inspector monitors your PHP application in production. Its MCP server gives your
 - **MCP server:** connect your coding agent to production data.
 - **AI Bug Fix:** get a proposed fix for production errors.
 
-Inspector works with Laravel, Symfony, CakePHP, CodeIgniter, Drupal and Neuron AI.
+## Supported frameworks
+
+- [Laravel](https://docs.inspector.dev/guides/laravel)
+- [Symfony](https://docs.inspector.dev/guides/symfony/installation)
+- [CakePHP](https://github.com/inspector-apm/cakephp)
+- [CodeIgniter](https://docs.inspector.dev/guides/codeigniter)
+- [Drupal](https://docs.inspector.dev/guides/drupal)
+- [Neuron AI](https://docs.neuron-ai.dev/overview/getting-started)
 
 ## Get started
 

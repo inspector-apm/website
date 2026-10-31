@@ -3,6 +3,7 @@ interface Row {
   label: string;
   value: string;
   href?: string;
+  logo?: string;
 }
 
 interface Props {
@@ -14,9 +15,10 @@ const { rows, mono } = Astro.props;
 ---
 
 <dl class="list">
-  {rows.map(({ label, value, href }) => (
+  {rows.map(({ label, value, href, logo }) => (
     <div class="split row">
       <dt class:list={['label', { mono: mono === 'label' }]}>
+        {logo && <img class="logo" src={logo} alt="" width="24" height="24" />}
         {href ? <a href={href}>{label}</a> : label}
       </dt>
       <dd class:list={['value', { mono: mono === 'value' }]}>{value}</dd>
@@ -38,6 +40,18 @@ const { rows, mono } = Astro.props;
 
   .label {
     font-weight: 500;
+  }
+
+  .logo {
+    display: inline-block;
+
+    width: var(--space-5);
+    height: var(--space-5);
+    margin-right: var(--space-2);
+
+    vertical-align: middle;
+
+    object-fit: contain;
   }
 
   .value {

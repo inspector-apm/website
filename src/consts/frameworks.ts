@@ -275,12 +275,14 @@ export const INTEGRATIONS = [
     name,
     description,
     href: `/${slug}/`,
+    logo: `/images/frameworks/${slug}.svg`,
     command: steps[0].code,
   })),
   {
     name: 'Neuron AI',
     description: 'Agent runs, LLM calls and tool calls.',
     href: NEURON_PATH,
+    logo: '/images/frameworks/neuron-ai.svg',
     command: NEURON_COMMAND,
   },
 ];

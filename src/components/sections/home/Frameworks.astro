@@ -3,10 +3,11 @@ import Section from '~components/sections/Section.astro';
 import RowList from '~components/ui/RowList.astro';
 import { INTEGRATIONS } from '~consts/frameworks';
 
-const rows = INTEGRATIONS.map(({ name, href, command }) => ({
+const rows = INTEGRATIONS.map(({ name, href, logo, command }) => ({
   label: name,
   value: command,
   href,
+  logo,
 }));
 ---
 
