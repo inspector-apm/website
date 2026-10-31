@@ -3,12 +3,13 @@ interface Props {
   title?: string;
   lead?: string;
   theme?: 'ink';
+  class?: string;
 }
 
-const { title, lead, theme } = Astro.props;
+const { title, lead, theme, class: className } = Astro.props;
 ---
 
-<section class="section" data-theme={theme}>
+<section class:list={['section', className]} data-theme={theme}>
   <div class="container">
     {title && <h2>{title}</h2>}
     {lead && <p class="lead">{lead}</p>}

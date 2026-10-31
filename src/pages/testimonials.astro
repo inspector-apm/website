@@ -41,7 +41,7 @@ import { CUSTOMERS, FEATURED_QUOTE, QUOTES } from '~consts/testimonials';
     </div>
   </Section>
 
-  <Section title="Used in production">
+  <Section class="customers" title="Used in production">
     <LogoStrip logos={CUSTOMERS} />
   </Section>
 
@@ -73,5 +73,10 @@ import { CUSTOMERS, FEATURED_QUOTE, QUOTES } from '~consts/testimonials';
   .comment {
     break-inside: avoid;
     margin-bottom: var(--space-4);
+  }
+
+  // A margin, because Section drops the top padding of a section after another.
+  .customers {
+    margin-block: var(--space-7);
   }
 </style>
