@@ -14,7 +14,7 @@ interface Props {
 const { rows, mono } = Astro.props;
 ---
 
-<dl class="list">
+<dl>
   {rows.map(({ label, value, href, logo }) => (
     <div class="split row">
       <dt class:list={['label', { mono: mono === 'label' }]}>
@@ -27,10 +27,6 @@ const { rows, mono } = Astro.props;
 </dl>
 
 <style lang="scss">
-  .list {
-    border-bottom: 1px solid var(--line);
-  }
-
   .row {
     row-gap: var(--space-1);
     align-items: baseline;
