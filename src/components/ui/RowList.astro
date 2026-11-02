@@ -31,7 +31,10 @@ const { rows, mono } = Astro.props;
     row-gap: var(--space-1);
     align-items: baseline;
     padding-block: var(--space-3);
-    border-top: 1px solid var(--line);
+
+    & + & {
+      border-top: 1px solid var(--line);
+    }
   }
 
   .label {
