@@ -241,7 +241,7 @@ const { title, headers, rows, comfortable } = Astro.props;
     .comfortable {
       th,
       td {
-        padding-block: var(--space-3);
+        padding-block: var(--space-4);
       }
 
       td.strong {
@@ -253,12 +253,24 @@ const { title, headers, rows, comfortable } = Astro.props;
   @include media-min('md') {
     .comfortable {
       th {
-        font-size: var(--font-size-small);
+        font-size: var(--font-size-body);
       }
 
       td,
       td.strong {
-        font-size: var(--font-size-body);
+        font-size: var(--font-size-lead);
+      }
+    }
+  }
+
+  @include media-min('lg') {
+    .comfortable {
+      td {
+        padding-block: var(--space-5);
+      }
+
+      td.strong {
+        font-size: var(--font-size-title);
       }
     }
   }
