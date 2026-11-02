@@ -7,6 +7,7 @@ export interface Cell {
   kind?: 'mono' | 'strong' | 'badge' | 'action';
   primary?: boolean;
   href?: string;
+  title?: string;
 }
 
 interface Props {
@@ -32,10 +33,11 @@ const { title, headers, rows, comfortable } = Astro.props;
     <tbody>
       {rows.map((row) => (
         <tr>
-          {row.map(({ text, kind, primary, href }, index) => (
+          {row.map(({ text, kind, primary, href, title }, index) => (
             <td
               class:list={[kind]}
               data-label={kind === 'action' ? undefined : headers[index]}
+              title={title}
             >
               {kind === 'badge' ? (
                 <StatusBadge value={text} />

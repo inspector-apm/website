@@ -37,7 +37,10 @@ function rowsFor(period: 'monthly' | 'yearly'): Cell[][] {
           ? '€0'
           : `€${plan[period]} a ${period === 'monthly' ? 'month' : 'year'}`,
     },
-    { text: plan.transactions },
+    {
+      text: plan.transactions,
+      title: `${plan.transactions.endsWith('M') ? 'Millions' : 'Thousands'} of transactions`,
+    },
     { text: plan.retention },
     { text: plan.users },
     { text: plan.channels },
