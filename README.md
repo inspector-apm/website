@@ -8,7 +8,7 @@ Inspector monitors your PHP application in production. Its MCP server gives your
 
 - **Monitoring tool:** see every request, job and error in production.
 - **MCP server:** connect your coding agent to production data.
-- **AI Bug Fix:** get a proposed fix for production errors.
+- **AI Bug Analysis:** investigate new errors before your coding agent fixes them.
 
 ## Supported frameworks
 

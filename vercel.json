@@ -492,6 +492,11 @@
       "source": "/promoter/",
       "destination": "/testimonials/",
       "permanent": true
+    },
+    {
+      "source": "/ai-bug-fixer/",
+      "destination": "/ai-bug-analysis/",
+      "permanent": true
     }
   ]
 }

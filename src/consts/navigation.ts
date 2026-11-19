@@ -26,9 +26,10 @@ export const NAV_GROUPS: NavGroup[] = [
         href: '/mcp-server/',
       },
       {
-        name: 'AI Bug Fix',
-        description: 'Get a proposed fix for production errors.',
-        href: '/ai-bug-fixer/',
+        name: 'AI Bug Analysis',
+        description:
+          'Investigate new errors before your coding agent fixes them.',
+        href: '/ai-bug-analysis/',
       },
     ],
   },

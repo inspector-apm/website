@@ -6,7 +6,8 @@ interface Props {
 const { value } = Astro.props;
 
 function toneOf(result: string) {
-  if (result.startsWith('2') || result === 'success') return 'ok';
+  if (result.startsWith('2') || result === 'success' || result === 'Ready')
+    return 'ok';
   if (result.startsWith('3') || result.startsWith('4')) return 'warn';
   return 'fail';
 }

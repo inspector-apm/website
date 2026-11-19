@@ -1,0 +1,143 @@
+---
+import StatusBadge from '~components/product/StatusBadge.astro';
+import { BUG_ANALYSIS } from '~consts/samples';
+
+const { confidence, verdict, trust, cause, ruledOut } = BUG_ANALYSIS;
+---
+
+<article class="card">
+  <div class="head">
+    <h3 class="plainHeading title">AI Bug Analysis</h3>
+    <StatusBadge value="Ready" />
+    <span class="caption">{confidence}</span>
+  </div>
+  <p class="verdict" set:html={verdict} />
+  <p class="trust">{trust}</p>
+
+  <div class="cause">
+    <p class="causeTitle">1. {cause.title}</p>
+    <ul class="evidence">
+      {cause.evidence.map(({ source, fact, ref }) => (
+        <li>
+          <span class="source">{source}</span>
+          <span>
+            {fact}
+            <code class="ref">{ref}</code>
+          </span>
+        </li>
+      ))}
+    </ul>
+    <div class="change">
+      <p>
+        <strong>What to change:</strong> {cause.change}
+      </p>
+      {cause.files.map((file) => (
+        <code class="ref">{file}</code>
+      ))}
+    </div>
+  </div>
+
+  <p class="small">
+    <strong>Ruled out:</strong> {ruledOut}
+  </p>
+</article>
+
+<style lang="scss">
+  @use '~styles/mixins/media' as *;
+
+  .card {
+    display: grid;
+    gap: var(--space-3);
+    padding: var(--space-4);
+  }
+
+  .head {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    align-items: center;
+  }
+
+  .title {
+    margin-right: auto;
+    font-weight: 600;
+  }
+
+  .verdict :global(code) {
+    font-size: var(--font-size-code-sm);
+  }
+
+  .trust,
+  .ref {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-caption);
+    color: var(--text-muted);
+    overflow-wrap: anywhere;
+  }
+
+  .cause {
+    display: grid;
+    gap: var(--space-3);
+
+    padding: var(--space-3);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+  }
+
+  .causeTitle {
+    font-weight: 600;
+  }
+
+  .evidence {
+    display: grid;
+    grid-template-columns: max-content minmax(0, 1fr);
+    gap: var(--space-2);
+  }
+
+  .evidence li {
+    display: grid;
+    grid-column: 1 / -1;
+    grid-template-columns: subgrid;
+    align-items: baseline;
+  }
+
+  .evidence li,
+  .change,
+  .small {
+    font-size: var(--font-size-small);
+    line-height: 1.5;
+  }
+
+  .source {
+    justify-self: start;
+
+    padding-inline: var(--space-1);
+    border-radius: var(--radius-sm);
+
+    font-family: var(--font-mono);
+    font-size: var(--font-size-caption);
+    color: var(--text-muted);
+
+    background-color: var(--surface-sunken);
+  }
+
+  .ref {
+    display: block;
+  }
+
+  .change {
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--radius-sm);
+    background-color: var(--surface-sunken);
+  }
+
+  .small {
+    color: var(--text-muted);
+  }
+
+  @include media-min('sm') {
+    .card {
+      padding: var(--space-5);
+    }
+  }
+</style>

@@ -48,7 +48,7 @@ export const GET: APIRoute = async ({ site }) => {
     '',
     '> Inspector monitors your PHP application in production and gives coding agents the errors, slow queries and stack traces they need to fix your code.',
     '',
-    `Inspector records every HTTP request, background job and command in a PHP application, with the database queries and errors inside them. Its MCP server at ${MCP_URL} gives coding agents such as ${TERMINAL_CLIENTS.slice(0, -1).join(', ')} and ${TERMINAL_CLIENTS.at(-1)} access to that production data. AI Bug Fix proposes a fix for production errors, and a coding agent connected through the MCP server changes the code.`,
+    `Inspector records every HTTP request, background job and command in a PHP application, with the database queries and errors inside them. Its MCP server at ${MCP_URL} gives coding agents such as ${TERMINAL_CLIENTS.slice(0, -1).join(', ')} and ${TERMINAL_CLIENTS.at(-1)} access to that production data. AI Bug Analysis investigates new production errors and lists their likely causes with the evidence for each, and a coding agent connected through the MCP server reads the analysis and changes the code.`,
     '',
     `Inspector is billed by transactions: one HTTP request, background job or scheduled command. The events inside a transaction are unlimited. ${FREE_NOTE} Sign up at ${LINKS.register}.`,
     '',
@@ -78,11 +78,6 @@ export const GET: APIRoute = async ({ site }) => {
       'MCP server',
       LINKS.mcpDocs,
       'Connect a coding agent to your production data.',
-    ),
-    link(
-      'AI Bug Fix',
-      LINKS.bugFixDocs,
-      'Get a proposed fix for production errors.',
     ),
     link(
       'Neuron AI documentation',

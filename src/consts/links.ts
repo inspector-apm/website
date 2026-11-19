@@ -3,7 +3,6 @@ export const LINKS = {
   signIn: 'https://app.inspector.dev/login',
   docs: 'https://docs.inspector.dev',
   mcpDocs: 'https://docs.inspector.dev/concepts/mcp-server',
-  bugFixDocs: 'https://docs.inspector.dev/concepts/ai-bug-fixer',
   status: 'https://status.inspector.dev',
   meeting: 'https://cal.com/inspector/inspector-meeting',
   neuronStart: 'https://docs.neuron-ai.dev/overview/getting-started',

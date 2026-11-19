@@ -227,7 +227,7 @@ For applications that are scaling and need deeper insights, the CodeIgniter Prof
 When built-in options don't cut it for production, advanced platforms step in to fill the gap. For enterprise-level applications, specialized tools can make a big difference. **Inspector** is a great pick for teams managing complex systems, offering features like:
 
 - **Real-time HTTP traffic monitoring**
-- [**Automated bug fixes**](/ai-bug-fixer/)
+- [**Automated bug fixes**](/ai-bug-analysis/)
 - **Support for small teams**
 - **Easy integration without cloud setup**
 

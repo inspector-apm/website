@@ -1,0 +1,74 @@
+---
+import MainLayout from '~components/layouts/MainLayout.astro';
+import AgentSession from '~components/product/AgentSession.astro';
+import BugAnalysis from '~components/product/BugAnalysis.astro';
+import ErrorTable from '~components/product/ErrorTable.astro';
+import Cta from '~components/sections/Cta.astro';
+import FeatureRow from '~components/sections/FeatureRow.astro';
+import PageHero from '~components/sections/PageHero.astro';
+import Section from '~components/sections/Section.astro';
+import Steps from '~components/sections/Steps.astro';
+import Button from '~components/ui/Button.astro';
+import TextLink from '~components/ui/TextLink.astro';
+import { LINKS } from '~consts/links';
+import { HANDOFF_SESSION } from '~consts/samples';
+
+const steps = [
+  {
+    title: 'Connect your repository',
+    text: 'Connect GitHub or GitLab to your app, and AI Bug Analysis turns on.',
+  },
+  {
+    title: 'Inspector investigates the error',
+    text: 'When a new error appears in production, Inspector checks it against your production data and your code, then lists the likely causes.',
+  },
+  {
+    title: 'Hand it to your coding agent',
+    text: 'Copy the prompt from the dashboard or the error email into your coding agent. It reads the analysis through the Inspector MCP server and fixes the code.',
+  },
+];
+---
+
+<MainLayout
+  title="AI Bug Analysis for PHP applications | Inspector"
+  description="Inspector investigates new production errors in your PHP application and hands the likely causes to your coding agent through its MCP server."
+>
+  <PageHero
+    title="Hand off production errors to your coding agent"
+    lead="When a new error appears, AI Bug Analysis runs the first investigation against your production data and your code. Your coding agent reads it through the Inspector MCP server and starts from the likely cause."
+    note="AI Bug Analysis is included in every plan."
+  >
+    <Button slot="actions" text="Start free" href={LINKS.register} />
+    <TextLink slot="actions" text="Read the MCP docs" href={LINKS.mcpDocs} />
+  </PageHero>
+
+  <Section title="How it works">
+    <Steps steps={steps} />
+  </Section>
+
+  <Section>
+    <FeatureRow
+      title="It starts from what happened in production"
+      text="The analysis reads the latest occurrences of the error, how often it happens, the request or job that failed and the commits from the week before it first appeared."
+    >
+      <ErrorTable />
+    </FeatureRow>
+
+    <FeatureRow
+      title="Evidence your agent can check"
+      text="It ranks up to three likely causes by confidence. Each one shows its evidence from production, your code or the commit history, and says what to change in which files. It also lists what it ruled out and what it couldn't verify."
+    >
+      <BugAnalysis />
+    </FeatureRow>
+
+    <FeatureRow
+      title="Your coding agent takes it from there"
+      text="AI Bug Analysis describes the change and never writes code. Your coding agent reads the analysis first through the MCP server, checks it against your code, then makes the change and can open a pull request. If an error has no analysis yet, the agent's request starts one."
+    >
+      <AgentSession {...HANDOFF_SESSION} />
+      <TextLink slot="extra" text="See the MCP server" href="/mcp-server/" />
+    </FeatureRow>
+  </Section>
+
+  <Cta />
+</MainLayout>

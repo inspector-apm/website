@@ -45,7 +45,7 @@ export const ERROR_ROWS = [
     app: 'shop-api',
     hits: '48',
     lastSeen: '2 minutes ago',
-    action: { text: 'Read the fix', primary: true },
+    action: { text: 'Read analysis', primary: true },
   },
   {
     message:
@@ -53,14 +53,14 @@ export const ERROR_ROWS = [
     app: 'billing',
     hits: '12',
     lastSeen: '9 minutes ago',
-    action: { text: 'Try AI Bug Fix' },
+    action: { text: 'Analyzing' },
   },
   {
     message: 'cURL error 28: Operation timed out after 5000 milliseconds',
     app: 'shop-api',
     hits: '7',
     lastSeen: '1 hour ago',
-    action: { text: 'Try AI Bug Fix' },
+    action: { text: 'Read analysis' },
   },
 ];
 
@@ -157,11 +157,70 @@ export const PHONE_SESSION = {
   ],
 } as const;
 
-export const FIX_PROPOSAL = {
-  title: 'Guard against a missing due date',
-  file: 'app/Presenters/InvoicePresenter.php',
-  explanation:
-    'Invoices created by the import job have no due date, so <code>dueDate()</code> returns null and <code>format()</code> throws. Return a placeholder when the date is missing.',
-  removed: "return $this->invoice->dueDate()->format('d/m/Y');",
-  added: "return $this->invoice->dueDate()?->format('d/m/Y') ?? 'Not set';",
+export const BUG_ANALYSIS = {
+  confidence: 'High confidence',
+  verdict:
+    'Invoices created by the import job have no due date, so <code>dueDate()</code> returns null and <code>format()</code> throws.',
+  trust:
+    'Read main@4c1e9a7f02 · occurrence 2026-11-18 09:42:13 UTC · evidence 2026-11-11 to 2026-11-18',
+  cause: {
+    title: 'Imported invoices have no due date',
+    evidence: [
+      {
+        source: 'production',
+        fact: 'The 10 latest occurrences are all on invoices created by the import job.',
+        ref: 'transaction:8f3a91c07e',
+      },
+      {
+        source: 'code',
+        fact: 'The import job creates invoices without setting due_date.',
+        ref: 'app/Jobs/ImportInvoices.php:57',
+      },
+      {
+        source: 'history',
+        fact: 'The import job was added two days before the error first appeared.',
+        ref: 'commit:9b1e4c2d7a',
+      },
+    ],
+    change:
+      'Set a due date when the import job creates an invoice, or show a placeholder when it is missing. This is a product choice, so ask the user.',
+    files: [
+      'app/Presenters/InvoicePresenter.php:31',
+      'app/Jobs/ImportInvoices.php:57',
+    ],
+  },
+  ruledOut: 'A change to the date format: the date is null, not malformed.',
 };
+
+export const HANDOFF_SESSION = {
+  title: 'Coding agent',
+  status: 'Inspector MCP connected',
+  label: 'Example coding agent session that starts from an AI Bug Analysis',
+  steps: [
+    {
+      type: 'prompt',
+      text: 'Investigate and fix an error that Inspector detected in production.',
+    },
+    {
+      type: 'calls',
+      calls: [
+        {
+          tool: 'get_error_analysis',
+          target: 'Call to a member function format() on null',
+        },
+        { tool: 'transaction_details', target: 'GET /api/invoices/{id}' },
+      ],
+    },
+    {
+      type: 'reply',
+      html: 'The analysis checks out: <code>ImportInvoices</code> never sets a due date. Should imported invoices get one, or should the page show a placeholder?',
+    },
+    { type: 'prompt', text: 'Show a placeholder.' },
+    {
+      type: 'diff',
+      file: 'app/Presenters/InvoicePresenter.php',
+      removed: "return $this->invoice->dueDate()->format('d/m/Y');",
+      added: "return $this->invoice->dueDate()?->format('d/m/Y') ?? 'Not set';",
+    },
+  ],
+} as const;

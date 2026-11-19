@@ -13,7 +13,7 @@ const rows: Cell[][] = ERROR_ROWS.map(
       text: action.text,
       kind: 'action',
       primary: action.primary,
-      href: '/ai-bug-fixer/',
+      href: '/ai-bug-analysis/',
     },
   ],
 );
@@ -21,6 +21,6 @@ const rows: Cell[][] = ERROR_ROWS.map(
 
 <DataTable
   title="Latest errors detected"
-  headers={['Message', 'App', 'Hits', 'Last seen', 'AI Bug Fix']}
+  headers={['Message', 'App', 'Hits', 'Last seen', 'AI Analysis']}
   rows={rows}
 />

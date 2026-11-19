@@ -63,7 +63,7 @@ export const MCP_TOOLS = [
   {
     label: 'get_error_analysis',
     value:
-      'Analyze one error, with the source file, its patterns and how often it occurs.',
+      'Analyze one error, with the source file, its patterns and how often it occurs. With AI Bug Analysis on, it starts with the likely causes.',
   },
   {
     label: 'recent_transactions',

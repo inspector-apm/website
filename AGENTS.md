@@ -2,9 +2,6 @@
 
 This project contains the static marketing website for inspector.dev, generated with Astro.
 
-The design system is the source of truth for palette, type, voice and components:
-https://claude.ai/artifact/XSV4biFTxPUSNB3RYwEg6F
-
 ## Design Tokens - ALWAYS use predefined variables
 
 Never use custom/hardcoded values for spacing, radius, colors, shadows, z-index, or layout.
@@ -38,7 +35,7 @@ Use `--shadow-card`, `--shadow-menu`, `--z-index-menu`, `--container` and `--mea
 - Sora is for what people write. JetBrains Mono is only for what a machine prints.
 - Rebuild product visuals in HTML from `src/components/product/`. Use no stock images or illustrations.
 - Never invent a number, customer, quote or benchmark. Figures in `src/consts/samples.ts` are example data.
-- Promise only what ships. AI Bug Fix proposes a fix, and a coding agent connected through the MCP server changes the code.
+- Promise only what ships. AI Bug Analysis lists the likely causes of an error and never writes code, and a coding agent connected through the MCP server changes the code.
 
 ## Components
 

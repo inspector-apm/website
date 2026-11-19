@@ -89,8 +89,8 @@ export const INCLUDED = [
   },
   {
     icon: 'bug',
-    title: 'AI Bug Fix',
-    text: 'Connect your repository, and Inspector sends you a proposed fix for production errors, ready to review.',
+    title: 'AI Bug Analysis',
+    text: 'Connect your repository, and Inspector lists the likely causes of each new error, ready for your coding agent to fix.',
   },
   {
     icon: 'chat-dots',
