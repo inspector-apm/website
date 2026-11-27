@@ -39,7 +39,7 @@ We built the **Inspector MCP Server** to remove that manual data transfer.
 
 If you aren't familiar with it, MCP (Model Context Protocol) is an open standard that allows AI models to connect to external tools safely. We have exposed Inspector’s data via MCP so your coding agent can read your application’s monitoring data directly.
 
-AI Agents in PHP with MCP (Model Context Protocol)
+[AI Agents in PHP with MCP (Model Context Protocol)](/ai-agents-in-php-with-mcp-model-context-protocol/)
 
 This enables what I call **"Zero-UI Observability."** You don't need to visit the Inspector dashboard UI to understand what is happening. You can stay in your terminal or IDE and let the agent fetch the context it needs.
 
