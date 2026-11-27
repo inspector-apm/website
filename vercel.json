@@ -130,22 +130,22 @@
     },
     {
       "source": "/neuron-ai-the-dark-horse-no-one-saw-coming-in-php-ai-agents-development/",
-      "destination": "/php-the-dark-horse-no-one-saw-coming-in-ai-agents-development/",
+      "destination": "https://neuron-ai.dev/blog/php-the-dark-horse-no-one-saw-coming-in-ai-agents-development",
       "permanent": true
     },
     {
       "source": "/ai-agents/",
-      "destination": "/php-agent-framework/",
+      "destination": "https://neuron-ai.dev/blog/php-agent-framework",
       "permanent": true
     },
     {
       "source": "/building-a-coding-agent-in-php-a-walk-through-maestro/",
-      "destination": "/maestro-a-customizable-cli-agent-built-in-php/",
+      "destination": "https://neuron-ai.dev/blog/maestro-a-customizable-cli-agent-built-in-php",
       "permanent": true
     },
     {
       "source": "/neuron-4-is-here-%f0%9f%9a%80-welcome-to-the-php-agentic-era/",
-      "destination": "/neuron-4-is-here-welcome-to-the-php-agentic-era/",
+      "destination": "https://neuron-ai.dev/blog/neuron-4-is-here-welcome-to-the-php-agentic-era",
       "permanent": true
     },
     {
@@ -156,6 +156,241 @@
     {
       "source": "/category/inspector-news/",
       "destination": "/blog/",
+      "permanent": true
+    },
+    {
+      "source": "/agent-skills-in-php-on-demand-skills-for-neuron-ai-agents/",
+      "destination": "https://neuron-ai.dev/blog/agent-skills-in-php-on-demand-skills-for-neuron-ai-agents",
+      "permanent": true
+    },
+    {
+      "source": "/ai-agents-in-php-with-mcp-model-context-protocol/",
+      "destination": "https://neuron-ai.dev/blog/ai-agents-in-php-with-mcp-model-context-protocol",
+      "permanent": true
+    },
+    {
+      "source": "/ai-agents-memory-and-context-window-in-php/",
+      "destination": "https://neuron-ai.dev/blog/ai-agents-memory-and-context-window-in-php",
+      "permanent": true
+    },
+    {
+      "source": "/building-multi-agent-systems-in-laravel-a-practical-demo/",
+      "destination": "https://neuron-ai.dev/blog/building-multi-agent-systems-in-laravel-a-practical-demo",
+      "permanent": true
+    },
+    {
+      "source": "/collecting-data-through-conversation-introducing-aiform-for-neuronai/",
+      "destination": "https://neuron-ai.dev/blog/collecting-data-through-conversation-introducing-aiform-for-neuronai",
+      "permanent": true
+    },
+    {
+      "source": "/create-ai-agents-in-php-powered-by-google-gemini-llms/",
+      "destination": "https://neuron-ai.dev/blog/create-ai-agents-in-php-powered-by-google-gemini-llms",
+      "permanent": true
+    },
+    {
+      "source": "/create-an-ai-agents-in-laravel/",
+      "destination": "https://neuron-ai.dev/blog/create-an-ai-agents-in-laravel",
+      "permanent": true
+    },
+    {
+      "source": "/high-perfomance-tokenizer-in-php/",
+      "destination": "https://neuron-ai.dev/blog/high-perfomance-tokenizer-in-php",
+      "permanent": true
+    },
+    {
+      "source": "/how-to-create-a-rag-agent-with-neuron-adk-for-php/",
+      "destination": "https://neuron-ai.dev/blog/how-to-create-a-rag-agent-with-neuron-adk-for-php",
+      "permanent": true
+    },
+    {
+      "source": "/how-to-evaluate-a-multi-turn-agentic-system-in-php/",
+      "destination": "https://neuron-ai.dev/blog/how-to-evaluate-a-multi-turn-agentic-system-in-php",
+      "permanent": true
+    },
+    {
+      "source": "/how-to-stop-a-streamed-ai-response-mid-flight-in-neuron-ai-v3/",
+      "destination": "https://neuron-ai.dev/blog/how-to-stop-a-streamed-ai-response-mid-flight-in-neuron-ai-v3",
+      "permanent": true
+    },
+    {
+      "source": "/improve-php-ai-agents-output-quality-with-rerankers/",
+      "destination": "https://neuron-ai.dev/blog/improve-php-ai-agents-output-quality-with-rerankers",
+      "permanent": true
+    },
+    {
+      "source": "/introducing-neuronai-workflow-the-future-of-agentic-php-applications/",
+      "destination": "https://neuron-ai.dev/blog/introducing-neuronai-workflow-the-future-of-agentic-php-applications",
+      "permanent": true
+    },
+    {
+      "source": "/introducing-neuronhub-the-gateway-to-phps-ai-revolution/",
+      "destination": "https://neuron-ai.dev/blog/introducing-neuronhub-the-gateway-to-phps-ai-revolution",
+      "permanent": true
+    },
+    {
+      "source": "/introducing-toolkits-composable-ai-agent-capabilities-in-php/",
+      "destination": "https://neuron-ai.dev/blog/introducing-toolkits-composable-ai-agent-capabilities-in-php",
+      "permanent": true
+    },
+    {
+      "source": "/introducing-vision-capabilities-for-php-ai-agents/",
+      "destination": "https://neuron-ai.dev/blog/introducing-vision-capabilities-for-php-ai-agents",
+      "permanent": true
+    },
+    {
+      "source": "/introducing-web-search-capabilities-for-php-ai-agents/",
+      "destination": "https://neuron-ai.dev/blog/introducing-web-search-capabilities-for-php-ai-agents",
+      "permanent": true
+    },
+    {
+      "source": "/introduction-to-neuron-ai-create-full-featured-ai-agents-in-php/",
+      "destination": "https://neuron-ai.dev/blog/introduction-to-neuron-ai-create-full-featured-ai-agents-in-php",
+      "permanent": true
+    },
+    {
+      "source": "/keeping-your-ai-agents-under-control-tool-max-tries-in-neuron-v2/",
+      "destination": "https://neuron-ai.dev/blog/keeping-your-ai-agents-under-control-tool-max-tries-in-neuron-v2",
+      "permanent": true
+    },
+    {
+      "source": "/langchain-alternative-for-php-developers/",
+      "destination": "https://neuron-ai.dev/blog/langchain-alternative-for-php-developers",
+      "permanent": true
+    },
+    {
+      "source": "/llm-provider-fallback-in-php-automatic-failover-in-neuron-ai-router/",
+      "destination": "https://neuron-ai.dev/blog/llm-provider-fallback-in-php-automatic-failover-in-neuron-ai-router",
+      "permanent": true
+    },
+    {
+      "source": "/maestro-a-customizable-cli-agent-built-in-php/",
+      "destination": "https://neuron-ai.dev/blog/maestro-a-customizable-cli-agent-built-in-php",
+      "permanent": true
+    },
+    {
+      "source": "/managing-human-in-the-loop-with-checkpoints-neuron-workflow/",
+      "destination": "https://neuron-ai.dev/blog/managing-human-in-the-loop-with-checkpoints-neuron-workflow",
+      "permanent": true
+    },
+    {
+      "source": "/mastering-agentic-workflows-in-php-parameter-aware-tool-tracking-neuron-ai-566/",
+      "destination": "https://neuron-ai.dev/blog/mastering-agentic-workflows-in-php-parameter-aware-tool-tracking-neuron-ai-566",
+      "permanent": true
+    },
+    {
+      "source": "/multi-agent-systems-in-php-a-practical-deep-research-implementation/",
+      "destination": "https://neuron-ai.dev/blog/multi-agent-systems-in-php-a-practical-deep-research-implementation",
+      "permanent": true
+    },
+    {
+      "source": "/mysql-ai-toolkit-bringing-intelligence-to-your-database-layer-in-php/",
+      "destination": "https://neuron-ai.dev/blog/mysql-ai-toolkit-bringing-intelligence-to-your-database-layer-in-php",
+      "permanent": true
+    },
+    {
+      "source": "/neuron-4-is-here-welcome-to-the-php-agentic-era/",
+      "destination": "https://neuron-ai.dev/blog/neuron-4-is-here-welcome-to-the-php-agentic-era",
+      "permanent": true
+    },
+    {
+      "source": "/neuron-ai-laravel-sdk/",
+      "destination": "https://neuron-ai.dev/blog/neuron-ai-laravel-sdk",
+      "permanent": true
+    },
+    {
+      "source": "/neuron-ai-now-supports-zai-the-glm-series-is-worth-your-attention/",
+      "destination": "https://neuron-ai.dev/blog/neuron-ai-now-supports-zai-the-glm-series-is-worth-your-attention",
+      "permanent": true
+    },
+    {
+      "source": "/neuron-ai-started-from-fear-the-true-story/",
+      "destination": "https://neuron-ai.dev/blog/neuron-ai-started-from-fear-the-true-story",
+      "permanent": true
+    },
+    {
+      "source": "/neuron-v3-is-here/",
+      "destination": "https://neuron-ai.dev/blog/neuron-v3-is-here",
+      "permanent": true
+    },
+    {
+      "source": "/neuronai-v2-is-php-ready-for-agentic-application-development/",
+      "destination": "https://neuron-ai.dev/blog/neuronai-v2-is-php-ready-for-agentic-application-development",
+      "permanent": true
+    },
+    {
+      "source": "/not-every-prompt-needs-your-most-expensive-model-llm-classifier-in-php/",
+      "destination": "https://neuron-ai.dev/blog/not-every-prompt-needs-your-most-expensive-model-llm-classifier-in-php",
+      "permanent": true
+    },
+    {
+      "source": "/parallel-branches-in-neuron-ai-workflow/",
+      "destination": "https://neuron-ai.dev/blog/parallel-branches-in-neuron-ai-workflow",
+      "permanent": true
+    },
+    {
+      "source": "/parallel-evaluations-in-neuron-ai-php-first-testing-loop-for-ai-agents/",
+      "destination": "https://neuron-ai.dev/blog/parallel-evaluations-in-neuron-ai-php-first-testing-loop-for-ai-agents",
+      "permanent": true
+    },
+    {
+      "source": "/php-agent-framework/",
+      "destination": "https://neuron-ai.dev/blog/php-agent-framework",
+      "permanent": true
+    },
+    {
+      "source": "/php-ai-agent-summarizing-youtube-videos/",
+      "destination": "https://neuron-ai.dev/blog/php-ai-agent-summarizing-youtube-videos",
+      "permanent": true
+    },
+    {
+      "source": "/php-the-dark-horse-no-one-saw-coming-in-ai-agents-development/",
+      "destination": "https://neuron-ai.dev/blog/php-the-dark-horse-no-one-saw-coming-in-ai-agents-development",
+      "permanent": true
+    },
+    {
+      "source": "/routing-inference-calls-between-providers-in-neuron-ai/",
+      "destination": "https://neuron-ai.dev/blog/routing-inference-calls-between-providers-in-neuron-ai",
+      "permanent": true
+    },
+    {
+      "source": "/storing-llm-context-the-laravel-way-eloquentchathistory-in-neuron-ai/",
+      "destination": "https://neuron-ai.dev/blog/storing-llm-context-the-laravel-way-eloquentchathistory-in-neuron-ai",
+      "permanent": true
+    },
+    {
+      "source": "/streaming-ai-agents-in-php-introducing-neuron-ui-streaming-protocol/",
+      "destination": "https://neuron-ai.dev/blog/streaming-ai-agents-in-php-introducing-neuron-ui-streaming-protocol",
+      "permanent": true
+    },
+    {
+      "source": "/struggling-with-rag-in-php-discover-neuron-ai-components/",
+      "destination": "https://neuron-ai.dev/blog/struggling-with-rag-in-php-discover-neuron-ai-components",
+      "permanent": true
+    },
+    {
+      "source": "/system-prompt-for-ai-agents-in-php/",
+      "destination": "https://neuron-ai.dev/blog/system-prompt-for-ai-agents-in-php",
+      "permanent": true
+    },
+    {
+      "source": "/the-neuron-facade-talking-to-your-ai-agent-in-laravel/",
+      "destination": "https://neuron-ai.dev/blog/the-neuron-facade-talking-to-your-ai-agent-in-laravel",
+      "permanent": true
+    },
+    {
+      "source": "/typesafe-ai-and-jev-in-php-model-routing-and-classifier-with-neuron-ai/",
+      "destination": "https://neuron-ai.dev/blog/typesafe-ai-and-jev-in-php-model-routing-and-classifier-with-neuron-ai",
+      "permanent": true
+    },
+    {
+      "source": "/vector-store-ai-agents-beyond-the-traditional-data-storage/",
+      "destination": "https://neuron-ai.dev/blog/vector-store-ai-agents-beyond-the-traditional-data-storage",
+      "permanent": true
+    },
+    {
+      "source": "/your-ai-agent-has-too-many-tools-heres-the-fix/",
+      "destination": "https://neuron-ai.dev/blog/your-ai-agent-has-too-many-tools-heres-the-fix",
       "permanent": true
     },
     {
